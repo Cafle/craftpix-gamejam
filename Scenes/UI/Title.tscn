@@ -1,0 +1,192 @@
+[gd_scene format=3 uid="uid://cut5a7ch532n3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw7sj"]
+region = Rect2(14, 2, 11, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmw6r"]
+region = Rect2(30, 1, 10, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmmdr"]
+region = Rect2(0, 0, 160, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q342"]
+region = Rect2(160, 0, 160, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64f7j"]
+region = Rect2(0, 100, 160, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0wk8"]
+region = Rect2(160, 0, 160, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv56i"]
+region = Rect2(0, 0, 160, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x64pm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmmdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q342")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64f7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0wk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv56i")
+}],
+"loop": 1,
+"name": &"Title",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffl23"]
+region = Rect2(0, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dwhf"]
+region = Rect2(288, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7vdt"]
+region = Rect2(576, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x64pm"]
+region = Rect2(0, 162, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh73h"]
+region = Rect2(288, 162, 288, 162)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lmw6r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffl23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dwhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7vdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x64pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hh73h")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control" unique_id=823947577]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=781824923]
+volume_db = 1.0
+autoplay = true
+
+[node name="OPTIONS" type="Panel" parent="." unique_id=133066655]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 418.0
+offset_top = 256.0
+offset_right = 458.0
+offset_bottom = 296.0
+scale = Vector2(8, 8)
+
+[node name="FX" type="Sprite2D" parent="OPTIONS" unique_id=1977318812]
+position = Vector2(7.624998, 21.625)
+scale = Vector2(0.5071676, 0.50697327)
+texture = SubResource("AtlasTexture_nw7sj")
+
+[node name="FX_SLIDER" type="HSlider" parent="OPTIONS" unique_id=467072391]
+layout_mode = 0
+offset_left = 11.750002
+offset_top = 20.125
+offset_right = 160.845
+offset_bottom = 37.710003
+scale = Vector2(0.121443704, 0.19781917)
+max_value = 1.5
+step = 0.001
+value = 0.75
+ticks_position = 1
+
+[node name="M" type="Sprite2D" parent="OPTIONS" unique_id=2042879755]
+position = Vector2(7.249998, 12)
+scale = Vector2(0.5071676, 0.50697327)
+texture = SubResource("AtlasTexture_lmw6r")
+
+[node name="M_SLIDER" type="HSlider" parent="OPTIONS" unique_id=431551505]
+layout_mode = 0
+offset_left = 12.375002
+offset_top = 10.25
+offset_right = 161.47
+offset_bottom = 27.835003
+scale = Vector2(0.121443704, 0.19781917)
+max_value = 1.5
+step = 0.001
+value = 0.75
+ticks_position = 1
+
+[node name="Back" type="Button" parent="OPTIONS" unique_id=2009335450]
+layout_mode = 0
+offset_left = 7.5
+offset_top = 28.75
+offset_right = 89.5
+offset_bottom = 74.75
+scale = Vector2(0.25, 0.2)
+text = "  Back "
+
+[node name="TITLE" type="VBoxContainer" parent="." unique_id=14175978]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 300.0
+offset_right = 570.0
+offset_bottom = 446.0
+scale = Vector2(2.0379472, 2.0388608)
+
+[node name="start" type="Button" parent="TITLE" unique_id=1320759324]
+layout_mode = 2
+text = "start"
+
+[node name="eopitois" type="Button" parent="TITLE" unique_id=1017327910]
+layout_mode = 2
+button_mask = 3
+text = "  options "
+
+[node name="quit" type="Button" parent="TITLE" unique_id=2042784902]
+layout_mode = 2
+button_mask = 3
+text = "quit"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2049331059]
+position = Vector2(582, 153)
+scale = Vector2(3.11637, 3.11637)
+sprite_frames = SubResource("SpriteFrames_x64pm")
+animation = &"Title"
+autoplay = "Title"
+frame = 3
+frame_progress = 0.31814447
+
+[node name="bg" type="AnimatedSprite2D" parent="." unique_id=1425081680]
+z_index = -1
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_lmw6r")
+
+[connection signal="value_changed" from="OPTIONS/FX_SLIDER" to="." method="_on_fx_slider_value_changed"]
+[connection signal="value_changed" from="OPTIONS/M_SLIDER" to="." method="_on_m_slider_value_changed"]
+[connection signal="button_up" from="OPTIONS/Back" to="." method="_on_back_button_up"]
+[connection signal="button_up" from="TITLE/start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="TITLE/eopitois" to="." method="_on_eopitois_button_up"]
+[connection signal="button_up" from="TITLE/quit" to="." method="_on_quit_button_up"]
