@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccafc1g3kx6ti"
+path="res://.godot/imported/Teseract of Infinite Knowlege.mp3-befb4519507d737a4ba21f186c0b42b5.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Teseract of Infinite Knowlege.mp3"
+dest_files=["res://.godot/imported/Teseract of Infinite Knowlege.mp3-befb4519507d737a4ba21f186c0b42b5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
