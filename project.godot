@@ -19,6 +19,11 @@ run/main_scene="uid://cut5a7ch532n3"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+LevelSelect="*uid://t1ovxygdtf40"
+TitleMusic="*uid://ta2wp2ul8kuv"
+
 [display]
 
 window/stretch/mode="canvas_items"

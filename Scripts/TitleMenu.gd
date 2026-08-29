@@ -7,6 +7,7 @@ extends Control
 
 func _start_pressed() -> void:
 	print("Start attempted")
+	get_tree().change_scene_to_file("res://Scenes/UI/Level Select.tscn")
 
 func _options_pressed() -> void:
 	$OPTIONS.show()

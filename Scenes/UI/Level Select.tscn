@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://di4ajs72lixgv"]
+
+[ext_resource type="Script" uid="uid://bglawpx2myxrp" path="res://Scripts/LSMenu.gd" id="1_5xbx3"]
+[ext_resource type="PackedScene" uid="uid://c3s3lxtpfbht1" path="res://Scenes/UI/LSbutton.tscn" id="1_cgdd1"]
+
+[node name="LevelSelect" type="Control" unique_id=360652690]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5xbx3")
+levels = 37
+columns = 8
+
+[node name="Label" type="Label" parent="." unique_id=1888521193]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 4.0
+offset_right = 845.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 100
+text = "Level Select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1424045802]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=636325291]
+layout_mode = 2
+
+[node name="LSbutton" parent="CenterContainer/GridContainer" unique_id=2084964988 instance=ExtResource("1_cgdd1")]
+layout_mode = 2

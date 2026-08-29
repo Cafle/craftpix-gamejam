@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cejtavmwm86ny"]
+
+[ext_resource type="Texture2D" uid="uid://b2pnrxsr57cxg" path="res://Assets/Level/Dumb.png" id="1_6ncyj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7anh"]
+texture = ExtResource("1_6ncyj")
+texture_region_size = Vector2i(32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_tlobl"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_j7anh")
+
+[node name="TileMapBase" type="TileMapLayer" unique_id=400809718]
+tile_set = SubResource("TileSet_tlobl")

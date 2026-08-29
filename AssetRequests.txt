@@ -1,0 +1,16 @@
+--------Music---------
+Level1 music
+Menu music
+
+--------Sound Effects---------
+Game over sfx
+Win sfx
+Button click sfx
+
+--------Art---------
+Tilemap
+UI pack
+Font???
+Foregrounds
+Backgrounds
+Decorative Tile map layers???

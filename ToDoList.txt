@@ -1,0 +1,7 @@
+Make a Level select page.
+Basic Level Blueprint
+	Platformer Physics system
+	Tilemap
+	Basic Platformer things (key & door, win condition, kill condition, etc)
+	Pause button
+Settings UI

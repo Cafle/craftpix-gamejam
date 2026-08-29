@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dr7g0b70x4huo"]
+
+[ext_resource type="Texture2D" uid="uid://b2ck4gy6e6vna" path="res://Assets/Character/ye-removebg-preview.png" id="1_3liw5"]
+[ext_resource type="Script" uid="uid://baen3bn8wjgug" path="res://Scenes/Sprites/Player.gd" id="1_u1pkf"]
+[ext_resource type="Texture2D" uid="uid://c87qxchpqw6ev" path="res://Assets/Character/images-removebg-preview (4).png" id="2_jlful"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6dqo"]
+atlas = ExtResource("2_jlful")
+region = Rect2(0, 0, 447, 447)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57q14"]
+atlas = ExtResource("1_3liw5")
+region = Rect2(0, 0, 447, 447)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qxnb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6dqo")
+}],
+"loop": 1,
+"name": &"Legs",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57q14")
+}],
+"loop": 1,
+"name": &"Ye",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qxnb"]
+size = Vector2(20, 28)
+
+[node name="Player" type="CharacterBody2D" unique_id=671294045]
+script = ExtResource("1_u1pkf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=809624899]
+position = Vector2(0, -9)
+scale = Vector2(0.045302015, 0.045302015)
+sprite_frames = SubResource("SpriteFrames_0qxnb")
+animation = &"Ye"
+
+[node name="Legs" type="AnimatedSprite2D" parent="." unique_id=110450475]
+position = Vector2(0, -1)
+scale = Vector2(0.11836246, 0.100855276)
+sprite_frames = SubResource("SpriteFrames_0qxnb")
+animation = &"Legs"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1674230172]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_0qxnb")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1190891230]
+zoom = Vector2(5, 5)
+position_smoothing_speed = 20.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
