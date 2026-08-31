@@ -11,4 +11,3 @@ func _ready() -> void:
 	grid.columns = columns
 	for i in levels - 1:
 		grid.add_child(button.duplicate())
-		print("cloned ", str(i))
