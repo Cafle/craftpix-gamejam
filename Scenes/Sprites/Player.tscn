@@ -39,13 +39,16 @@ data = PackedByteArray("SUQzAwAAAAAAdlRJVDIAAAA/AAAB//5UAGUAcwBlAHIAYQBjAHQAIABv
 bpm = 110.0
 loop = true
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jlful"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
 [node name="Player" type="CharacterBody2D" unique_id=671294045]
 scale = Vector2(0.6213752, 0.62667143)
 script = ExtResource("1_u1pkf")
 jump_force = 600.0
 gravity = 30.0
 wall_jump_frames = 7
-nudgeularity = 20
+nudgeularity = 30
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=809624899]
 position = Vector2(0, -15)
@@ -75,5 +78,9 @@ stream = SubResource("AudioStreamMP3_jlful")
 autoplay = true
 panning_strength = 0.0
 
-[node name="JumpBuffer" type="RayCast2D" parent="." unique_id=1199628034]
-target_position = Vector2(0, 150)
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=480937212]
+visible = false
+scale = Vector2(0.23964289, 0.23195653)
+texture = SubResource("CompressedTexture2D_jlful")
+lifetime = 0.12
+explosiveness = 0.55

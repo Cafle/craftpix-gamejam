@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bthgts4klshs"
+path="res://.godot/imported/Nebulas and Nocturnes.mp3-422dfd1fa17777aab37ca65331b41a14.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Nebulas and Nocturnes.mp3"
+dest_files=["res://.godot/imported/Nebulas and Nocturnes.mp3-422dfd1fa17777aab37ca65331b41a14.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

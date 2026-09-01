@@ -25,7 +25,6 @@ func _physics_process(delta):
 	# apply gravity
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if is_on_floor():
-		
 		coyote = 0
 		velocity.y = 0
 		
@@ -80,7 +79,19 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if !was_floored && is_on_floor() && y_vel > 1200:
+		var stretchMe = $AnimatedSprite2D.scale.y
+		var stretchLeg = $Legs.scale.y
+		$AnimatedSprite2D.scale.y /= 10
+		$AnimatedSprite2D.position.y += 50
+		$Legs.scale.y /= 10
+		$Legs.position.y += 50
+		
 		camera_shake(chonkiness * y_vel, 0.3)
+		
+		$AnimatedSprite2D.scale.y = stretchMe
+		$AnimatedSprite2D.position.y -= 50
+		$Legs.scale.y = stretchLeg
+		$Legs.position.y -= 50
 	
 	if is_on_ceiling() && y_vel < 0:
 		#try right
@@ -98,6 +109,8 @@ func _physics_process(delta):
 
 
 func camera_shake(strength: float, duration: float = 0.3):
+
+
 	var camera = $Camera2D
 	var original_pos = camera.position
 	var tween = create_tween()
@@ -106,3 +119,4 @@ func camera_shake(strength: float, duration: float = 0.3):
 		var offset = Vector2(0, strength if i % 2 == 0 else -strength)
 		tween.tween_property(camera, "position", original_pos + offset, duration / shakes)
 	tween.tween_property(camera, "position", original_pos, duration / shakes)
+	
