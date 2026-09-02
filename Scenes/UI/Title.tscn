@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cut5a7ch532n3"]
 
 [ext_resource type="Script" uid="uid://clpjyv4ct2x77" path="res://Scripts/TitleMenu.gd" id="1_blp2d"]
+[ext_resource type="Theme" uid="uid://cfx1uvctms1cn" path="res://Assets/UI/MAIN_THEME.tres" id="2_blp2d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nw7sj"]
 region = Rect2(14, 2, 11, 10)
@@ -105,6 +106,7 @@ offset_top = -156.12001
 offset_right = 372.0
 offset_bottom = 22.87999
 grow_horizontal = 2
+theme = ExtResource("2_blp2d")
 theme_override_font_sizes/font_size = 64
 text = "Femboys vs. Futas"
 horizontal_alignment = 1
@@ -118,6 +120,7 @@ offset_top = 259.0
 offset_right = 157.0
 offset_bottom = 299.0
 scale = Vector2(8, 8)
+theme = ExtResource("2_blp2d")
 
 [node name="FX" type="Sprite2D" parent="OPTIONS" unique_id=1977318812]
 position = Vector2(7.624998, 21.625)
@@ -131,6 +134,7 @@ offset_top = 20.125
 offset_right = 160.845
 offset_bottom = 37.710003
 scale = Vector2(0.121443704, 0.19781917)
+theme = ExtResource("2_blp2d")
 max_value = 1.5
 step = 0.001
 value = 0.75
@@ -148,6 +152,7 @@ offset_top = 10.25
 offset_right = 161.47
 offset_bottom = 27.835003
 scale = Vector2(0.121443704, 0.19781917)
+theme = ExtResource("2_blp2d")
 max_value = 1.5
 step = 0.001
 value = 0.75
@@ -160,6 +165,7 @@ offset_top = 25.5
 offset_right = 93.375
 offset_bottom = 71.5
 scale = Vector2(0.25, 0.2)
+theme = ExtResource("2_blp2d")
 text = "  Back "
 
 [node name="TITLE" type="VBoxContainer" parent="." unique_id=14175978]
@@ -169,18 +175,22 @@ offset_top = 300.0
 offset_right = 570.0
 offset_bottom = 446.0
 scale = Vector2(2.0379472, 2.0388608)
+theme = ExtResource("2_blp2d")
 
 [node name="start" type="Button" parent="TITLE" unique_id=1320759324]
 layout_mode = 2
+theme = ExtResource("2_blp2d")
 text = "start"
 
 [node name="eopitois" type="Button" parent="TITLE" unique_id=1017327910]
 layout_mode = 2
+theme = ExtResource("2_blp2d")
 button_mask = 3
 text = "  options "
 
 [node name="quit" type="Button" parent="TITLE" unique_id=2042784902]
 layout_mode = 2
+theme = ExtResource("2_blp2d")
 button_mask = 3
 text = "quit"
 

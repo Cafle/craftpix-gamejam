@@ -21,7 +21,13 @@ extends CharacterBody2D
 @onready var coyote: int = 0
 @onready var wjframe: int = 0
 
+func _ready() -> void:
+	pass
+	#$Area2D.body_entered().connect(_on_area_2d_body_entered)
+
 func _physics_process(delta):
+			
+		
 	# apply gravity
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if is_on_floor():
@@ -106,6 +112,16 @@ func _physics_process(delta):
 				position.x -= i
 				velocity.y = y_vel
 				break
+#
+#func _on_area_2d_body_entered(body: Node2D):
+	#if body is TileMapLayer:
+		#print("et")
+		#var tile_pos = body.local_to_map(body.get_position() + Vector2(0, 8))
+		#var tile_data = body.get_cell_tile_data(Vector2(tile_pos))
+		#if tile_data and tile_data.get_custom_data("kill"):
+			#get_tree().reload_current_scene()
+		
+		
 
 
 func camera_shake(strength: float, duration: float = 0.3):

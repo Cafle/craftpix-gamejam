@@ -12,3 +12,4 @@ volume_db = 7.841
 autoplay = true
 attenuation = 0.34151033
 panning_strength = 0.0
+parameters/looping = false

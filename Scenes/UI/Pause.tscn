@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://brdee6rjftvff"]
+
+[ext_resource type="Theme" uid="uid://cfx1uvctms1cn" path="res://Assets/UI/MAIN_THEME.tres" id="1_evds0"]
+
+[node name="Pause" type="Control" unique_id=1471747148]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_evds0")
+
+[node name="pause menu" type="Panel" parent="." unique_id=1519314533]
+visible = false
+layout_mode = 0
+offset_left = 392.0
+offset_top = 240.0
+offset_right = 752.0
+offset_bottom = 576.0
+theme = ExtResource("1_evds0")
+
+[node name="TextureButton" type="TextureButton" parent="pause menu" unique_id=306866584]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 288.0
+offset_bottom = 88.0
+theme = ExtResource("1_evds0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="pause menu/TextureButton" unique_id=2051374761]
+layout_mode = 0
+offset_right = 224.0
+offset_bottom = 56.0
+theme = ExtResource("1_evds0")
+text = "resume"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="pause menu" unique_id=1019246159]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 144.0
+offset_right = 288.0
+offset_bottom = 200.0
+theme = ExtResource("1_evds0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="pause menu/TextureButton2" unique_id=1020768198]
+layout_mode = 0
+offset_right = 224.0
+offset_bottom = 56.0
+theme = ExtResource("1_evds0")
+text = "options"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="pause menu" unique_id=1713097841]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 240.0
+offset_right = 288.0
+offset_bottom = 296.0
+theme = ExtResource("1_evds0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="pause menu/TextureButton3" unique_id=1195268960]
+layout_mode = 0
+offset_right = 224.0
+offset_bottom = 56.0
+theme = ExtResource("1_evds0")
+text = "quit"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="pause menu" unique_id=1282694668]
+layout_mode = 0
+offset_left = -392.0
+offset_top = -240.0
+offset_right = 760.0
+offset_bottom = -8.0
+theme = ExtResource("1_evds0")
+theme_override_font_sizes/normal_font_size = 80
+text = "Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="Panel" parent="." unique_id=87383471]
+visible = false
+layout_mode = 0
+offset_left = 392.0
+offset_top = 240.0
+offset_right = 752.0
+offset_bottom = 576.0
+theme = ExtResource("1_evds0")
+
+[node name="music" type="HSlider" parent="Options" unique_id=1989449443]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 144.0
+offset_right = 288.0
+offset_bottom = 200.0
+theme = ExtResource("1_evds0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options/music" unique_id=488266073]
+layout_mode = 0
+offset_top = -48.0
+offset_right = 224.0
+offset_bottom = 8.0
+theme = ExtResource("1_evds0")
+text = "music"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sfx" type="HSlider" parent="Options" unique_id=1545467632]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 288.0
+offset_bottom = 112.0
+theme = ExtResource("1_evds0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options/sfx" unique_id=1580627397]
+layout_mode = 0
+offset_top = -48.0
+offset_right = 224.0
+offset_bottom = 8.0
+theme = ExtResource("1_evds0")
+text = "SFX"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="Options" unique_id=15359734]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 240.0
+offset_right = 288.0
+offset_bottom = 296.0
+theme = ExtResource("1_evds0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options/TextureButton3" unique_id=571721743]
+layout_mode = 0
+offset_right = 224.0
+offset_bottom = 56.0
+theme = ExtResource("1_evds0")
+text = "back"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options" unique_id=1456083871]
+layout_mode = 0
+offset_left = -392.0
+offset_top = -240.0
+offset_right = 760.0
+offset_bottom = -8.0
+theme = ExtResource("1_evds0")
+theme_override_font_sizes/normal_font_size = 80
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1

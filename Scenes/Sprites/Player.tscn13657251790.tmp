@@ -44,10 +44,19 @@ height = 124.46713
 [node name="Player" type="CharacterBody2D" unique_id=671294045]
 scale = Vector2(0.6213752, 0.62667143)
 script = ExtResource("1_u1pkf")
+speed = null
+coyoteFrames = null
 jump_force = 600.0
+terminal_velocity = null
+wall_slide_velocity = null
 gravity = 30.0
+lerp_factor = null
 wall_jump_frames = 7
+shorthop_factor = null
+fall_multiplier = null
 nudgeularity = 30
+jump_buffer_timer = null
+chonkiness = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=809624899]
 position = Vector2(0, -15)
@@ -86,5 +95,3 @@ position = Vector2(-4.7683716e-07, 30.31892)
 position = Vector2(4.7683713e-07, -30.31892)
 shape = SubResource("CapsuleShape2D_1vivr")
 debug_color = Color(0.9694641, 0, 0.46431375, 0.41960785)
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
