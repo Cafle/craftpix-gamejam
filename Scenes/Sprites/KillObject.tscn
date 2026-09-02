@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c0mgipnettt0f"]
+
+[ext_resource type="Script" uid="uid://bj18y2eqg0v0w" path="res://Scenes/Sprites/kill_object.gd" id="1_mxek5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qxnb"]
+size = Vector2(32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l0uit"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
+[node name="KillObject" type="StaticBody2D" unique_id=657475376]
+script = ExtResource("1_mxek5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1880382188]
+position = Vector2(0, 2.9802322e-08)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_0qxnb")
+debug_color = Color(0.98039216, 0, 0, 0.41960785)
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1477585584]
+scale = Vector2(0.25, 0.25)
+texture = SubResource("CompressedTexture2D_l0uit")

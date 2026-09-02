@@ -12,7 +12,7 @@ func _ready() -> void:
 	# NEW FUNCTION. Runs once when this autoload initializes at
 	# game start, before any level scene loads — the correct place
 	# to restore saved progress.
-	var data := SaveManager.load_data()
+	var data = SaveManager.load_data()
 	HUL = data.get("HUL", 1)
 	current_level = data.get("current_level", 1)
 	# .get(key, default) falls back to 1 automatically if the key
@@ -20,9 +20,9 @@ func _ready() -> void:
 	# (e.g. first launch, before anything has been saved yet).
 	print("LevelManager ready — loaded HUL: ", HUL, " current_level: ", current_level)
 
-func _playSong(num: int) -> void:
+func _playSong(num: int) -> void: 
 	TitleMusic.stop()
-	TitleMusic.stream = SONGS[num]
+	TitleMusic.stream = SONGS[num % SONGS.size()]
 	TitleMusic.play()
 
 func unlockLevel(level: int) -> void:

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name player
 # movement variables - tweak these to adjust feel
 @export var speed: float = 300
 @export var coyoteFrames: int = 5
@@ -23,7 +24,7 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	pass
-	#$Area2D.body_entered().connect(_on_area_2d_body_entered)
+	$KillHitbox.body_entered.connect(_on_area_2d_body_entered)
 
 func _physics_process(delta):
 			
@@ -113,13 +114,9 @@ func _physics_process(delta):
 				velocity.y = y_vel
 				break
 #
-#func _on_area_2d_body_entered(body: Node2D):
-	#if body is TileMapLayer:
-		#print("et")
-		#var tile_pos = body.local_to_map(body.get_position() + Vector2(0, 8))
-		#var tile_data = body.get_cell_tile_data(Vector2(tile_pos))
-		#if tile_data and tile_data.get_custom_data("kill"):
-			#get_tree().reload_current_scene()
+func _on_area_2d_body_entered(body: Node2D):
+	if body is KillObject:
+		get_parent()._lost(1)
 		
 		
 

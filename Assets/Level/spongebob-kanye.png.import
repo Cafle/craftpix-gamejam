@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfia050scr3ie"
-path="res://.godot/imported/spongebob-kanye.png-e51891a6793615751eca4c20ca9faeb8.ctex"
+path="res://.godot/imported/spongebob-kanye.png-a0854b53c204b56e3ba4ecde75723521.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spongebob-kanye.png"
-dest_files=["res://.godot/imported/spongebob-kanye.png-e51891a6793615751eca4c20ca9faeb8.ctex"]
+source_file="res://Assets/Level/spongebob-kanye.png"
+dest_files=["res://.godot/imported/spongebob-kanye.png-a0854b53c204b56e3ba4ecde75723521.ctex"]
 
 [params]
 

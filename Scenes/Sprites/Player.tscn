@@ -79,12 +79,12 @@ texture = SubResource("CompressedTexture2D_jlful")
 lifetime = 0.12
 explosiveness = 0.55
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1299921152]
+[node name="KillHitbox" type="Area2D" parent="." unique_id=1299921152]
 position = Vector2(-4.7683716e-07, 30.31892)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=586047037]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillHitbox" unique_id=586047037]
 position = Vector2(4.7683713e-07, -30.31892)
 shape = SubResource("CapsuleShape2D_1vivr")
 debug_color = Color(0.9694641, 0, 0.46431375, 0.41960785)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="KillHitbox" to="." method="_on_area_2d_body_entered"]

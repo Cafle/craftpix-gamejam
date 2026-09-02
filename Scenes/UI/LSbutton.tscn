@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c3s3lxtpfbht1"]
 
-[ext_resource type="Script" uid="uid://dhkh0cuv1jm1n" path="res://Scripts/LSbutton.gd" id="1_50wl6"]
+[ext_resource type="Script" uid="uid://dhkh0cuv1jm1n" path="res://Scripts/UI/LSbutton.gd" id="1_50wl6"]
 
 [node name="LSbutton" type="Button" unique_id=2084964988]
 anchors_preset = 8
