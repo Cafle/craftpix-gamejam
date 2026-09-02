@@ -11,4 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 func _win(body: CharacterBody2D) -> void:
+	LevelSelect._playSong(LevelSelect.current_level + 1)
 	get_tree().call_deferred("change_scene_to_file", LevelSelect.loadLevel(LevelSelect.current_level + 1))

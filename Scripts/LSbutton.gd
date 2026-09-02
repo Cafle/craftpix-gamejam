@@ -13,5 +13,5 @@ func _ready() -> void:
 func _pressed() -> void:
 	if !locked:
 		LevelSelect.current_level = level
-		TitleMusic.stop()
+		LevelSelect._playSong(level)
 		get_tree().call_deferred("change_scene_to_file", LevelSelect.loadLevel(level))
