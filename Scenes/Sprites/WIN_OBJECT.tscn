@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://2mikyxukl7ar"]
+
+[ext_resource type="Texture2D" uid="uid://dfia050scr3ie" path="res://spongebob-kanye.png" id="1_nmab6"]
+
+[sub_resource type="GDScript" id="GDScript_nmab6"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ar8of"]
+size = Vector2(304, 496)
+
+[node name="WinObject" type="Node2D" unique_id=1530734578]
+script = SubResource("GDScript_nmab6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=297919247]
+scale = Vector2(0.17333335, 0.08032128)
+texture = ExtResource("1_nmab6")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=909099933]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=394532732]
+shape = SubResource("RectangleShape2D_ar8of")

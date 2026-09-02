@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dr7g0b70x4huo"]
 
 [ext_resource type="Texture2D" uid="uid://b2ck4gy6e6vna" path="res://Assets/Character/ye-removebg-preview.png" id="1_3liw5"]
-[ext_resource type="Script" uid="uid://baen3bn8wjgug" path="res://Scenes/Sprites/Player.gd" id="1_u1pkf"]
+[ext_resource type="Script" uid="uid://baen3bn8wjgug" path="res://Scripts/Sprites/Player.gd" id="1_u1pkf"]
 [ext_resource type="Texture2D" uid="uid://c87qxchpqw6ev" path="res://Assets/Character/images-removebg-preview (4).png" id="2_jlful"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6dqo"]

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://cfx1uvctms1cn"]
+
+[ext_resource type="FontFile" uid="uid://brfyw8exvcd33" path="res://GayHentaiFuta/Pixeled.ttf" id="1_5wmkc"]
+
+[resource]
+default_font = ExtResource("1_5wmkc")
+Button/font_sizes/font_size = 9

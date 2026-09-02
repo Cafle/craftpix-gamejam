@@ -9,6 +9,7 @@ func unlockLevel(level: int) -> void:
 		HUL = level
 
 func loadLevel(level: int) -> String:
+	
 	if level > Max_level:
 		return "res://Scenes/UI/Title.tscn"
 	else:
