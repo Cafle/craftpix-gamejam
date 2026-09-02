@@ -1,0 +1,6 @@
+#1: Occured after hittig win object on level 2 after entering the level
+#Cause: level 3 is unlocked but lacks a music file path at index 3, thus crashing the game immediately
+E 0:00:05:980   _playSong: Out of bounds get index '3' (on base: 'Array[AudioStreamMP3]')
+  <GDScript Source>LevelSelect.gd:25 @ _playSong()
+  <Stack Trace> LevelSelect.gd:25 @ _playSong()
+				1.gd:32 @ _win()

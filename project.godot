@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SaveManager="*uid://d0wtsxlftrqaq"
 LevelSelect="*uid://t1ovxygdtf40"
 TitleMusic="*uid://ta2wp2ul8kuv"
 
