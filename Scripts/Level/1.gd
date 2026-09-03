@@ -5,11 +5,11 @@ func _ready() -> void:
 	var killObject = $KillObjects/KillObject
 	var winObject = $WinObject
 	
-	var Scan = _scanLevel(tilemap, 2, "kill", true)
-	_replace_tiles(tilemap, 2, killObject, Scan)
+	var Scan = _scanLevel(tilemap, 0, "kill", true)
+	_replace_tiles(tilemap, 0, killObject, Scan)
 	
-	Scan = _scanLevel(tilemap, 2, "win", true)
-	_replace_tiles(tilemap, 2, winObject, Scan)
+	Scan = _scanLevel(tilemap, 0, "win", true)
+	_replace_tiles(tilemap, 0, winObject, Scan)
 	
 	$WinObject/Sprite2D/Area2D.body_entered.connect(_win)
 

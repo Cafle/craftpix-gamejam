@@ -23,7 +23,6 @@ class_name player
 @onready var wjframe: int = 0
 
 func _ready() -> void:
-	pass
 	$KillHitbox.body_entered.connect(_on_area_2d_body_entered)
 
 func _physics_process(delta):
