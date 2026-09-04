@@ -6,7 +6,7 @@ func _ready() -> void:
 	var winObject = $WinObject
 	
 	var Scan = _scanLevel(tilemap, 0, "kill", true)
-	_replace_tiles(tilemap, 0, killObject, Scan)
+	_layer_tiles(tilemap, 0, killObject, Scan)
 	
 	Scan = _scanLevel(tilemap, 0, "win", true)
 	_replace_tiles(tilemap, 0, winObject, Scan)
@@ -69,6 +69,15 @@ func _scanLevel(tileMap: TileMapLayer, source_id: int, property: String, value) 
 func _replace_tiles(tileMap: TileMapLayer, source_id: int, replacementNode, coords: Array) -> void:
 	for i in coords:
 		tileMap.erase_cell(i)
+		print("attempting duplicate")
+		var obj = replacementNode.duplicate()
+		replacementNode.add_sibling(obj)
+		obj.position = tileMap.to_global(tileMap.map_to_local(i))
+		obj.show()
+	replacementNode.queue_free()
+	
+func _layer_tiles(tileMap: TileMapLayer, source_id: int, replacementNode, coords: Array) -> void:
+	for i in coords:
 		print("attempting duplicate")
 		var obj = replacementNode.duplicate()
 		replacementNode.add_sibling(obj)
