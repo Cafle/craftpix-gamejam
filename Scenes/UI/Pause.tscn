@@ -2,6 +2,12 @@
 
 [ext_resource type="Theme" uid="uid://cfx1uvctms1cn" path="res://Assets/UI/MAIN_THEME.tres" id="1_evds0"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_evds0"]
+region = Rect2(14, 2, 11, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcn70"]
+region = Rect2(30, 1, 10, 12)
+
 [node name="Pause" type="Control" unique_id=1471747148]
 layout_mode = 3
 anchors_preset = 15
@@ -87,7 +93,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Options" type="Panel" parent="." unique_id=87383471]
-visible = false
 layout_mode = 0
 offset_left = 392.0
 offset_top = 240.0
@@ -152,6 +157,139 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Options" unique_id=1456083871]
+layout_mode = 0
+offset_left = -392.0
+offset_top = -240.0
+offset_right = 760.0
+offset_bottom = -8.0
+theme = ExtResource("1_evds0")
+theme_override_font_sizes/normal_font_size = 80
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OPTIONS" type="Panel" parent="." unique_id=1432433006]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 117.0
+offset_top = 259.0
+offset_right = 157.0
+offset_bottom = 299.0
+scale = Vector2(8, 8)
+theme = ExtResource("1_evds0")
+
+[node name="FX" type="Sprite2D" parent="OPTIONS" unique_id=862209390]
+position = Vector2(7.624998, 21.625)
+scale = Vector2(0.5071676, 0.50697327)
+texture = SubResource("AtlasTexture_evds0")
+
+[node name="FX_SLIDER" type="HSlider" parent="OPTIONS" unique_id=1690055752]
+layout_mode = 0
+offset_left = 11.750002
+offset_top = 20.125
+offset_right = 160.845
+offset_bottom = 37.710003
+scale = Vector2(0.121443704, 0.19781917)
+theme = ExtResource("1_evds0")
+max_value = 1.5
+step = 0.001
+value = 0.75
+ticks_position = 1
+
+[node name="M" type="Sprite2D" parent="OPTIONS" unique_id=2796619]
+position = Vector2(7.249998, 12)
+scale = Vector2(0.5071676, 0.50697327)
+texture = SubResource("AtlasTexture_hcn70")
+
+[node name="M_SLIDER" type="HSlider" parent="OPTIONS" unique_id=1219735374]
+layout_mode = 0
+offset_left = 12.375002
+offset_top = 10.25
+offset_right = 161.47
+offset_bottom = 27.835003
+scale = Vector2(0.121443704, 0.19781917)
+theme = ExtResource("1_evds0")
+max_value = 1.5
+step = 0.001
+value = 0.75
+ticks_position = 1
+
+[node name="Back" type="Button" parent="OPTIONS" unique_id=228145194]
+layout_mode = 0
+offset_left = 11.375
+offset_top = 25.5
+offset_right = 93.375
+offset_bottom = 71.5
+scale = Vector2(0.25, 0.2)
+theme = ExtResource("1_evds0")
+text = "  Back "
+
+[node name="Options" type="Panel" parent="OPTIONS" unique_id=85396835]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 240.0
+offset_right = 752.0
+offset_bottom = 576.0
+theme = ExtResource("1_evds0")
+
+[node name="music" type="HSlider" parent="OPTIONS/Options" unique_id=71232180]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 144.0
+offset_right = 288.0
+offset_bottom = 200.0
+theme = ExtResource("1_evds0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OPTIONS/Options/music" unique_id=137593901]
+layout_mode = 0
+offset_top = -48.0
+offset_right = 224.0
+offset_bottom = 8.0
+theme = ExtResource("1_evds0")
+text = "music"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sfx" type="HSlider" parent="OPTIONS/Options" unique_id=240319184]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 288.0
+offset_bottom = 112.0
+theme = ExtResource("1_evds0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OPTIONS/Options/sfx" unique_id=370265981]
+layout_mode = 0
+offset_top = -48.0
+offset_right = 224.0
+offset_bottom = 8.0
+theme = ExtResource("1_evds0")
+text = "SFX"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="OPTIONS/Options" unique_id=110886275]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 240.0
+offset_right = 288.0
+offset_bottom = 296.0
+theme = ExtResource("1_evds0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OPTIONS/Options/TextureButton3" unique_id=1743247783]
+layout_mode = 0
+offset_right = 224.0
+offset_bottom = 56.0
+theme = ExtResource("1_evds0")
+text = "back"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OPTIONS/Options" unique_id=930893864]
 layout_mode = 0
 offset_left = -392.0
 offset_top = -240.0

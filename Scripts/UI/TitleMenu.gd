@@ -2,7 +2,7 @@ extends Control
 
 @onready var start = $TITLE/start
 @onready var options = $TITLE/eopitois #Adam, what the actual cheese is this?
-@onready var back = $OPTIONS/Back
+@onready var back = $Options/back
 @onready var quit = $TITLE/quit
 
 func _start_pressed() -> void:
@@ -10,11 +10,11 @@ func _start_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/UI/Level Select.tscn")
 
 func _options_pressed() -> void:
-	$OPTIONS.show()
+	$Options.show()
 	print("Options attempted")
 
 func _back_pressed() -> void:
-	$OPTIONS.hide()
+	$Options.hide()
 	print("Options closed")
 
 func _quit_pressed() -> void:
