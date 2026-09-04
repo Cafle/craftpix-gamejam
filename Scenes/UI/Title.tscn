@@ -2,6 +2,37 @@
 
 [ext_resource type="Script" uid="uid://clpjyv4ct2x77" path="res://Scripts/UI/TitleMenu.gd" id="1_blp2d"]
 [ext_resource type="Theme" uid="uid://cfx1uvctms1cn" path="res://Assets/UI/MAIN_THEME.tres" id="2_blp2d"]
+[ext_resource type="Texture2D" uid="uid://buo67t4ru5fj8" path="res://Assets/UI/Main_menu.png" id="3_b4gak"]
+[ext_resource type="Texture2D" uid="uid://bj2lcck2ujf86" path="res://Assets/UI/Buttons.png" id="3_iubqq"]
+[ext_resource type="Texture2D" uid="uid://cyv1opvoqersh" path="res://Assets/UI/ui.png" id="4_gyje7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15edo"]
+atlas = ExtResource("3_iubqq")
+region = Rect2(113, 454, 56, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oclb"]
+atlas = ExtResource("3_iubqq")
+region = Rect2(193, 455, 56, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfdur"]
+atlas = ExtResource("3_iubqq")
+region = Rect2(113, 454, 56, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ithen"]
+atlas = ExtResource("3_iubqq")
+region = Rect2(193, 455, 56, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_178wh"]
+atlas = ExtResource("3_iubqq")
+region = Rect2(113, 454, 56, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sydhl"]
+atlas = ExtResource("3_iubqq")
+region = Rect2(193, 455, 56, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5gy4"]
+atlas = ExtResource("4_gyje7")
+region = Rect2(11, 299, 90, 74)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmmdr"]
 region = Rect2(0, 0, 160, 100)
@@ -79,6 +110,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vrlf"]
+atlas = ExtResource("3_b4gak")
+region = Rect2(96, 4, 80, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt4j0"]
+atlas = ExtResource("3_b4gak")
+region = Rect2(164, 6, 9, 9)
+
 [node name="Control" type="Control" unique_id=823947577]
 layout_mode = 3
 anchors_preset = 15
@@ -89,6 +128,7 @@ grow_vertical = 2
 script = ExtResource("1_blp2d")
 
 [node name="Title" type="Label" parent="." unique_id=1025298019]
+z_index = -2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -105,8 +145,8 @@ theme_override_font_sizes/font_size = 64
 text = "Femboys vs. Futas"
 horizontal_alignment = 1
 
-[node name="TITLE" type="VBoxContainer" parent="." unique_id=14175978]
-layout_mode = 0
+[node name="TITLE" type="Control" parent="." unique_id=1161245110]
+anchors_preset = 0
 offset_left = 449.0
 offset_top = 300.0
 offset_right = 570.0
@@ -114,22 +154,81 @@ offset_bottom = 446.0
 scale = Vector2(2.0379472, 2.0388608)
 theme = ExtResource("2_blp2d")
 
-[node name="start" type="Button" parent="TITLE" unique_id=1320759324]
-layout_mode = 2
+[node name="start" type="TextureButton" parent="TITLE" unique_id=1390614927]
+layout_mode = 0
+offset_left = -9.323107
+offset_right = 150.6769
+offset_bottom = 35.0
 theme = ExtResource("2_blp2d")
-text = "start"
+texture_normal = SubResource("AtlasTexture_15edo")
+texture_pressed = SubResource("AtlasTexture_0oclb")
+stretch_mode = 0
 
-[node name="eopitois" type="Button" parent="TITLE" unique_id=1017327910]
-layout_mode = 2
+[node name="Label" type="Label" parent="TITLE/start" unique_id=1464323705]
+layout_mode = 0
+offset_left = 12.757936
+offset_top = -9.809399
+offset_right = 146.75793
+offset_bottom = 36.1906
+theme_override_font_sizes/font_size = 14
+text = "Commence"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="eopitois" type="TextureButton" parent="TITLE" unique_id=1784606736]
+layout_mode = 0
+offset_left = -9.323107
+offset_top = 46.104176
+offset_right = 150.6769
+offset_bottom = 81.10418
 theme = ExtResource("2_blp2d")
 button_mask = 3
-text = "  options "
+texture_normal = SubResource("AtlasTexture_kfdur")
+texture_pressed = SubResource("AtlasTexture_ithen")
+stretch_mode = 0
 
-[node name="quit" type="Button" parent="TITLE" unique_id=2042784902]
-layout_mode = 2
+[node name="Label" type="Label" parent="TITLE/eopitois" unique_id=857575990]
+layout_mode = 0
+offset_top = -8.337989
+offset_right = 162.0
+offset_bottom = 37.66201
+theme_override_font_sizes/font_size = 12
+text = "ammendments"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="quit" type="TextureButton" parent="TITLE" unique_id=1683901437]
+layout_mode = 0
+offset_left = -8.341726
+offset_top = 92.20835
+offset_right = 151.65828
+offset_bottom = 127.20834
 theme = ExtResource("2_blp2d")
 button_mask = 3
-text = "quit"
+texture_normal = SubResource("AtlasTexture_178wh")
+texture_pressed = SubResource("AtlasTexture_sydhl")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TITLE/quit" unique_id=743048432]
+layout_mode = 0
+offset_left = 39.255184
+offset_top = -11.280808
+offset_right = 123.25519
+offset_bottom = 34.719193
+theme_override_font_sizes/font_size = 14
+text = "Depart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TITLE" unique_id=2077926771]
+z_index = -2
+layout_mode = 0
+offset_left = -28.9507
+offset_top = -17.656918
+offset_right = 169.0493
+offset_bottom = 145.14308
+mouse_filter = 2
+texture = SubResource("AtlasTexture_v5gy4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2049331059]
 position = Vector2(582, 153)
@@ -146,82 +245,92 @@ position = Vector2(855, 422)
 sprite_frames = SubResource("SpriteFrames_lmw6r")
 animation = &"new_animation"
 
-[node name="Options" type="Panel" parent="." unique_id=1697771060]
-layout_mode = 0
-offset_left = 391.0
-offset_top = 239.0
-offset_right = 751.0
-offset_bottom = 575.0
+[node name="Options" type="Control" parent="." unique_id=1402613683]
+visible = false
+anchors_preset = 0
+offset_left = 390.0
+offset_top = 236.0
+offset_right = 750.0
+offset_bottom = 572.0
 theme = ExtResource("2_blp2d")
 
 [node name="music" type="HSlider" parent="Options" unique_id=338260500]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 144.0
-offset_right = 288.0
-offset_bottom = 200.0
+offset_left = 77.0
+offset_top = 156.00002
+offset_right = 301.0
+offset_bottom = 212.00002
 theme = ExtResource("2_blp2d")
+tick_count = 4
+ticks_on_borders = true
+ticks_position = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Options/music" unique_id=361465272]
+[node name="RichTextLabel" type="Label" parent="Options/music" unique_id=1143313625]
 layout_mode = 0
-offset_top = -48.0
-offset_right = 224.0
-offset_bottom = 8.0
+offset_left = -3.0
+offset_top = -52.0
+offset_right = 228.0
+offset_bottom = 4.0
 theme = ExtResource("2_blp2d")
-text = "music"
-fit_content = true
+text = "Sonnets 'n Tunes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="sfx" type="HSlider" parent="Options" unique_id=1277889957]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 56.0
-offset_right = 288.0
-offset_bottom = 112.0
+offset_left = 77.0
+offset_top = 55.000015
+offset_right = 301.0
+offset_bottom = 111.000015
 theme = ExtResource("2_blp2d")
+tick_count = 4
+ticks_position = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Options/sfx" unique_id=1534691875]
+[node name="RichTextLabel" type="Label" parent="Options/sfx" unique_id=1643722386]
 layout_mode = 0
-offset_top = -48.0
-offset_right = 224.0
-offset_bottom = 8.0
+offset_left = -14.0
+offset_top = -34.0
+offset_right = 236.0
+offset_bottom = 22.0
 theme = ExtResource("2_blp2d")
-text = "SFX"
-fit_content = true
+text = "Knocks 'n clatters"
+
+[node name="options" type="Label" parent="Options" unique_id=1162886862]
+layout_mode = 0
+offset_left = -382.0
+offset_top = -218.99998
+offset_right = 770.0
+offset_bottom = 13.000015
+theme = ExtResource("2_blp2d")
+theme_override_font_sizes/font_size = 26
+text = "Inclinations"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Options" unique_id=1652959102]
+z_index = -1
+layout_mode = 0
+offset_left = 40.0
+offset_top = -220.0
+offset_right = 120.0
+offset_bottom = -52.0
+scale = Vector2(3.690606, 3.690606)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_8vrlf")
 
 [node name="back" type="TextureButton" parent="Options" unique_id=807604382]
+z_index = 5
+z_as_relative = false
 layout_mode = 0
-offset_left = 64.0
-offset_top = 240.0
-offset_right = 288.0
-offset_bottom = 296.0
+offset_left = 290.0
+offset_top = -212.0
+offset_right = 322.0
+offset_bottom = -180.0
 theme = ExtResource("2_blp2d")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Options/back" unique_id=359942555]
-layout_mode = 0
-offset_right = 224.0
-offset_bottom = 56.0
-theme = ExtResource("2_blp2d")
-text = "back"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Options" unique_id=1565829908]
-layout_mode = 0
-offset_left = -392.0
-offset_top = -240.0
-offset_right = 760.0
-offset_bottom = -8.0
-theme = ExtResource("2_blp2d")
-theme_override_font_sizes/normal_font_size = 80
-text = "Options"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture_normal = SubResource("AtlasTexture_tt4j0")
+texture_pressed = SubResource("AtlasTexture_tt4j0")
+stretch_mode = 0
 
 [connection signal="button_up" from="TITLE/start" to="." method="_on_start_button_up"]
-[connection signal="button_up" from="TITLE/eopitois" to="." method="_on_eopitois_button_up"]
 [connection signal="button_up" from="TITLE/quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="Options/back" to="." method="_on_back_button_up"]

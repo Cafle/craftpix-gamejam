@@ -10,12 +10,8 @@ func _start_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/UI/Level Select.tscn")
 
 func _options_pressed() -> void:
+	$TITLE.hide()
 	$Options.show()
-	print("Options attempted")
-
-func _back_pressed() -> void:
-	$Options.hide()
-	print("Options closed")
 
 func _quit_pressed() -> void:
 	print("Quit attempted")
@@ -23,11 +19,9 @@ func _quit_pressed() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	start.pressed.connect(_start_pressed)
-	options.pressed.connect(_options_pressed)
-	quit.pressed.connect(_quit_pressed)
-	back.pressed.connect(_back_pressed)
-	
+	start.button_up.connect(_start_pressed)
+	options.button_up.connect(_options_pressed)
+	quit.button_up.connect(_quit_pressed)	
 	pass # Replace with function body.
 
 
@@ -35,3 +29,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	pass
+
+
+func _on_eopitois_button_up() -> void:
+	
+	pass # Replace with function body.
+
+
+
+func _on_back_button_up() -> void:
+	#Doing this function with a signal directly cause .connect was not working
+	$Options.hide()
+	$TITLE.show()
+	print("Options closed")

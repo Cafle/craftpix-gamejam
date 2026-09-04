@@ -1,7 +1,30 @@
 [gd_resource type="Theme" format=3 uid="uid://cfx1uvctms1cn"]
 
 [ext_resource type="FontFile" uid="uid://brfyw8exvcd33" path="res://GayHentaiFuta/Pixeled.ttf" id="1_5wmkc"]
+[ext_resource type="Texture2D" uid="uid://v2w4l71ipgq2" path="res://Assets/UI/Settings.png" id="1_xanik"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyje7"]
+atlas = ExtResource("1_xanik")
+region = Rect2(208, 195, 11, 12)
+
+[sub_resource type="DPITexture" id="DPITexture_iqucg"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"4\" height=\"8\"><path fill=\"#fff\" fill-opacity=\".25\" d=\"M1 0h2v16H1z\"/></svg>
+"
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_dmeuv"]
+color = Color(0.24313726, 0.12156863, 0.11372549, 1)
+thickness = 6
 
 [resource]
 default_font = ExtResource("1_5wmkc")
-Button/font_sizes/font_size = 9
+HSlider/constants/center_grabber = 0
+HSlider/constants/grabber_offset = 0
+HSlider/constants/tick_offset = 0
+HSlider/icons/grabber = SubResource("AtlasTexture_gyje7")
+HSlider/icons/grabber_disabled = SubResource("AtlasTexture_gyje7")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_gyje7")
+HSlider/icons/tick = SubResource("DPITexture_iqucg")
+HSlider/styles/grabber_area = SubResource("StyleBoxLine_dmeuv")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxLine_dmeuv")
+HSlider/styles/slider = SubResource("StyleBoxLine_dmeuv")
+Label/colors/font_color = Color(0.24313726, 0.12156863, 0.11372549, 1)
