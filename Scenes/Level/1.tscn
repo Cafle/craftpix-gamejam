@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cejtavmwm86ny" path="res://Scenes/Level/TileMapBase.tscn" id="2_orjfj"]
 [ext_resource type="PackedScene" uid="uid://2mikyxukl7ar" path="res://Scenes/Sprites/WIN_OBJECT.tscn" id="3_jd5si"]
 [ext_resource type="PackedScene" uid="uid://c0mgipnettt0f" path="res://Scenes/Sprites/KillObject.tscn" id="5_uj2m6"]
+[ext_resource type="PackedScene" uid="uid://brdee6rjftvff" path="res://Scenes/UI/Pause.tscn" id="6_o4euo"]
 
 [node name="1" type="Node2D" unique_id=1281663097]
 script = ExtResource("1_autlg")
@@ -22,4 +23,9 @@ position = Vector2(531, 584)
 [node name="KillObjects" type="Node" parent="." unique_id=905843511]
 
 [node name="KillObject" parent="KillObjects" unique_id=657475376 instance=ExtResource("5_uj2m6")]
+visible = false
+
+[node name="Seeing Orb" type="CanvasLayer" parent="." unique_id=669311729]
+
+[node name="Pause" parent="Seeing Orb" unique_id=1471747148 instance=ExtResource("6_o4euo")]
 visible = false
