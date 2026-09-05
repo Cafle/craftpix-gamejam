@@ -1,3 +1,5 @@
 [gd_scene format=3 uid="uid://bksk8ta1821t1"]
 
 [node name="SFX" type="AudioStreamPlayer2D" unique_id=1900023273]
+position = Vector2(1, 0)
+volume_db = -5.823

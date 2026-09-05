@@ -220,6 +220,29 @@ text = "Depart"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="rebirth" type="TextureButton" parent="TITLE" unique_id=1590729092]
+layout_mode = 0
+offset_left = 172.23213
+offset_top = -9.809395
+offset_right = 332.23212
+offset_bottom = 25.190598
+theme = ExtResource("2_blp2d")
+button_mask = 3
+texture_normal = SubResource("AtlasTexture_178wh")
+texture_pressed = SubResource("AtlasTexture_sydhl")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TITLE/rebirth" unique_id=1229272544]
+layout_mode = 0
+offset_left = 19.627592
+offset_top = -8.828459
+offset_right = 145.6276
+offset_bottom = 37.17154
+theme_override_font_sizes/font_size = 14
+text = "ReJourney"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextureRect" type="TextureRect" parent="TITLE" unique_id=2077926771]
 z_index = -2
 layout_mode = 0
@@ -365,4 +388,5 @@ icon_alignment = 1
 
 [connection signal="button_up" from="TITLE/start" to="." method="_on_start_button_up"]
 [connection signal="button_up" from="TITLE/quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="TITLE/rebirth" to="." method="_on_quit_button_up"]
 [connection signal="button_up" from="Options/back" to="." method="_on_back_button_up"]

@@ -4,13 +4,12 @@ extends Control
 @onready var options = $TITLE/eopitois #Adam, what the actual cheese is this?
 @onready var back = $Options/back
 @onready var quit = $TITLE/quit
+@onready var rebirth = $TITLE/rebirth
 
 
 #sliders
 @onready var music = $Options/music
 @onready var sfx = $Options/sfx
-#New Save button code mimicking codepaths above
-# @onready var new_save = $TITLE/new_save
 # NEW. reference to the new "New Save" button
 
 
@@ -43,18 +42,18 @@ func _quit_pressed() -> void:
 	get_tree().quit()
 
 #Needs button first before 
- #func _new_save_pressed() -> void:
-	# NEW. Resets progress, then drops the player straight into
-	# level 1 on a clean save.
-	# print("New save started")
-	# LevelSelect.resetProgress()
-	# get_tree().call_deferred("change_scene_to_file", "res://Scenes/Level/1.tscn") 
+func _new_save_pressed() -> void:
+	#NEW. Resets progress, then drops the player straight into level 1 on a clean save.
+	print("New save started")
+	LevelSelect.resetProgress()
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/Level/1.tscn") 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start.button_up.connect(_start_pressed)
 	options.button_up.connect(_options_pressed)
-	quit.button_up.connect(_quit_pressed)	
+	quit.button_up.connect(_quit_pressed)
+	rebirth.button_up.connect(_new_save_pressed)
 	music.value_changed.connect(_changeVol.bind(1))
 	sfx.value_changed.connect(_changeVol.bind(2))
 	
