@@ -10,6 +10,7 @@ extends Node
 var current_level: int = 1
 var HUL: int = 1 #Highest Unlocked Level
 var Max_level: int = 37 #Current Max Level on Level Select Menu
+var Coins : int = 0
 
 func _ready() -> void:
 	# NEW FUNCTION. Runs once when this autoload initializes at

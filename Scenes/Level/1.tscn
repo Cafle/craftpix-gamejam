@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://2mikyxukl7ar" path="res://Scenes/Sprites/WIN_OBJECT.tscn" id="3_jd5si"]
 [ext_resource type="PackedScene" uid="uid://c0mgipnettt0f" path="res://Scenes/Sprites/KillObject.tscn" id="5_uj2m6"]
 [ext_resource type="PackedScene" uid="uid://brdee6rjftvff" path="res://Scenes/UI/Pause.tscn" id="6_o4euo"]
+[ext_resource type="PackedScene" uid="uid://bccucur7ysjjx" path="res://Scenes/Sprites/Coin.tscn" id="7_nj43y"]
 
 [node name="1" type="Node2D" unique_id=1281663097]
 script = ExtResource("1_autlg")
@@ -29,3 +30,6 @@ visible = false
 
 [node name="Pause" parent="Seeing Orb" unique_id=1471747148 instance=ExtResource("6_o4euo")]
 visible = false
+
+[node name="Coin" parent="." unique_id=1708087648 instance=ExtResource("7_nj43y")]
+position = Vector2(362, 586)
