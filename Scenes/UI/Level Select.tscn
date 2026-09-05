@@ -3,6 +3,15 @@
 [ext_resource type="Script" uid="uid://bglawpx2myxrp" path="res://Scripts/UI/LSMenu.gd" id="1_5xbx3"]
 [ext_resource type="Theme" uid="uid://cfx1uvctms1cn" path="res://Assets/UI/MAIN_THEME.tres" id="1_47lp1"]
 [ext_resource type="PackedScene" uid="uid://c3s3lxtpfbht1" path="res://Scenes/UI/LSbutton.tscn" id="1_cgdd1"]
+[ext_resource type="Texture2D" uid="uid://bj2lcck2ujf86" path="res://Assets/UI/Buttons.png" id="4_wwjbk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47lp1"]
+atlas = ExtResource("4_wwjbk")
+region = Rect2(103, 149, 41, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwjbk"]
+atlas = ExtResource("4_wwjbk")
+region = Rect2(151, 150, 42, 14)
 
 [node name="LevelSelect" type="Control" unique_id=360652690]
 layout_mode = 3
@@ -39,3 +48,21 @@ theme_override_constants/v_separation = 4
 
 [node name="LSbutton" parent="CenterContainer/GridContainer" unique_id=2084964988 instance=ExtResource("1_cgdd1")]
 layout_mode = 2
+
+[node name="Back" type="TextureButton" parent="." unique_id=823185106]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 126.0
+offset_bottom = 72.0
+texture_normal = SubResource("AtlasTexture_47lp1")
+texture_pressed = SubResource("AtlasTexture_wwjbk")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Back" unique_id=402527044]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -8.0
+offset_right = 88.0
+offset_bottom = 38.0
+text = "Back"

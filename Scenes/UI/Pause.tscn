@@ -106,7 +106,7 @@ text = "Ammendments"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Play" type="TextureButton" parent="Pause" unique_id=36346799]
+[node name="quit" type="TextureButton" parent="Pause" unique_id=36346799]
 layout_mode = 0
 offset_left = 66.000015
 offset_top = 284.0
@@ -118,14 +118,14 @@ texture_normal = SubResource("AtlasTexture_wapxx")
 texture_pressed = SubResource("AtlasTexture_fjwti")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Pause/Play" unique_id=1857873234]
+[node name="Label" type="Label" parent="Pause/quit" unique_id=1857873234]
 layout_mode = 0
 offset_left = 31.999992
 offset_top = 7.9999933
 offset_right = 218.0
 offset_bottom = 53.999992
 theme_override_font_sizes/font_size = 16
-text = "Commence"
+text = "Retreat"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -5,6 +5,8 @@ extends Node
 		preload("res://Assets/Music/Ale and Maidens.mp3"),
 		preload("res://Assets/Music/Teseract of Infinite Knowlege.mp3")	
 	]
+	
+	
 var current_level: int = 1
 var HUL: int = 1 #Highest Unlocked Level
 var Max_level: int = 37 #Current Max Level on Level Select Menu
@@ -21,11 +23,14 @@ func _ready() -> void:
 	# (e.g. first launch, before anything has been saved yet).
 	print("LevelManager ready — loaded HUL: ", HUL, " current_level: ", current_level)
 	
+
+	
 	
 func _playSong(num: int) -> void: 
 	Music.stop()
 	Music.stream = SONGS[num % SONGS.size()]
 	Music.play()
+
 
 func unlockLevel(level: int) -> void:
 	# Core if-check is UNCHANGED from the original.

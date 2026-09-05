@@ -11,8 +11,8 @@ extends Control
 @onready var restart = $Pause/Restart
 @onready var controls = $Pause/Controls
 @onready var c_controls = $Controls/back
-@onready var resume = $Pause/Play
-@onready var resume2 = $Pause/back
+@onready var quit = $Pause/quit
+@onready var resume = $Pause/back
 
 #sliders
 @onready var music = $Options/music
@@ -24,8 +24,8 @@ func _ready() -> void:
 	
 	options.button_up.connect(_openOptions)
 	c_settings.button_up.connect(_closeOptions)
+	quit.button_up.connect(_quit)
 	resume.button_up.connect(_resume)
-	resume2.button_up.connect(_resume)
 	controls.button_up.connect(_openControls)
 	c_controls.button_up.connect(_closeControls)
 	restart.button_up.connect(_restart)
@@ -65,6 +65,10 @@ func _resume() -> void:
 	
 func _restart() -> void:
 	get_tree().reload_current_scene()
+	pass
+	
+func _quit() -> void:
+	get_tree().change_scene_to_file("res://Scenes/UI/Level Select.tscn")
 	pass
 	
 func _changeVol(num: float, track: int) -> void:
