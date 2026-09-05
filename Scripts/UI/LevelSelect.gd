@@ -55,3 +55,15 @@ func _save() -> void:
 	# data (settings, unlocks, etc.) later without changes.
 	print("Saving data: HUL=", HUL, " current_level=", current_level)
 	SaveManager.save_data({"HUL": HUL, "current_level": current_level})
+	
+func resetProgress() -> void:
+	#NEW FUNCTION. Reset player progress
+	# Resets progress in memory, then overwrites the save file
+	# on disk with those same default values.
+	HUL = 1
+	current_level = 1
+	_save()
+	# Reuses the existing _save() function — no need to write new
+	# file-handling code, since save_data() already overwrites
+	# the file rather than appending to it.
+	print("Progress reset — HUL: ", HUL, " current_level: ", current_level)

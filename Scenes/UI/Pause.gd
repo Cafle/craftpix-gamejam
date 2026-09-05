@@ -69,16 +69,13 @@ func _restart() -> void:
 	
 func _changeVol(num: float, track: int) -> void:
 	#1 for music slider, 0 for sfx
-	print("num: ", num, " track: ", track)
 	if track == 1:
-		print("music val is " , num)
 		# Prevent math errors with log of zero by clamping or checking
 		if num <= 0.0:
 			Music.volume_db = -80.0 # Muted
 		else:
 			Music.volume_db = linear_to_db(num)
 	else:
-		print("sfx val is " , num)
 		# Prevent math errors with log of zero by clamping or checking
 		#Sfx with capital S represents global scene of sfx audioplayer
 		if num <= 0.0:

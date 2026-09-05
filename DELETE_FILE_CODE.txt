@@ -1,0 +1,22 @@
+func delete_save() -> void:
+	# Called when the player wants to start a fresh save.
+	if FileAccess.file_exists(SAVE_PATH):
+		var err := DirAccess.remove_absolute(SAVE_PATH)
+		# DirAccess.remove_absolute() deletes the file at the given
+		# path and returns an Error code (OK = 0 on success).
+		if err != OK:
+			print("ERROR deleting save file: ", err)
+		else:
+			print("Save file deleted")
+	else:
+		print("No save file to delete")
+		
+		
+func resetProgress() -> void:
+	# Resets progress in memory AND deletes the save file on disk.
+	# Both are needed — deleting the file alone wouldn't reset HUL
+	# and current_level while the game is still running.
+	HUL = 1
+	current_level = 1
+	SaveManager.delete_save()
+	print("Progress reset — HUL: ", HUL, " current_level: ", current_level)
