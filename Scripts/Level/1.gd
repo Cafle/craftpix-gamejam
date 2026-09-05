@@ -78,6 +78,7 @@ func _replace_tiles(tileMap: TileMapLayer, source_id: int, replacementNode, coor
 		replacementNode.add_sibling(obj)
 		obj.position = tileMap.to_global(tileMap.map_to_local(i))
 		obj.show()
+
 	replacementNode.queue_free()
 	
 func _layer_tiles(tileMap: TileMapLayer, source_id: int, replacementNode, coords: Array) -> void:

@@ -22,6 +22,9 @@ class_name player
 @onready var coyote: int = 0
 @onready var wjframe: int = 0
 
+#animating 
+@onready var animator = $AnimatedSprite2D
+
 func _ready() -> void:
 	$KillHitbox.body_entered.connect(_on_area_2d_body_entered)
 
@@ -31,12 +34,28 @@ func _physics_process(delta):
 	# apply gravity
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if is_on_floor():
+		if direction:
+			animator.play("walk")
+			scale.x = direction
+			#if direction > 0:
+				#scale.x = -1 * direction
+			#else:
+				#scale.x = direction
+					
+			
+			
+		if !animator.is_playing():
+			animator.play("idle")
 		coyote = 0
 		velocity.y = 0
 		
 	elif (coyote >= coyoteFrames):
 		if velocity.y < terminal_velocity and not (is_on_wall_only() and direction and velocity.y>0):
 			velocity.y += gravity * (fall_multiplier if velocity.y > 0 else 1.0)
+			if velocity.y < 0:
+				animator.play("rise")
+			else:
+				animator.play("fall")
 		elif is_on_wall_only() && direction:
 			velocity.y = wall_slide_velocity
 		else:
@@ -59,6 +78,7 @@ func _physics_process(delta):
 
 	
 	if (jump_condition && Input.is_action_just_pressed("ui_up")) or (is_on_floor() and jbuffer > 0 and Input.is_action_pressed("ui_up")):
+		animator.play("jump")
 		jbuffer = 0
 		velocity.y = jump_force * -1
 		if is_on_wall_only() && direction:
@@ -68,6 +88,7 @@ func _physics_process(delta):
 	if Input.is_action_just_released("ui_up") && velocity.y < 0:
 		velocity.y -= shorthop_factor
 		if velocity.y > 0:
+			animator.play("fall")
 			velocity.y = 0
 	
 	
@@ -96,21 +117,20 @@ func _physics_process(delta):
 			var push_dir = -collision.get_normal()
 			collider.apply_central_impulse(push_dir * speed * 0.1)
 	
+	if !was_floored && is_on_floor():
+		animator.play("land")
+	
 	if !was_floored && is_on_floor() && y_vel > 1200:
+		animator.play("hard land")
 		var stretchMe = $AnimatedSprite2D.scale.y
-		var stretchLeg = $Legs.scale.y
 		$AnimatedSprite2D.scale.y /= 10
 		$AnimatedSprite2D.position.y += 50
-		$Legs.scale.y /= 10
-		$Legs.position.y += 50
 		
 		camera_shake(chonkiness * y_vel, 0.3)
 		
 		$AnimatedSprite2D.scale.y = stretchMe
 		$AnimatedSprite2D.position.y -= 50
-		$Legs.scale.y = stretchLeg
-		$Legs.position.y -= 50
-	
+			
 	if is_on_ceiling() && y_vel < 0:
 		#try right
 		for i in range(1, nudgeularity): 
