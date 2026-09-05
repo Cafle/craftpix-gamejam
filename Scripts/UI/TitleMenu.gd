@@ -5,9 +5,33 @@ extends Control
 @onready var back = $Options/back
 @onready var quit = $TITLE/quit
 
+#sliders
+@onready var music = $Options/music
+@onready var sfx = $Options/sfx
+
+
 func _start_pressed() -> void:
 	print("Start attempted")
 	get_tree().change_scene_to_file("res://Scenes/UI/Level Select.tscn")
+
+func _changeVol(num: float, track: int) -> void:
+	#1 for music slider, 0 for sfx
+	print("num: ", num, " track: ", track)
+	if track == 1:
+		print("music val is " , num)
+		# Prevent math errors with log of zero by clamping or checking
+		if num <= 0.0:
+			Music.volume_db = -80.0 # Muted
+		else:
+			Music.volume_db = linear_to_db(num)
+	else:
+		print("sfx val is " , num)
+		# Prevent math errors with log of zero by clamping or checking
+		#Sfx with capital S represents global scene of sfx audioplayer
+		if num <= 0.0:
+			Sfx.volume_db = -80.0 # Muted
+		else:
+			Sfx.volume_db = linear_to_db(num)
 
 func _options_pressed() -> void:
 	$TITLE.hide()
@@ -22,7 +46,12 @@ func _ready() -> void:
 	start.button_up.connect(_start_pressed)
 	options.button_up.connect(_options_pressed)
 	quit.button_up.connect(_quit_pressed)	
-	pass # Replace with function body.
+	music.value_changed.connect(_changeVol.bind(1))
+	sfx.value_changed.connect(_changeVol.bind(2))
+	
+	sfx.value = Sfx.volume_linear
+	music.value = Music.volume_linear
+pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,14 +1,16 @@
 [gd_resource type="Theme" format=3 uid="uid://cfx1uvctms1cn"]
 
 [ext_resource type="FontFile" uid="uid://brfyw8exvcd33" path="res://GayHentaiFuta/Pixeled.ttf" id="1_5wmkc"]
+[ext_resource type="Texture2D" uid="uid://bj2lcck2ujf86" path="res://Assets/UI/Buttons.png" id="1_iqucg"]
 [ext_resource type="Texture2D" uid="uid://v2w4l71ipgq2" path="res://Assets/UI/Settings.png" id="1_xanik"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_15edo"]
-atlas = ExtResource("1_xanik")
-region = Rect2(208, 195, 11, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wapxx"]
+atlas = ExtResource("1_iqucg")
+region = Rect2(452, 376, 11, 11)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ithen"]
-texture = SubResource("AtlasTexture_15edo")
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqucg"]
+atlas = ExtResource("1_iqucg")
+region = Rect2(452, 472, 11, 11)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gyje7"]
 atlas = ExtResource("1_xanik")
@@ -24,7 +26,9 @@ thickness = 6
 
 [resource]
 default_font = ExtResource("1_5wmkc")
-CheckBox/styles/pressed = SubResource("StyleBoxTexture_ithen")
+CheckBox/icons/checked = SubResource("AtlasTexture_wapxx")
+CheckBox/icons/unchecked = SubResource("AtlasTexture_iqucg")
+CheckBox/styles/pressed = null
 HSlider/constants/center_grabber = 0
 HSlider/constants/grabber_offset = 0
 HSlider/constants/tick_offset = 0

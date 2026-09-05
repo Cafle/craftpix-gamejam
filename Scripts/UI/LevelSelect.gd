@@ -20,19 +20,12 @@ func _ready() -> void:
 	# is missing, which happens naturally on a fresh/empty save
 	# (e.g. first launch, before anything has been saved yet).
 	print("LevelManager ready — loaded HUL: ", HUL, " current_level: ", current_level)
-
-func _changeVol(num: int) ->  void:
-	# Prevent math errors with log of zero by clamping or checking
-	if num <= 0.0:
-		TitleMusic.volume_db = -80.0 # Muted
-	else:
-		TitleMusic.volume_db = linear_to_db(num)
 	
 	
 func _playSong(num: int) -> void: 
-	TitleMusic.stop()
-	TitleMusic.stream = SONGS[num % SONGS.size()]
-	TitleMusic.play()
+	Music.stop()
+	Music.stream = SONGS[num % SONGS.size()]
+	Music.play()
 
 func unlockLevel(level: int) -> void:
 	# Core if-check is UNCHANGED from the original.

@@ -261,6 +261,8 @@ offset_top = 100.000015
 offset_right = 306.0
 offset_bottom = 156.00002
 theme = ExtResource("2_blp2d")
+max_value = 1.0
+step = 0.01
 tick_count = 4
 ticks_on_borders = true
 ticks_position = 3
@@ -283,6 +285,8 @@ offset_top = 4.0000153
 offset_right = 306.0
 offset_bottom = 60.000015
 theme = ExtResource("2_blp2d")
+max_value = 1.0
+step = 0.01
 tick_count = 4
 ticks_position = 3
 

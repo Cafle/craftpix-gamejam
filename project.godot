@@ -23,7 +23,8 @@ config/icon="res://icon.svg"
 
 SaveManager="*uid://d0wtsxlftrqaq"
 LevelSelect="*uid://t1ovxygdtf40"
-TitleMusic="*uid://ta2wp2ul8kuv"
+Music="*uid://ta2wp2ul8kuv"
+Sfx="*uid://bksk8ta1821t1"
 
 [display]
 

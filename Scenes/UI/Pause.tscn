@@ -40,7 +40,6 @@ theme = ExtResource("1_evds0")
 script = ExtResource("2_lw4m2")
 
 [node name="Pause" type="Control" parent="." unique_id=122944174]
-visible = false
 anchors_preset = 0
 offset_left = 390.0
 offset_top = 236.0
@@ -177,6 +176,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Options" type="Control" parent="." unique_id=2066528716]
+visible = false
 anchors_preset = 0
 offset_left = 390.0
 offset_top = 236.0
@@ -191,6 +191,8 @@ offset_top = 100.000015
 offset_right = 306.0
 offset_bottom = 156.00002
 theme = ExtResource("1_evds0")
+max_value = 1.0
+step = 0.01
 tick_count = 4
 ticks_on_borders = true
 ticks_position = 3
@@ -213,6 +215,8 @@ offset_top = 4.0000153
 offset_right = 306.0
 offset_bottom = 60.000015
 theme = ExtResource("1_evds0")
+max_value = 1.0
+step = 0.01
 tick_count = 4
 ticks_position = 3
 
@@ -270,21 +274,22 @@ offset_bottom = -196.0
 
 [node name="Label" type="Label" parent="Options/C_Shake" unique_id=873046503]
 layout_mode = 0
-offset_left = 528.0
-offset_top = 384.0
-offset_right = 742.0
-offset_bottom = 484.0
+offset_left = 536.0
+offset_top = 392.0
+offset_right = 750.0
+offset_bottom = 492.0
+theme = ExtResource("1_evds0")
 theme_override_constants/line_spacing = -21
 theme_override_font_sizes/font_size = 20
 text = "   Ocular 
-Tremblen"
+Tremblin'"
 
 [node name="C_shake" type="CheckBox" parent="Options/C_Shake" unique_id=1557198633]
 layout_mode = 0
-offset_left = 440.0
-offset_top = 392.0
-offset_right = 464.0
-offset_bottom = 416.0
+offset_left = 456.0
+offset_top = 400.0
+offset_right = 480.0
+offset_bottom = 424.0
 scale = Vector2(4, 4)
 theme = ExtResource("1_evds0")
 icon_alignment = 1
