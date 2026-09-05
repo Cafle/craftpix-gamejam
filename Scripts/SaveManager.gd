@@ -5,7 +5,7 @@ extends Node
 # Must be listed ABOVE LevelSelect in Project Settings > Autoload,
 # since LevelSelect._ready() calls SaveManager.load_data() on startup.
 
-const SAVE_PATH := "user://save_data.json"
+const SAVE_PATH = "user://save_data.json"
 # "user://" points to Godot's OS-managed, writable, persistent data
 # folder (different real folder per platform), unlike "res://" which
 # is the game's bundled, read-only project files.
