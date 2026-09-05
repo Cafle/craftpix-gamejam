@@ -19,6 +19,7 @@ func _ready() -> void:
 	var data = SaveManager.load_data()
 	HUL = data.get("HUL", 1)
 	current_level = data.get("current_level", 1)
+	Coins = data.get("coin", 10)
 	# .get(key, default) falls back to 1 automatically if the key
 	# is missing, which happens naturally on a fresh/empty save
 	# (e.g. first launch, before anything has been saved yet).
@@ -60,7 +61,7 @@ func _save() -> void:
 	# separation is what lets SaveManager be reused for unrelated
 	# data (settings, unlocks, etc.) later without changes.
 	print("Saving data: HUL=", HUL, " current_level=", current_level)
-	SaveManager.save_data({"HUL": HUL, "current_level": current_level})
+	SaveManager.save_data({"HUL": HUL, "current_level": current_level, "coin":Coins})
 	
 func resetProgress() -> void:
 	#NEW FUNCTION. Reset player progress

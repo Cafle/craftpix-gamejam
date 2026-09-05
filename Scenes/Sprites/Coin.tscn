@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bccucur7ysjjx"]
 
 [ext_resource type="Texture2D" uid="uid://dscma2ii7npmb" path="res://Assets/Level/Text1.png" id="1_8fgoe"]
-[ext_resource type="Script" uid="uid://dm2v25yp1p42d" path="res://Scenes/Sprites/coin.gd" id="1_ex3ix"]
+[ext_resource type="Script" uid="uid://dm2v25yp1p42d" path="res://Scripts/Sprites/coin.gd" id="1_ex3ix"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cpyjm"]
 

@@ -9,7 +9,6 @@ func _ready() -> void:
 
 func _touched(body : Node2D) -> void:
 	LevelSelect.Coins += 1
-	SaveManager.save_data(("coin", LevelSelect.Coins))
 	queue_free()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
