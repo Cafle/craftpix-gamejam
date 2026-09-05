@@ -84,6 +84,18 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+#NEW — CharacterBody2D doesn't automatically push RigidBody2D
+#nodes it collides with; move_and_slide() only slides along
+#them. This manually applies an impulse to any RigidBody2D
+#(e.g. crates) the player just collided with, pushing it away
+#from the player in the direction of contact.
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider is RigidBody2D:
+			var push_dir = -collision.get_normal()
+			collider.apply_central_impulse(push_dir * speed * 0.1)
+	
 	if !was_floored && is_on_floor() && y_vel > 1200:
 		var stretchMe = $AnimatedSprite2D.scale.y
 		var stretchLeg = $Legs.scale.y

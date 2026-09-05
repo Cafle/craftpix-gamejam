@@ -4,12 +4,16 @@ func _ready() -> void:
 	var tilemap = $TileMapBase
 	var killObject = $KillObjects/KillObject
 	var winObject = $WinObject
-	
+	var crateObject = $CrateObjects/CrateObject
+
 	var Scan = _scanLevel(tilemap, 0, "kill", true)
 	_layer_tiles(tilemap, 0, killObject, Scan)
-	
+
 	Scan = _scanLevel(tilemap, 0, "win", true)
 	_replace_tiles(tilemap, 0, winObject, Scan)
+
+	Scan = _scanLevel(tilemap, 0, "crate", true)
+	_replace_tiles(tilemap, 0, crateObject, Scan)
 	
 	$WinObject/Sprite2D/Area2D.body_entered.connect(_win)
 

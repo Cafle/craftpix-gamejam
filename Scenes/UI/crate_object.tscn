@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://crd5g28nkhiw7"]
+
+[ext_resource type="Script" uid="uid://c6ymd1hhfncc8" path="res://Scenes/Level/crate_object.gd" id="1_sodwm"]
+[ext_resource type="Texture2D" uid="uid://byqmadj646a4u" path="res://Assets/Level/TileMapVersion-1-0.png" id="2_5v11f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdlhh"]
+atlas = ExtResource("2_5v11f")
+region = Rect2(608, 64, 16, 16)
+
+[node name="CrateObject" type="RigidBody2D" unique_id=615535023]
+script = ExtResource("1_sodwm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1629279109]
+shape = SubResource("RectangleShape2D_1vivr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=582464027]
+texture = SubResource("AtlasTexture_mdlhh")

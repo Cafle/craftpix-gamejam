@@ -291,6 +291,7 @@ texture = ExtResource("1_6ncyj")
 35:4/0 = 0
 36:4/0 = 0
 38:4/0 = 0
+38:4/0/custom_data_2 = true
 39:4/0 = 0
 0:5/0 = 0
 1:5/0 = 0
@@ -1007,6 +1008,8 @@ custom_data_layer_0/name = "kill"
 custom_data_layer_0/type = 1
 custom_data_layer_1/name = "win"
 custom_data_layer_1/type = 1
+custom_data_layer_2/name = "crate"
+custom_data_layer_2/type = 1
 sources/0 = SubResource("TileSetAtlasSource_j7anh")
 
 [node name="TileMapBase" type="TileMapLayer" unique_id=400809718]
