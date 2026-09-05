@@ -33,19 +33,18 @@ func _physics_process(delta):
 		
 	# apply gravity
 	var direction = Input.get_axis("ui_left", "ui_right")
+	
+	if direction:
+		animator.scale.x = -direction
+		
 	if is_on_floor():
 		if direction:
 			animator.play("walk")
-			scale.x = direction
-			#if direction > 0:
-				#scale.x = -1 * direction
-			#else:
-				#scale.x = direction
-					
+		else:
+			if (!animator.animation == "land" && !animator.animation == "hard land") || !animator.is_playing():
+				animator.play("idle")
 			
 			
-		if !animator.is_playing():
-			animator.play("idle")
 		coyote = 0
 		velocity.y = 0
 		

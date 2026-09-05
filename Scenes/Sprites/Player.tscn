@@ -216,7 +216,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"fall",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 0.4,
@@ -349,7 +349,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"rise",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -370,9 +370,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4fiwo")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"walk",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qxnb"]
@@ -386,6 +386,7 @@ radius = 18.0
 height = 80.0
 
 [node name="Player" type="CharacterBody2D" unique_id=671294045]
+scale = Vector2(-1, 1)
 script = ExtResource("1_u1pkf")
 jump_force = 600.0
 gravity = 30.0
@@ -395,7 +396,7 @@ nudgeularity = 30
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=809624899]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_0qxnb")
-animation = &"jump"
+animation = &"hard land"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1674230172]
