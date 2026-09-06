@@ -567,7 +567,7 @@ animations = [{
 size = Vector2(10.938271, 23.927464)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57q14"]
-size = Vector2(10.938271, 12.73283)
+size = Vector2(10.938271, 2.2218366)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
 radius = 18.0
@@ -614,7 +614,7 @@ scale = Vector2(2.925508, 2.9255085)
 shape = SubResource("RectangleShape2D_0qxnb")
 
 [node name="RollShape" type="CollisionShape2D" parent="." unique_id=1447577574]
-position = Vector2(0, 13.625001)
+position = Vector2(0, 29)
 scale = Vector2(2.925508, 2.9255085)
 shape = SubResource("RectangleShape2D_57q14")
 

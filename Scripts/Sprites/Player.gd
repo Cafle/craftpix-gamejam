@@ -21,7 +21,7 @@ class_name player
 @onready var jbuffer: int = 0
 @onready var coyote: int = 0
 @onready var wjframe: int = 0
-
+@onready var roll_vel = 6 
 #animating 
 @onready var animator = $AnimatedSprite2D
 
@@ -30,18 +30,31 @@ func _ready() -> void:
 
 func _physics_process(delta):
 			
+
 		
+		
+	
+	var wall = $AnimatedSprite2D/upWall.is_colliding() && $AnimatedSprite2D/downWall.is_colliding() && is_on_wall_only()
+	
 	# apply gravity
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
 	if direction:
-		animator.scale.x = -direction
+		if velocity.x < 0:
+			animator.scale.x = 1
+		elif velocity.x >0:
+			animator.scale.x = -1
+		if Input.is_action_just_pressed("ui_down"):
+			velocity.x *= 1.3
+			roll_vel = velocity.x
+			animator.play("roll")
+		
 		
 	if is_on_floor():
-		if direction:
+		if direction && ((!animator.animation == "hard land" && !animator.animation == "roll")|| animator.animation == "idle"):
 			animator.play("walk")
 		else:
-			if (!animator.animation == "land" && !animator.animation == "hard land") || !animator.is_playing():
+			if (!animator.animation == "land" && !animator.animation == "hard land" && !animator.animation == "roll") || !animator.is_playing():
 				animator.play("idle")
 			
 			
@@ -49,13 +62,19 @@ func _physics_process(delta):
 		velocity.y = 0
 		
 	elif (coyote >= coyoteFrames):
-		if velocity.y < terminal_velocity and not (is_on_wall_only() and direction and velocity.y>0):
+		if velocity.y < terminal_velocity and not (wall and direction and velocity.y>0):
 			velocity.y += gravity * (fall_multiplier if velocity.y > 0 else 1.0)
 			if velocity.y < 0:
 				animator.play("rise")
+			elif velocity.y < 150:
+				animator.play("0")
 			else:
 				animator.play("fall")
-		elif is_on_wall_only() && direction:
+		elif wall && direction:
+			if animator.animation != "wall slide":
+				animator.play("wall connect")
+			if (animator.frame == 3 && animator.animation == "wall connect") or animator.animation == "wall slide":
+				animator.play("wall slide")
 			velocity.y = wall_slide_velocity
 		else:
 			velocity.y = terminal_velocity
@@ -70,19 +89,21 @@ func _physics_process(delta):
 	if jbuffer > 0:
 		jbuffer -= delta
 	# handle jump buffer
-	var jump_condition = (is_on_floor() or (is_on_wall_only() and direction)
+	var jump_condition = (is_on_floor() or (wall and direction)
 	or coyote<coyoteFrames or (is_on_floor() and 
 	jbuffer > 0))
 	# handle jump input
 
-	
-	if (jump_condition && Input.is_action_just_pressed("ui_up")) or (is_on_floor() and jbuffer > 0 and Input.is_action_pressed("ui_up")):
-		animator.play("jump")
-		jbuffer = 0
-		velocity.y = jump_force * -1
-		if is_on_wall_only() && direction:
-			wjframe = wall_jump_frames
-			velocity.x = speed * -direction
+	if animator.animation != "hard land":
+		if (jump_condition && Input.is_action_just_pressed("ui_up")) or (is_on_floor() and jbuffer > 0 and Input.is_action_pressed("ui_up")):
+			animator.play("jump")
+			jbuffer = 0
+			velocity.y = jump_force * -1
+			if wall && direction:
+				animator.play("wall jump")
+				wjframe = wall_jump_frames
+				velocity.x = speed *1.5  * -direction
+				
 	
 	if Input.is_action_just_released("ui_up") && velocity.y < 0:
 		velocity.y -= shorthop_factor
@@ -92,17 +113,37 @@ func _physics_process(delta):
 	
 	
 	
+	
 	if wjframe == 0:
-		velocity.x = lerp(velocity.x, speed * direction, lerp_factor)
+		if ((!animator.animation == "hard land" || animator.animation == "idle") && !animator.animation == "roll"):
+			velocity.x = lerp(velocity.x, speed * direction, lerp_factor)
 	else:
 		wjframe -= 1
 	
-	var y_vel = velocity.y
+	if animator.animation == "hard land":
+		velocity.x = 0
 	
+	var y_vel = velocity.y
+	var x_vel = velocity.x
+	print("Previous x_vel:", x_vel)
 	
 	var was_floored = is_on_floor()
 	
 	move_and_slide()
+	
+	if animator.animation == "roll":
+		$CollisionShape2D.disabled = true
+		$RollShape.disabled = false
+	else:
+		
+		if $UnRoll.is_colliding():
+			print(x_vel)
+			animator.play("roll")
+			velocity.x = roll_vel
+		else:
+			$CollisionShape2D.disabled = false
+			$RollShape.disabled = true
+	
 	
 #NEW — CharacterBody2D doesn't automatically push RigidBody2D
 #nodes it collides with; move_and_slide() only slides along
@@ -117,7 +158,11 @@ func _physics_process(delta):
 			collider.apply_central_impulse(push_dir * speed * 0.1)
 	
 	if !was_floored && is_on_floor():
-		animator.play("land")
+		if Input.is_action_pressed("ui_down") && direction:
+			print("roll")
+			animator.play("roll")
+		else:
+			animator.play("land")
 	
 	if !was_floored && is_on_floor() && y_vel > 1200:
 		animator.play("hard land")
@@ -152,8 +197,8 @@ func _on_area_2d_body_entered(body: Node2D):
 
 
 func camera_shake(strength: float, duration: float = 0.3):
-
-
+	$Smash.amount = round((strength*strength)/600)
+	$Smash.emitting = true
 	var camera = $Camera2D
 	var original_pos = camera.position
 	var tween = create_tween()

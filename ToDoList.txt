@@ -1,7 +1,45 @@
-Make a Level select page.
+
 Basic Level Blueprint
-	Platformer Physics system
-	Tilemap
-	Basic Platformer things (key & door, win condition, kill condition, etc)
 	Pause button
 Settings UI
+
+One way platforms
+Enemy & enemy AI
+Player slide
+Player roll
+Title Screen prettiness
+
+Backgrounds
+Cutscenes (even if they are place holders)
+Shop scene (recurrs from level to level)
+Scout system
+
+Drinking potions
+Potion effects
+Storing potions
+Puking potions
+
+Drunk effects
+
+---------------BOSS FIGHT------------------------
+Intro scene
+
+**** Phase 1 - Strength potion ****
+	Stomps shockwaves
+	Throws Wagons
+	Atomic elbow + shockwave
+	weak phase
+	x3
+**** Phase 2 - (Jump and Speed) ****
+	Jumps and telegraphs landing for an explosion and shockwave
+	Telegraphs charge
+	Atomic elbow + shockwave
+	Wagon Trhow
+	x3
+**** Final Phase - (Fire potion) ****
+	spray fire on part of stage
+	spay fire up and rain it down + atomic elbow
+	Charge
+	Chug more
+	x3
+**** passes out

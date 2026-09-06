@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cf26qnsanulvm"
+path="res://.godot/imported/Wedding (1).wav-7d74dc13f2dd94cc908c6800b731d98e.sample"
+
+[deps]
+
+source_file="res://Assets/Music/Wedding (1).wav"
+dest_files=["res://.godot/imported/Wedding (1).wav-7d74dc13f2dd94cc908c6800b731d98e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
