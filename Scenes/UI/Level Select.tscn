@@ -7,7 +7,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47lp1"]
 atlas = ExtResource("4_wwjbk")
-region = Rect2(103, 149, 41, 15)
+region = Rect2(103, 149, 42, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wwjbk"]
 atlas = ExtResource("4_wwjbk")
@@ -22,8 +22,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_47lp1")
 script = ExtResource("1_5xbx3")
-levels = 37
-columns = 8
+levels = 10
+columns = 5
 
 [node name="Label" type="Label" parent="." unique_id=1888521193]
 layout_mode = 0
@@ -40,13 +40,15 @@ propagate_maximum_size = false
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 720.0
+layout_direction = 2
+theme = ExtResource("1_47lp1")
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=636325291]
 layout_mode = 2
-theme_override_constants/h_separation = 4
-theme_override_constants/v_separation = 4
+theme = ExtResource("1_47lp1")
 
 [node name="LSbutton" parent="CenterContainer/GridContainer" unique_id=2084964988 instance=ExtResource("1_cgdd1")]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
 [node name="Back" type="TextureButton" parent="." unique_id=823185106]

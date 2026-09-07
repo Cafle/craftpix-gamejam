@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://c3s3lxtpfbht1"]
 
 [ext_resource type="Script" uid="uid://dhkh0cuv1jm1n" path="res://Scripts/UI/LSbutton.gd" id="1_50wl6"]
+[ext_resource type="Texture2D" uid="uid://bj2lcck2ujf86" path="res://Assets/UI/Buttons.png" id="1_yxe7e"]
+[ext_resource type="Theme" uid="uid://cfx1uvctms1cn" path="res://Assets/UI/MAIN_THEME.tres" id="3_rjaad"]
 
-[node name="LSbutton" type="Button" unique_id=2084964988]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vivr"]
+atlas = ExtResource("1_yxe7e")
+region = Rect2(113, 48, 22, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vrlf"]
+atlas = ExtResource("1_yxe7e")
+region = Rect2(161, 49, 22, 22)
+
+[node name="LSbutton" type="TextureButton" unique_id=1728036768]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -10,10 +20,23 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -32.0
 offset_top = -36.0
-offset_right = 32.0
-offset_bottom = 28.0
+offset_right = 96.0
+offset_bottom = 92.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 16
-text = ">:)"
+texture_normal = SubResource("AtlasTexture_1vivr")
+texture_pressed = SubResource("AtlasTexture_8vrlf")
+stretch_mode = 1
 script = ExtResource("1_50wl6")
+
+[node name="Label" type="Label" parent="." unique_id=516539930]
+layout_mode = 0
+offset_left = 2.4795532e-05
+offset_top = -7.9999924
+offset_right = 128.00003
+offset_bottom = 120.0
+theme = ExtResource("3_rjaad")
+theme_override_font_sizes/font_size = 45
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -9,7 +9,7 @@ extends Node
 	
 var current_level: int = 1
 var HUL: int = 1 #Highest Unlocked Level
-var Max_level: int = 37 #Current Max Level on Level Select Menu
+var Max_level: int = 10 #Current Max Level on Level Select Menu
 var Coins : int = 0
 
 func _ready() -> void:
@@ -19,7 +19,7 @@ func _ready() -> void:
 	var data = SaveManager.load_data()
 	HUL = data.get("HUL", 1)
 	current_level = data.get("current_level", 1)
-	Coins = data.get("coin", 10)
+	Coins = data.get("coin", 1)
 	# .get(key, default) falls back to 1 automatically if the key
 	# is missing, which happens naturally on a fresh/empty save
 	# (e.g. first launch, before anything has been saved yet).

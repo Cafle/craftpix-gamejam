@@ -1,12 +1,13 @@
-extends Button
+extends TextureButton
 
 var level: int = 1
 var locked: bool = true
+@onready var label = $Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	level = get_index()+1
-	text = str(level)
+	label.text = str(level)
 	locked = level > LevelSelect.HUL
 	modulate.a = 0.5 if locked else 1.0
 

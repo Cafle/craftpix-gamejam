@@ -50,9 +50,9 @@ theme = ExtResource("1_evds0")
 [node name="Halt" type="Label" parent="Pause" unique_id=1716112591]
 layout_mode = 0
 offset_left = -382.0
-offset_top = -236.0
+offset_top = -260.0
 offset_right = 770.0
-offset_bottom = -4.0
+offset_bottom = -28.0
 theme = ExtResource("1_evds0")
 theme_override_font_sizes/font_size = 29
 text = "Halt Scroll"
@@ -81,21 +81,43 @@ offset_bottom = -180.0
 theme = ExtResource("1_evds0")
 texture_normal = SubResource("AtlasTexture_lw4m2")
 texture_pressed = SubResource("AtlasTexture_lw4m2")
-stretch_mode = 0
+stretch_mode = 1
 
 [node name="eopitois" type="TextureButton" parent="Pause" unique_id=58728054]
 layout_mode = 0
-offset_left = 66.000015
-offset_top = -20.0
-offset_right = 306.0
-offset_bottom = 55.0
+offset_left = 68.000015
+offset_top = -92.0
+offset_right = 308.0
+offset_bottom = -17.0
 theme = ExtResource("1_evds0")
 button_mask = 3
 texture_normal = SubResource("AtlasTexture_wapxx")
 texture_pressed = SubResource("AtlasTexture_fjwti")
-stretch_mode = 0
+stretch_mode = 1
 
 [node name="Label" type="Label" parent="Pause/eopitois" unique_id=981160210]
+layout_mode = 0
+offset_left = 31.999992
+offset_top = 7.9999933
+offset_right = 218.0
+offset_bottom = 53.999992
+theme_override_font_sizes/font_size = 16
+text = "Ammendments"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="eopitois2" type="TextureButton" parent="Pause" unique_id=369526605]
+layout_mode = 0
+offset_left = 68.000015
+offset_right = 308.0
+offset_bottom = 75.0
+theme = ExtResource("1_evds0")
+button_mask = 3
+texture_normal = SubResource("AtlasTexture_wapxx")
+texture_pressed = SubResource("AtlasTexture_fjwti")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Pause/eopitois2" unique_id=1539451231]
 layout_mode = 0
 offset_left = 31.999992
 offset_top = 7.9999933
@@ -109,14 +131,14 @@ vertical_alignment = 1
 [node name="quit" type="TextureButton" parent="Pause" unique_id=36346799]
 layout_mode = 0
 offset_left = 66.000015
-offset_top = 284.0
+offset_top = 300.0
 offset_right = 306.0
-offset_bottom = 359.0
+offset_bottom = 375.0
 theme = ExtResource("1_evds0")
 button_mask = 3
 texture_normal = SubResource("AtlasTexture_wapxx")
 texture_pressed = SubResource("AtlasTexture_fjwti")
-stretch_mode = 0
+stretch_mode = 1
 
 [node name="Label" type="Label" parent="Pause/quit" unique_id=1857873234]
 layout_mode = 0
@@ -139,7 +161,7 @@ theme = ExtResource("1_evds0")
 button_mask = 3
 texture_normal = SubResource("AtlasTexture_wapxx")
 texture_pressed = SubResource("AtlasTexture_fjwti")
-stretch_mode = 0
+stretch_mode = 1
 
 [node name="Label" type="Label" parent="Pause/Restart" unique_id=780671168]
 layout_mode = 0
@@ -162,7 +184,7 @@ theme = ExtResource("1_evds0")
 button_mask = 3
 texture_normal = SubResource("AtlasTexture_wapxx")
 texture_pressed = SubResource("AtlasTexture_fjwti")
-stretch_mode = 0
+stretch_mode = 1
 
 [node name="Label" type="Label" parent="Pause/Controls" unique_id=1517213658]
 layout_mode = 0
@@ -303,7 +325,7 @@ offset_right = 750.0
 offset_bottom = 572.0
 theme = ExtResource("1_evds0")
 
-[node name="options" type="Label" parent="Controls" unique_id=1413322566]
+[node name="title" type="Label" parent="Controls" unique_id=1413322566]
 layout_mode = 0
 offset_left = -382.0
 offset_top = -218.99998
@@ -312,6 +334,20 @@ offset_bottom = 13.000015
 theme = ExtResource("1_evds0")
 theme_override_font_sizes/font_size = 26
 text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="content" type="Label" parent="Controls" unique_id=1376327664]
+layout_mode = 0
+offset_left = 42.0
+offset_top = -218.99998
+offset_right = 338.0
+offset_bottom = 396.0
+theme = ExtResource("1_evds0")
+theme_override_font_sizes/font_size = 26
+text = "L/R - Walk
+Up - Jump
+Down - Roll"
 horizontal_alignment = 1
 vertical_alignment = 1
 
