@@ -15,6 +15,7 @@ region = Rect2(164, 6, 9, 9)
 [node name="Shop" type="Control" unique_id=1132947318]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 1
 script = ExtResource("1_3jh66")
 potions = 10
 columns = 5
@@ -48,6 +49,7 @@ theme_override_constants/h_separation = 24
 theme_override_constants/v_separation = 24
 
 [node name="Potion" parent="CenterContainer/GridContainer" unique_id=23882873 instance=ExtResource("2_6qnyu")]
+custom_minimum_size = Vector2(141.49, 103.765)
 layout_mode = 2
 
 [node name="back" type="TextureButton" parent="." unique_id=592364669]
@@ -62,3 +64,11 @@ theme = ExtResource("4_l5jkk")
 texture_normal = SubResource("AtlasTexture_lmqlo")
 texture_pressed = SubResource("AtlasTexture_lmqlo")
 stretch_mode = 1
+
+[node name="desc" type="Label" parent="." unique_id=634191409]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 560.0
+offset_bottom = 264.0
+text = "fdsafd"
