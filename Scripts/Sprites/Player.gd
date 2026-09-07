@@ -25,17 +25,32 @@ class_name player
 #animating 
 @onready var animator = $AnimatedSprite2D
 
-func _ready() -> void:
-	$KillHitbox.body_entered.connect(_on_area_2d_body_entered)
+func is_wall_jump_valid() -> bool:
+	if $AnimatedSprite2D/upWall.is_colliding() && $AnimatedSprite2D/downWall.is_colliding() && is_on_wall_only():
+		$AnimatedSprite2D/upWall.force_raycast_update()
+		$AnimatedSprite2D/downWall.force_raycast_update()
+		var up_collider = $AnimatedSprite2D/upWall.get_collider()
+		var down_collider = $AnimatedSprite2D/downWall.get_collider()
+		if up_collider is TileMapLayer && down_collider is TileMapLayer:
+			print("part 1")
+			var tile_pos = up_collider.local_to_map(up_collider.to_local($AnimatedSprite2D/upWall.get_collision_point()))
+			var tile_data = up_collider.get_cell_tile_data(tile_pos)
+			print(tile_pos)
+			print("tile_data: ", tile_data)
+			print("wallJumpable: ", tile_data.get_custom_data("wallJumpable") if tile_data else "NO TILE DATA")
+			if tile_data and tile_data.get_custom_data("wallJumpable"):
+				print("part 2")
+				tile_pos = down_collider.local_to_map(up_collider.to_local($AnimatedSprite2D/upWall.get_collision_point()))
+				tile_data = down_collider.get_cell_tile_data(tile_pos)
+				if tile_data and tile_data.get_custom_data("wallJumpable"):
+					return true
+	return false
+	
 
 func _physics_process(delta):
 			
-
+	var wall = is_wall_jump_valid()
 		
-		
-	
-	var wall = $AnimatedSprite2D/upWall.is_colliding() && $AnimatedSprite2D/downWall.is_colliding() && is_on_wall_only()
-	
 	# apply gravity
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
@@ -124,9 +139,7 @@ func _physics_process(delta):
 		velocity.x = 0
 	
 	var y_vel = velocity.y
-	var x_vel = velocity.x
-	print("Previous x_vel:", x_vel)
-	
+	var x_vel = velocity.x	
 	var was_floored = is_on_floor()
 	
 	move_and_slide()
@@ -135,9 +148,7 @@ func _physics_process(delta):
 		$CollisionShape2D.disabled = true
 		$RollShape.disabled = false
 	else:
-		
 		if $UnRoll.is_colliding():
-			print(x_vel)
 			animator.play("roll")
 			velocity.x = roll_vel
 		else:
@@ -159,12 +170,11 @@ func _physics_process(delta):
 	
 	if !was_floored && is_on_floor():
 		if Input.is_action_pressed("ui_down") && direction:
-			print("roll")
 			animator.play("roll")
 		else:
 			animator.play("land")
 	
-	if !was_floored && is_on_floor() && y_vel > 1200:
+	if !was_floored && is_on_floor() && y_vel > 1200 && (not (Input.is_action_pressed("ui_down") && direction) or y_vel > 1600):
 		animator.play("hard land")
 		var stretchMe = $AnimatedSprite2D.scale.y
 		$AnimatedSprite2D.scale.y /= 10

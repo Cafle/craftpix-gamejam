@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c87qxchpqw6ev" path="res://Assets/Character/images-removebg-preview (4).png" id="2_jlful"]
 [ext_resource type="Texture2D" uid="uid://b2e6rci5brsfl" path="res://Assets/Character/PlayerSheeet.png" id="4_v6dqo"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0qxnb"]
+radius = 5.564442
+
 [sub_resource type="Curve" id="Curve_v6dqo"]
 _limits = [0.0, 3.0, 0.0, 1.0]
 _data = [Vector2(0, 3), 0.0, 1.5776794, 0, 0, Vector2(1, 0.026785731), 0.7131303, 0.0, 0, 0]
@@ -564,10 +567,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qxnb"]
-size = Vector2(10.938271, 23.927464)
+size = Vector2(10.938271, 19.141972)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57q14"]
-size = Vector2(10.938271, 12.73283)
+size = Vector2(10.938271, 7.8618813)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
 radius = 18.0
@@ -581,6 +584,11 @@ gravity = 30.0
 wall_jump_frames = 7
 nudgeularity = 30
 chonkiness = 0.03
+
+[node name="Rounded feet" type="CollisionShape2D" parent="." unique_id=1950648930]
+position = Vector2(0, 16)
+scale = Vector2(2.925508, 2.9255085)
+shape = SubResource("CircleShape2D_0qxnb")
 
 [node name="Smash" type="GPUParticles2D" parent="." unique_id=1655648377]
 emitting = false
@@ -602,19 +610,19 @@ autoplay = "idle"
 
 [node name="downWall" type="RayCast2D" parent="AnimatedSprite2D" unique_id=1120436354]
 position = Vector2(0, 32)
-target_position = Vector2(17, 19)
+target_position = Vector2(19, 19)
 
 [node name="upWall" type="RayCast2D" parent="AnimatedSprite2D" unique_id=793905645]
 position = Vector2(0, 32)
 target_position = Vector2(18, -36)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1674230172]
-position = Vector2(0, -3)
+position = Vector2(0, -9.999998)
 scale = Vector2(2.925508, 2.9255085)
 shape = SubResource("RectangleShape2D_0qxnb")
 
 [node name="RollShape" type="CollisionShape2D" parent="." unique_id=1447577574]
-position = Vector2(0, 13.625001)
+position = Vector2(0, 6.5)
 scale = Vector2(2.925508, 2.9255085)
 shape = SubResource("RectangleShape2D_57q14")
 

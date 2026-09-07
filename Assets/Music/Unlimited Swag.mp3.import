@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cv202xp7g72fn"
+path="res://.godot/imported/Unlimited Swag.mp3-6a8ec5a92e7d45f88c05009d73c1e443.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Unlimited Swag.mp3"
+dest_files=["res://.godot/imported/Unlimited Swag.mp3-6a8ec5a92e7d45f88c05009d73c1e443.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
