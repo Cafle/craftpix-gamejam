@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://de4prfcro8hkk"]
+
+[ext_resource type="Texture2D" uid="uid://b2ck4gy6e6vna" path="res://Assets/Character/ye-removebg-preview.png" id="1_kex23"]
+[ext_resource type="Script" uid="uid://bo2wks1tds143" path="res://Scenes/UI/Shop_manager.gd" id="1_klb40"]
+[ext_resource type="Texture2D" uid="uid://dfia050scr3ie" path="res://Assets/Level/spongebob-kanye.png" id="3_meyip"]
+[ext_resource type="Theme" uid="uid://cfx1uvctms1cn" path="res://Assets/UI/MAIN_THEME.tres" id="5_tgufs"]
+[ext_resource type="Texture2D" uid="uid://buo67t4ru5fj8" path="res://Assets/UI/Main_menu.png" id="6_1wyn2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjtqb"]
+atlas = ExtResource("3_meyip")
+region = Rect2(0, 0, 300, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klb40"]
+atlas = ExtResource("3_meyip")
+region = Rect2(0, 166, 300, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgufs"]
+atlas = ExtResource("3_meyip")
+region = Rect2(0, 332, 300, 166)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kk4ix"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjtqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klb40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgufs")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkiqa"]
+atlas = ExtResource("6_1wyn2")
+region = Rect2(164, 6, 9, 9)
+
+[node name="Shop" type="Control" unique_id=1512107746]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_klb40")
+potions = 10
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=623956877]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="Bartender" type="Sprite2D" parent="VBoxContainer" unique_id=1296974572]
+position = Vector2(624, 120)
+scale = Vector2(3.4541385, 0.39317673)
+texture = ExtResource("1_kex23")
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=299720686]
+layout_mode = 2
+
+[node name="Potion" type="AnimatedSprite2D" parent="." unique_id=1614748682]
+position = Vector2(384, 784)
+sprite_frames = SubResource("SpriteFrames_kk4ix")
+
+[node name="back" type="TextureButton" parent="." unique_id=470158137]
+z_index = 5
+z_as_relative = false
+layout_mode = 0
+offset_left = 1064.0
+offset_top = 48.0
+offset_right = 1096.0
+offset_bottom = 80.0
+theme = ExtResource("5_tgufs")
+texture_normal = SubResource("AtlasTexture_fkiqa")
+texture_pressed = SubResource("AtlasTexture_fkiqa")
+stretch_mode = 1
