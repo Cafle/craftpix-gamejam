@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://ddijnsggtqjod"]
+
+[ext_resource type="Texture2D" uid="uid://dfia050scr3ie" path="res://Assets/Level/spongebob-kanye.png" id="1_1hx43"]
+[ext_resource type="Script" uid="uid://br8p0s1fo2bvo" path="res://Scripts/UI/potionItem.gd" id="2_xg6sn"]
+[ext_resource type="Resource" uid="uid://brpofv6fa3bpx" path="res://Assets/potion_items/test.tres" id="3_l5rpq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjtqb"]
+atlas = ExtResource("1_1hx43")
+region = Rect2(0, 0, 300, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klb40"]
+atlas = ExtResource("1_1hx43")
+region = Rect2(0, 166, 300, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgufs"]
+atlas = ExtResource("1_1hx43")
+region = Rect2(0, 332, 300, 166)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kk4ix"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjtqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klb40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgufs")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+size = Vector2(296, 160)
+
+[node name="Potion" type="Control" unique_id=23882873]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Potion" type="AnimatedSprite2D" parent="." unique_id=1815558133]
+sprite_frames = SubResource("SpriteFrames_kk4ix")
+autoplay = "default"
+frame_progress = 0.7417033
+script = ExtResource("2_xg6sn")
+data = ExtResource("3_l5rpq")
+
+[node name="Area2D" type="Area2D" parent="Potion" unique_id=1689554136]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Potion/Area2D" unique_id=812413821]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_1vivr")
