@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://brdee6rjftvff" path="res://Scenes/UI/Pause.tscn" id="6_o4euo"]
 [ext_resource type="PackedScene" uid="uid://bccucur7ysjjx" path="res://Scenes/Sprites/Coin.tscn" id="7_nj43y"]
 [ext_resource type="PackedScene" uid="uid://crd5g28nkhiw7" path="res://Scenes/UI/crate_object.tscn" id="8_mdlhh"]
+[ext_resource type="Texture2D" uid="uid://cscq1pcpbmqn3" path="res://Assets/Character/NPCsheet.png" id="10_arfpa"]
+[ext_resource type="Shader" uid="uid://g16ywxhl53ou" path="res://Assets/SFX/NPC_shader.gdshader" id="10_hs1xu"]
+[ext_resource type="Script" uid="uid://bm8cuw5sxwaft" path="res://Scenes/Level/NPC.gd" id="11_jnyrv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6ncyj"]
 friction = 0.0
@@ -3279,6 +3282,98 @@ custom_data_layer_3/type = 1
 sources/0 = SubResource("TileSetAtlasSource_arfpa")
 sources/2 = SubResource("TileSetAtlasSource_jnyrv")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jnyrv"]
+shader = ExtResource("10_hs1xu")
+shader_parameter/key_colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/new_colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/active_count = 0
+shader_parameter/tolerance = 0.05
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnyrv"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs1xu"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76awh"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipjxs"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kgr2"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aq2ub"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xaiv"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjnvc"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c78b3"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lexa"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qyj0"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qxnb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnyrv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs1xu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76awh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipjxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kgr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aq2ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xaiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjnvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c78b3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lexa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qyj0")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 12.0
+}]
+
 [node name="1" type="Node2D" unique_id=1281663097]
 script = ExtResource("1_autlg")
 
@@ -3367,3 +3462,14 @@ offset_bottom = -453.99994
 rotation = 0.0054605007
 theme_override_font_sizes/font_size = 30
 text = "Insert Bar No.2 here. Level ends."
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1998600070]
+material = SubResource("ShaderMaterial_jnyrv")
+position = Vector2(-1165, 547)
+sprite_frames = SubResource("SpriteFrames_0qxnb")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.23658419
+script = ExtResource("11_jnyrv")
+col1 = Color(0.8901961, 0, 1, 1)
+col2 = Color(0.9372549, 0.4117647, 1, 1)
