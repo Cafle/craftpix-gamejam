@@ -3284,10 +3284,62 @@ sources/2 = SubResource("TileSetAtlasSource_jnyrv")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jnyrv"]
 shader = ExtResource("10_hs1xu")
-shader_parameter/key_colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-shader_parameter/new_colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-shader_parameter/active_count = 0
+shader_parameter/skin = Color(0.9, 0.72, 0.56, 1)
+shader_parameter/dark_skin = Color(0.88, 0.7, 0.54, 1)
+shader_parameter/shirt = Color(0.2, 0.4, 0.7, 1)
+shader_parameter/shirt_light = Color(0.3, 0.55, 0.85, 1)
+shader_parameter/shirt_dark = Color(0.1, 0.25, 0.5, 1)
+shader_parameter/leg = Color(0.3, 0.3, 0.35, 1)
+shader_parameter/leg_dark = Color(0.18, 0.18, 0.22, 1)
+shader_parameter/ruffle1 = Color(0.8, 0.62, 0.46, 1)
+shader_parameter/ruffle2 = Color(0.8, 0.62, 0.46, 1)
+shader_parameter/ruffle_dark = Color(0.8, 0.62, 0.46, 1)
+shader_parameter/hair = Color(0.35, 0.18, 0.08, 1)
 shader_parameter/tolerance = 0.05
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lemox"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5bku"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74hir"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r767o"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xly03"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drgv3"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63ef1"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(768, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn61k"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(896, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_givet"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(1024, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e51ej"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(1152, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jprb"]
+atlas = ExtResource("10_arfpa")
+region = Rect2(1280, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jnyrv"]
 atlas = ExtResource("10_arfpa")
@@ -3335,6 +3387,44 @@ region = Rect2(1280, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0qxnb"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lemox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5bku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74hir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r767o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xly03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drgv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63ef1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn61k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_givet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e51ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jprb")
+}],
+"loop": 1,
+"name": &"Jump",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jnyrv")
@@ -3465,11 +3555,14 @@ text = "Insert Bar No.2 here. Level ends."
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1998600070]
 material = SubResource("ShaderMaterial_jnyrv")
-position = Vector2(-1165, 547)
+position = Vector2(-1244, 544)
 sprite_frames = SubResource("SpriteFrames_0qxnb")
 animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.23658419
+frame_progress = 0.58614
 script = ExtResource("11_jnyrv")
-col1 = Color(0.8901961, 0, 1, 1)
-col2 = Color(0.9372549, 0.4117647, 1, 1)
+SkinTone = Color(0.8980392, 0.72156864, 0.56078434, 1)
+ShirtTone = Color(0, 0.3764706, 0, 1)
+Ruffle1Tone = Color(0.7411765, 0, 0, 1)
+Ruffle2Tone = Color(0.5673677, 0.56736773, 0.56736773, 1)
+LegTone = Color(0.8980392, 0.72156864, 0.56078434, 1)
