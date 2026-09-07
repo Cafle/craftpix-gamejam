@@ -37,12 +37,15 @@ animations = [{
 size = Vector2(296, 160)
 
 [node name="Potion" type="Control" unique_id=23882873]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Potion" type="AnimatedSprite2D" parent="." unique_id=1815558133]
+position = Vector2(73, 50.5)
+scale = Vector2(0.47333333, 0.64457834)
 sprite_frames = SubResource("SpriteFrames_kk4ix")
 autoplay = "default"
 frame_progress = 0.7417033
