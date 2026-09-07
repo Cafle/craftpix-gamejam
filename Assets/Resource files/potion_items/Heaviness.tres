@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="potionData" format=3 uid="uid://bdg5qkd7hlaah"]
+
+[ext_resource type="Script" uid="uid://3oymf2mr7i32" path="res://Scripts/UI/potionData.gd" id="1_pv1ih"]
+
+[resource]
+script = ExtResource("1_pv1ih")
+name = "Stone Bone"
+taste = "Not that kind of bone!"
+desc = "big boi"
+cost = 3
+potency = 1
+texture = 15
+metadata/_custom_type_script = "uid://3oymf2mr7i32"

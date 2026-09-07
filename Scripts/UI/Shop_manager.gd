@@ -7,28 +7,38 @@ extends Control
 @onready var grid = $CenterContainer/GridContainer
 @onready var Back = $back
 
-@export var Testdata : potionData
-@export var Fire : potionData
-@export var water : potionData
+@export_group("Level presets")
+@export var level_presets: Array[levelPotions]
+
+@export_group("Potion Presets")
+@export var jump: potionData
+@export var speed: potionData
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
 	grid.columns = columns
-	var x = 0
+	
+	#spwan in potions
 	for i in potions - 1:
-		print(x)
-		x+=1
 		grid.add_child(potion.duplicate())
-	var potionslots = grid.get_children()
 	
-	potionslots[2].get_child(0).data = Fire
+	#get current level potions preset
+	var preset = level_presets[LevelSelect.current_level - 1]
 	
-	potionslots[5].get_child(0).data = water
+	var count = 0
+	for i in preset.potions:
+		if i != null:
+			print("set ", count, " to ", i.name)
+			grid.get_child(count).data = i
+		else:
+			print("null")
+		
+		count += 1
 	
-	for i in potionslots:
-		print(i.get_child(0).data.name)
+	
 		
 	Back.button_up.connect(_back)
 

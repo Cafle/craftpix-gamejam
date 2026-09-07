@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="potionData" format=3 uid="uid://67gmne1juveb"]
+
+[ext_resource type="Script" uid="uid://3oymf2mr7i32" path="res://Scripts/UI/potionData.gd" id="1_6305a"]
+
+[resource]
+script = ExtResource("1_6305a")
+name = "Quicksters Brew"
+taste = "testy"
+desc = "makes you faster"
+cost = 2
+potency = 1
+texture = 15
+metadata/_custom_type_script = "uid://3oymf2mr7i32"

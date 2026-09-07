@@ -1,4 +1,7 @@
 extends Node2D
+
+@export var potions : levelPotions
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var tilemap = $TileMapBase
@@ -89,3 +92,4 @@ func _layer_tiles(tileMap: TileMapLayer, source_id: int, replacementNode, coords
 		obj.position = tileMap.to_global(tileMap.map_to_local(i))
 		obj.show()
 	replacementNode.queue_free()
+	

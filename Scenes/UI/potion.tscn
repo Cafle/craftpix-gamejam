@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://dfia050scr3ie" path="res://Assets/Level/spongebob-kanye.png" id="1_1hx43"]
 [ext_resource type="Script" uid="uid://br8p0s1fo2bvo" path="res://Scripts/UI/potionItem.gd" id="2_xg6sn"]
-[ext_resource type="Resource" uid="uid://brpofv6fa3bpx" path="res://Assets/potion_items/test.tres" id="3_l5rpq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cjtqb"]
 atlas = ExtResource("1_1hx43")
@@ -42,6 +41,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_xg6sn")
 
 [node name="Potion" type="AnimatedSprite2D" parent="." unique_id=1815558133]
 position = Vector2(73, 50.5)
@@ -49,8 +49,6 @@ scale = Vector2(0.47333333, 0.64457834)
 sprite_frames = SubResource("SpriteFrames_kk4ix")
 autoplay = "default"
 frame_progress = 0.7417033
-script = ExtResource("2_xg6sn")
-data = ExtResource("3_l5rpq")
 
 [node name="Area2D" type="Area2D" parent="Potion" unique_id=1689554136]
 

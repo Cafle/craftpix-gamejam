@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://bo2wks1tds143" path="res://Scripts/UI/Shop_manager.gd" id="1_3jh66"]
 [ext_resource type="Texture2D" uid="uid://b2ck4gy6e6vna" path="res://Assets/Character/ye-removebg-preview.png" id="1_rllpi"]
 [ext_resource type="PackedScene" uid="uid://ddijnsggtqjod" path="res://Scenes/UI/potion.tscn" id="2_6qnyu"]
-[ext_resource type="Resource" uid="uid://brpofv6fa3bpx" path="res://Assets/potion_items/test.tres" id="2_eedsn"]
-[ext_resource type="Resource" uid="uid://67gmne1juveb" path="res://Assets/potion_items/fire.tres" id="3_y8wv3"]
-[ext_resource type="Resource" uid="uid://beuefpyp12p4i" path="res://Assets/potion_items/water.tres" id="4_jw70x"]
+[ext_resource type="Script" uid="uid://b1ae4tmrwodm2" path="res://Scripts/UI/levelPotions.gd" id="2_lmqlo"]
+[ext_resource type="Resource" uid="uid://bwmgaluvcwjlt" path="res://Assets/Resource files/level presets/lvl1.tres" id="3_lmqlo"]
 [ext_resource type="Theme" uid="uid://cfx1uvctms1cn" path="res://Assets/UI/MAIN_THEME.tres" id="4_l5jkk"]
 [ext_resource type="Texture2D" uid="uid://buo67t4ru5fj8" path="res://Assets/UI/Main_menu.png" id="5_4vyng"]
 
@@ -19,9 +18,7 @@ anchors_preset = 0
 script = ExtResource("1_3jh66")
 potions = 10
 columns = 5
-Testdata = ExtResource("2_eedsn")
-Fire = ExtResource("3_y8wv3")
-water = ExtResource("4_jw70x")
+level_presets = Array[ExtResource("2_lmqlo")]([ExtResource("3_lmqlo"), null, null, null, null, null, null, null, null, null])
 
 [node name="Container" type="Control" parent="." unique_id=830695573]
 anchors_preset = 0
@@ -29,6 +26,7 @@ offset_left = 576.0
 offset_top = 324.0
 offset_right = 576.0
 offset_bottom = 324.0
+mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Container" unique_id=1862759272]
 position = Vector2(96, -212)
@@ -40,10 +38,12 @@ propagate_maximum_size = false
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=822432679]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/h_separation = 24
 theme_override_constants/v_separation = 24
 

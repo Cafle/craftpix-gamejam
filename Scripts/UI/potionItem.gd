@@ -1,18 +1,22 @@
-extends AnimatedSprite2D
+extends Control
 
 #intakes a potionData preset
 @export var data : potionData
 
-@onready var area = $Area2D
+@onready var area = $Potion/Area2D
+
 func _ready() -> void:
-	area.mouse_entered.connect(_clicked)
 	pass # Replace with function body.
 
-
-func _clicked() -> void:
-	#print(data.name)
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			if data:
+				print(data.name)
+			else:
+				print("null")

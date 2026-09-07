@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="potionData" format=3 uid="uid://beuefpyp12p4i"]
 
-[ext_resource type="Script" uid="uid://3oymf2mr7i32" path="res://Scripts/UI/potionData.gd" id="1_3jop7"]
+[ext_resource type="Script" uid="uid://3oymf2mr7i32" path="res://Scripts/UI/potionData.gd" id="1_fxx0t"]
 
 [resource]
-script = ExtResource("1_3jop7")
-name = "Water"
+script = ExtResource("1_fxx0t")
+name = "Glorious Faith"
 taste = "testy"
 desc = "hopefully it works"
-cost = 1
+cost = 5
 potency = 1
 texture = 15
 metadata/_custom_type_script = "uid://3oymf2mr7i32"

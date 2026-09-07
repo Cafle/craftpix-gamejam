@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="potionData" format=3 uid="uid://brpofv6fa3bpx"]
 
-[ext_resource type="Script" uid="uid://3oymf2mr7i32" path="res://Scripts/UI/potionData.gd" id="1_8c8gr"]
+[ext_resource type="Script" uid="uid://3oymf2mr7i32" path="res://Scripts/UI/potionData.gd" id="1_0yk4e"]
 
 [resource]
-script = ExtResource("1_8c8gr")
-name = "Test"
+script = ExtResource("1_0yk4e")
+name = "Rabbits Meat"
 taste = "testy"
-desc = "hopefully it works"
-cost = 1
+desc = "jump higher"
+cost = 2
 potency = 1
 texture = 15
 metadata/_custom_type_script = "uid://3oymf2mr7i32"
