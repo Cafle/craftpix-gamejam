@@ -60,11 +60,21 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_72cso"]
 shader = ExtResource("9_rabrd")
-shader_parameter/key_color1 = Color(0.69803923, 0.0627451, 0.1882353, 1)
+shader_parameter/key_color1 = Color(1, 0, 0, 1)
 shader_parameter/new_color1 = Color(0, 1, 0, 1)
-shader_parameter/key_color2 = Color(0.5019608, 0.043137256, 0.38431373, 1)
+shader_parameter/key_color2 = Color(1, 0, 0, 1)
 shader_parameter/new_color2 = Color(0, 1, 0, 1)
-shader_parameter/key_color3 = Color(0.69803923, 0.0627451, 0.1882353, 1)
+shader_parameter/key_color3 = Color(1, 0, 0, 1)
+shader_parameter/new_color3 = Color(0, 1, 0, 1)
+shader_parameter/tolerance = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cyex1"]
+shader = ExtResource("9_rabrd")
+shader_parameter/key_color1 = Color(1, 0, 0, 1)
+shader_parameter/new_color1 = Color(0, 1, 0, 1)
+shader_parameter/key_color2 = Color(1, 0, 0, 1)
+shader_parameter/new_color2 = Color(0, 1, 0, 1)
+shader_parameter/key_color3 = Color(1, 0, 0, 1)
 shader_parameter/new_color3 = Color(0, 1, 0, 1)
 shader_parameter/tolerance = 0.1
 
@@ -127,7 +137,7 @@ material = SubResource("ShaderMaterial_72cso")
 texture = ExtResource("8_sdh80")
 
 [node name="zap" type="AnimatedSprite2D" parent="Node/Node2D" unique_id=1955124697]
-material = SubResource("ShaderMaterial_72cso")
+material = SubResource("ShaderMaterial_cyex1")
 sprite_frames = SubResource("SpriteFrames_1vivr")
 autoplay = "default"
 frame_progress = 0.9096342

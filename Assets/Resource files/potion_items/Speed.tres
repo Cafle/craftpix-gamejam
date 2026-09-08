@@ -9,5 +9,6 @@ taste = "testy"
 desc = "makes you faster"
 cost = 1
 potency = 1
+color = Color(0.222895, 0.6377486, 0, 1)
 texture = 15
 metadata/_custom_type_script = "uid://3oymf2mr7i32"

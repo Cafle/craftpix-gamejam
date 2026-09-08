@@ -9,6 +9,7 @@ extends Resource
 @export var desc: String
 @export var cost: int
 @export var potency: int
+@export var color: Color
 
 #change this type later for now its int
 @export var texture : int

@@ -3557,6 +3557,7 @@ theme_override_font_sizes/font_size = 30
 text = "Insert Bar No.2 here. Level ends."
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1998600070]
+visible = false
 material = SubResource("ShaderMaterial_jnyrv")
 position = Vector2(-1244, 544)
 sprite_frames = SubResource("SpriteFrames_0qxnb")

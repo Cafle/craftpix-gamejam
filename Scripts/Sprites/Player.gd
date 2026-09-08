@@ -67,7 +67,7 @@ func _physics_process(delta):
 		elif velocity.x >0:
 			animator.scale.x = -1
 		if Input.is_action_just_pressed("ui_down") && slideFrame < 1:
-			velocity.x *= 1.1
+			velocity.x *= 1.5
 			roll_vel = velocity.x
 			animator.play("slide")
 			slideFrame = slide_cooldown

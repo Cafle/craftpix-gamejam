@@ -1,8 +1,11 @@
 extends Control
 
 #intakes a potionData preset
-@export var data : potionData
-
+@export var data : potionData:
+	set(value):
+		data = value
+		_apply_data()
+@export var potion_card_scene: PackedScene
 @onready var area = $Potion/Area2D
 
 var bought = false
@@ -10,9 +13,12 @@ var bought = false
 func _ready() -> void:
 	area.mouse_entered.connect(_dispDesc)
 	area.mouse_exited.connect(_hideDesc)
+	_apply_data()
 	pass # Replace with function body.
 
-
+func _apply_data() -> void:
+	if data and is_node_ready():
+		$Potion.modulate = data.color
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

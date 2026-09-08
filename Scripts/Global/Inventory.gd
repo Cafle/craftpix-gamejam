@@ -2,6 +2,8 @@ extends Node
 
 @onready var potions : Array[potionData] 
 @onready var ogpotions : Array[potionData] 
+@onready var frame_delay = 87 # A decent time loaded into a level
+@onready var frame = 10
 
 signal potion_drunk()
 
@@ -20,10 +22,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_key_pressed(KEY_F) and Input.is_key_label_pressed(KEY_F) and not held:
+	var currentScene = get_tree().current_scene
+	
+	if currentScene is not Level:
+		frame = 0
+		return
+	
+	if frame < frame_delay:
+		frame += 1
+	
+	if frame == frame_delay and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not held:
 		_drink()
 		held = true
-	if not Input.is_key_pressed(KEY_F) and not Input.is_key_label_pressed(KEY_F):
+	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		held = false
 		
 func _activateHotbar(root : CanvasLayer) -> void:
@@ -45,12 +56,14 @@ func _activateHotbar(root : CanvasLayer) -> void:
 		
 		#64 pixels apart
 	vial.queue_free()
+	_refresh_vials()
 	
 func _add(pot : potionData) -> void:
 	for i in range (9):
 		ogpotions[9-i] = ogpotions[8 - i]
 	
 	ogpotions[0] = pot
+	
 	
 	
 func _reset() -> void:
@@ -69,4 +82,9 @@ func _drink() -> void:
 			items[i] = items[i + 1]
 			
 		potions[9] = null
-	
+	_refresh_vials()
+
+func _refresh_vials() -> void:
+	for i in range(items.size()):
+		if items[i]:
+			items[i].set_potion(potions[i])

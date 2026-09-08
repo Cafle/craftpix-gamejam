@@ -4,10 +4,11 @@
 
 [resource]
 script = ExtResource("1_0yk4e")
-name = "Rabbits Meat"
+name = "Rabbits Mead"
 taste = "testy"
 desc = "jump higher"
 cost = 1
 potency = 1
+color = Color(0, 0.61666656, 1, 1)
 texture = 15
 metadata/_custom_type_script = "uid://3oymf2mr7i32"
