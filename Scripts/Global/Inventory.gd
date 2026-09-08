@@ -5,6 +5,7 @@ extends Node
 @onready var frame_delay = 87 # A decent time loaded into a level
 @onready var frame = 10
 
+signal potion_trigger(pot: potionData)
 signal potion_drunk()
 
 var items : Array[Node2D] 
@@ -75,6 +76,7 @@ func _reset() -> void:
 func _drink() -> void:
 	if potions[0] is potionData:
 		potion_drunk.emit()
+		potion_trigger.emit(potions[0])
 		var bot = items[0]
 		var temp = potions[0]
 		for i in range (9):

@@ -29,6 +29,15 @@ class_name player
 @onready var animator = $AnimatedSprite2D
 @onready var roll_or_slide = ""
 
+func _ready() -> void:
+	Inventory.potion_trigger.connect(_drinkPotion)
+
+func _drinkPotion(pot: potionData) -> void:
+	match pot.id:
+		1:
+			speed *= 1.2
+		2:
+			jump_force *= 1.2
 
 func is_wall_jump_valid() -> bool:
 	if $AnimatedSprite2D/upWall.is_colliding() && $AnimatedSprite2D/downWall.is_colliding() && is_on_wall_only():

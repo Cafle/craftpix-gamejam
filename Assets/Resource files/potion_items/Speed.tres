@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_6305a")
-name = "Quicksters Brew"
+id = 1
+name = "Quickster's Brew"
 taste = "testy"
 desc = "makes you faster"
 cost = 1

@@ -4,6 +4,7 @@ extends Resource
 #resource defining framework for poiton data
 #potion types will represent different values of these variables
 
+@export var id: int
 @export var name: String
 @export var taste: String
 @export var desc: String
