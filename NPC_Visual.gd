@@ -51,7 +51,6 @@ var head_anchor_offsets: Dictionary = {
 	"idle": [
 		Vector2(0, -1),  # frame 0
 		Vector2(0, -1),  # frame 1
-		Vector2(0, -2), # frame 2
 		Vector2(0, -2), # frame 3
 		Vector2(0, -2),  # frame 4
 		Vector2(0, -1),  # frame 5
