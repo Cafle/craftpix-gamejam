@@ -1,6 +1,7 @@
 extends Node
 
 @onready var potions : Array[potionData] 
+@onready var ogpotions : Array[potionData] 
 
 signal potion_drunk()
 
@@ -13,6 +14,7 @@ var vial : Node2D
 func _ready() -> void:
 	items.resize(10)		
 	potions.resize(10)
+	ogpotions.resize(10)
 
 
 
@@ -25,30 +27,43 @@ func _process(delta: float) -> void:
 		held = false
 		
 func _activateHotbar(root : CanvasLayer) -> void:
+	potions = ogpotions.duplicate()
+	print(ogpotions)
 	photbar = root
 	vial = root.get_child(1)
 	items[0] = vial
-	for i in range (0, 9):
-		print("uo")
-		items[i + 1] = vial.duplicate()
-		root.add_child(items[i + 1])
-		items[i + 1].position.x += 64 * (i + 1)
+	var count = 0
+	for i in range (0,9):
+		if potions[i] == null:
+			break
+		count+=1
+		
+		
+	for i in range (0, count):
+		items[i] = vial.duplicate()
+		root.add_child(items[i])
+		items[i].position.x += 64 * (i)
 		
 		#64 pixels apart
-
+	vial.free()
+	
 func _add(pot : potionData) -> void:
+	print("begore ",potions)
 	print("addoing ", pot.name)
 	for i in range (9):
-		potions[9-i] = potions[8 - i]
-		potions[0] = pot
+		ogpotions[9-i] = ogpotions[8 - i]
+	
+	ogpotions[0] = pot
+	print("afgter ",potions)
 	
 func _drink() -> void:
-	potion_drunk.emit()
-	var bot = items[0]
-	var temp = potions[0]
-	for i in range (9):
-		potions[i] = potions[i + 1]
-		items[i] = items[i + 1]
-		
-	potions[9] = null
+	if potions[0] is potionData:
+		potion_drunk.emit()
+		var bot = items[0]
+		var temp = potions[0]
+		for i in range (9):
+			potions[i] = potions[i + 1]
+			items[i] = items[i + 1]
+			
+		potions[9] = null
 	
