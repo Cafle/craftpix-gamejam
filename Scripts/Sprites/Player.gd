@@ -15,6 +15,7 @@ class_name player
 @export var nudgeularity: int = 10
 @export var jump_buffer_timer: float = 100.0
 @export var chonkiness: float = 0.05
+@export var slide_cooldown: int = 70
 
 # coyote time + jump buffer variables
 
@@ -22,8 +23,12 @@ class_name player
 @onready var coyote: int = 0
 @onready var wjframe: int = 0
 @onready var roll_vel = 6 
+@onready var slideFrame = 0
 #animating 
+
 @onready var animator = $AnimatedSprite2D
+@onready var roll_or_slide = ""
+
 
 func is_wall_jump_valid() -> bool:
 	if $AnimatedSprite2D/upWall.is_colliding() && $AnimatedSprite2D/downWall.is_colliding() && is_on_wall_only():
@@ -54,22 +59,26 @@ func _physics_process(delta):
 	# apply gravity
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
+	if slideFrame > 0:
+		slideFrame -= 1
+		print(slideFrame)
 	if direction:
 		if velocity.x < 0:
 			animator.scale.x = 1
 		elif velocity.x >0:
 			animator.scale.x = -1
-		if Input.is_action_just_pressed("ui_down"):
-			velocity.x *= 1.3
+		if Input.is_action_just_pressed("ui_down") && slideFrame < 1:
+			velocity.x *= 1.1
 			roll_vel = velocity.x
-			animator.play("roll")
+			animator.play("slide")
+			slideFrame = slide_cooldown
 		
 		
 	if is_on_floor():
-		if direction && ((!animator.animation == "hard land" && !animator.animation == "roll")|| animator.animation == "idle"):
+		if direction && ((!animator.animation == "hard land" && !(animator.animation == "roll" || animator.animation == "slide"))|| animator.animation == "idle"):
 			animator.play("walk")
 		else:
-			if (!animator.animation == "land" && !animator.animation == "hard land" && !animator.animation == "roll") || !animator.is_playing():
+			if (!animator.animation == "land" && !animator.animation == "hard land" && !(animator.animation == "roll" || animator.animation == "slide")) || !animator.is_playing():
 				animator.play("idle")
 			
 			
@@ -130,7 +139,7 @@ func _physics_process(delta):
 	
 	
 	if wjframe == 0:
-		if ((!animator.animation == "hard land" || animator.animation == "idle") && !animator.animation == "roll"):
+		if ((!animator.animation == "hard land" || animator.animation == "idle") && !(animator.animation == "roll" || animator.animation == "slide")):
 			velocity.x = lerp(velocity.x, speed * direction, lerp_factor)
 	else:
 		wjframe -= 1
@@ -141,15 +150,17 @@ func _physics_process(delta):
 	var y_vel = velocity.y
 	var x_vel = velocity.x	
 	var was_floored = is_on_floor()
+	if (animator.animation == "slide" or animator.animation == "roll"):
+		roll_or_slide = animator.animation 
 	
 	move_and_slide()
 	
-	if animator.animation == "roll":
+	if animator.animation == "roll" or animator.animation == "slide":
 		$CollisionShape2D.disabled = true
 		$RollShape.disabled = false
 	else:
 		if $UnRoll.is_colliding():
-			animator.play("roll")
+			animator.play(roll_or_slide)
 			velocity.x = roll_vel
 		else:
 			$CollisionShape2D.disabled = false
