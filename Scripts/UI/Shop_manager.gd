@@ -21,6 +21,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Inventory._reset()
 	play.button_up.connect(_play)
 	
 	coins.text = "Coins: " + str(LevelSelect.Coins)
@@ -63,4 +64,4 @@ func _play() -> void:
 func _process(delta: float) -> void:
 	pass
 func _back() -> void:
-	self.hide()
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/Level Select.tscn")

@@ -28,7 +28,6 @@ func _process(delta: float) -> void:
 		
 func _activateHotbar(root : CanvasLayer) -> void:
 	potions = ogpotions.duplicate()
-	print(ogpotions)
 	photbar = root
 	vial = root.get_child(1)
 	items[0] = vial
@@ -45,16 +44,20 @@ func _activateHotbar(root : CanvasLayer) -> void:
 		items[i].position.x += 64 * (i)
 		
 		#64 pixels apart
-	vial.free()
+	vial.queue_free()
 	
 func _add(pot : potionData) -> void:
-	print("begore ",potions)
-	print("addoing ", pot.name)
 	for i in range (9):
 		ogpotions[9-i] = ogpotions[8 - i]
 	
 	ogpotions[0] = pot
-	print("afgter ",potions)
+	
+	
+func _reset() -> void:
+	LevelSelect.Coins = 10
+	ogpotions = [null, null, null, null,null,null,null,null,null,null]
+	potions = [null, null, null, null,null,null,null,null,null,null]
+	items = [null, null, null, null,null,null,null,null,null,null]
 	
 func _drink() -> void:
 	if potions[0] is potionData:

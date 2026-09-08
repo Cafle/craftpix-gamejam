@@ -3491,6 +3491,8 @@ position = Vector2(531, 584)
 [node name="KillObject" parent="KillObjects" unique_id=657475376 instance=ExtResource("5_uj2m6")]
 visible = false
 
+[node name="Photbar" parent="." unique_id=2047316283 instance=ExtResource("13_76awh")]
+
 [node name="Seeing Orb" type="CanvasLayer" parent="." unique_id=669311729]
 
 [node name="Pause" parent="Seeing Orb" unique_id=1471747148 instance=ExtResource("6_o4euo")]
@@ -3567,5 +3569,3 @@ ShirtTone = Color(0, 0.3764706, 0, 1)
 Ruffle1Tone = Color(0.7411765, 0, 0, 1)
 Ruffle2Tone = Color(0.5673677, 0.56736773, 0.56736773, 1)
 LegTone = Color(0.8980392, 0.72156864, 0.56078434, 1)
-
-[node name="Photbar" parent="." unique_id=2047316283 instance=ExtResource("13_76awh")]

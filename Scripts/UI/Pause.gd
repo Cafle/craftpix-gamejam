@@ -22,6 +22,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	#connect buttons to functions
 	
 	options.button_up.connect(_openOptions)
