@@ -1,0 +1,269 @@
+[gd_scene format=3 uid="uid://bbxdi5kal1jjh"]
+
+[ext_resource type="Shader" uid="uid://g16ywxhl53ou" path="res://Assets/SFX/NPC_shader.gdshader" id="1_u1jv5"]
+[ext_resource type="Texture2D" uid="uid://cscq1pcpbmqn3" path="res://Assets/Character/NPCsheet.png" id="2_tciug"]
+[ext_resource type="Script" uid="uid://bm8cuw5sxwaft" path="res://Scripts/Sprites/NPC.gd" id="3_bksm8"]
+[ext_resource type="Texture2D" uid="uid://dxyr3xbdfbcw6" path="res://Assets/Character/Hats.png" id="4_jc52h"]
+[ext_resource type="Texture2D" uid="uid://b6paeos3iv1y2" path="res://Assets/Character/ManHair.png" id="5_6sao2"]
+[ext_resource type="Texture2D" uid="uid://bmbtgba38doib" path="res://Assets/Character/manFaces.png" id="6_r5vbj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jnyrv"]
+shader = ExtResource("1_u1jv5")
+shader_parameter/skin = Color(0.9, 0.72, 0.56, 1)
+shader_parameter/dark_skin = Color(0.88, 0.7, 0.54, 1)
+shader_parameter/shirt = Color(0.2, 0.4, 0.7, 1)
+shader_parameter/shirt_light = Color(0.3, 0.55, 0.85, 1)
+shader_parameter/shirt_dark = Color(0.1, 0.25, 0.5, 1)
+shader_parameter/leg = Color(0.3, 0.3, 0.35, 1)
+shader_parameter/leg_dark = Color(0.18, 0.18, 0.22, 1)
+shader_parameter/ruffle1 = Color(0.8, 0.62, 0.46, 1)
+shader_parameter/ruffle2 = Color(0.8, 0.62, 0.46, 1)
+shader_parameter/ruffle_dark = Color(0.8, 0.62, 0.46, 1)
+shader_parameter/hair = Color(0.35, 0.18, 0.08, 1)
+shader_parameter/tolerance = 0.05
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lemox"]
+atlas = ExtResource("2_tciug")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5bku"]
+atlas = ExtResource("2_tciug")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74hir"]
+atlas = ExtResource("2_tciug")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r767o"]
+atlas = ExtResource("2_tciug")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xly03"]
+atlas = ExtResource("2_tciug")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drgv3"]
+atlas = ExtResource("2_tciug")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63ef1"]
+atlas = ExtResource("2_tciug")
+region = Rect2(768, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn61k"]
+atlas = ExtResource("2_tciug")
+region = Rect2(896, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_givet"]
+atlas = ExtResource("2_tciug")
+region = Rect2(1024, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e51ej"]
+atlas = ExtResource("2_tciug")
+region = Rect2(1152, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jprb"]
+atlas = ExtResource("2_tciug")
+region = Rect2(1280, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc52h"]
+atlas = ExtResource("2_tciug")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sao2"]
+atlas = ExtResource("2_tciug")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5vbj"]
+atlas = ExtResource("2_tciug")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru7ao"]
+atlas = ExtResource("2_tciug")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7isa0"]
+atlas = ExtResource("2_tciug")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1478n"]
+atlas = ExtResource("2_tciug")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnyrv"]
+atlas = ExtResource("2_tciug")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs1xu"]
+atlas = ExtResource("2_tciug")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76awh"]
+atlas = ExtResource("2_tciug")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipjxs"]
+atlas = ExtResource("2_tciug")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kgr2"]
+atlas = ExtResource("2_tciug")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aq2ub"]
+atlas = ExtResource("2_tciug")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xaiv"]
+atlas = ExtResource("2_tciug")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjnvc"]
+atlas = ExtResource("2_tciug")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c78b3"]
+atlas = ExtResource("2_tciug")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lexa"]
+atlas = ExtResource("2_tciug")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qyj0"]
+atlas = ExtResource("2_tciug")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qxnb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lemox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5bku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74hir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r767o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xly03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drgv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63ef1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn61k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_givet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e51ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jprb")
+}],
+"loop": 1,
+"name": &"Jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc52h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sao2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5vbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru7ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7isa0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1478n")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnyrv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs1xu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76awh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipjxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kgr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aq2ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xaiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjnvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c78b3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lexa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qyj0")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=677070055]
+material = SubResource("ShaderMaterial_jnyrv")
+position = Vector2(313, 114)
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_0qxnb")
+animation = &"idle"
+autoplay = "idle"
+script = ExtResource("3_bksm8")
+SkinTone = Color(0.8980392, 0.72156864, 0.56078434, 1)
+ShirtTone = Color(0, 0.3764706, 0, 1)
+Ruffle1Tone = Color(0.7411765, 0, 0, 1)
+Ruffle2Tone = Color(0.5673677, 0.56736773, 0.56736773, 1)
+LegTone = Color(0.8980392, 0.72156864, 0.56078434, 1)
+hat_sheet = ExtResource("4_jc52h")
+hair_sheet = ExtResource("5_6sao2")
+face_sheet = ExtResource("6_r5vbj")
+
+[node name="HatAnchor" type="Marker2D" parent="." unique_id=675167064]
+position = Vector2(0, -1)
+
+[node name="HatSprite" type="Sprite2D" parent="HatAnchor" unique_id=726346350]
+
+[node name="HairAnchor" type="Marker2D" parent="." unique_id=1349608219]
+position = Vector2(0, -1)
+
+[node name="HairSprite" type="Sprite2D" parent="HairAnchor" unique_id=1892850041]
+
+[node name="FaceAnchor" type="Marker2D" parent="." unique_id=2024851576]
+position = Vector2(0, -1)
+
+[node name="FaceSprite" type="Sprite2D" parent="FaceAnchor" unique_id=1459088361]
