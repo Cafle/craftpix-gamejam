@@ -8,6 +8,7 @@ extends Control
 @onready var Back = $back
 @onready var desc = $desc
 @onready var coins = $Coins
+@onready var play = $PLAy
 
 @export_group("Level presets")
 @export var level_presets: Array[levelPotions]
@@ -20,6 +21,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	play.button_up.connect(_play)
+	
 	coins.text = "Coins: " + str(LevelSelect.Coins)
 	
 	grid.columns = columns
@@ -52,8 +55,9 @@ func _buy(cost : int, index : int) -> void:
 	coins.text = "Coins: " + str(LevelSelect.Coins)
 	grid.get_child(index).get_child(0).play("bought")
 	
-	
-	pass
+func _play() -> void:
+	LevelSelect._playSong(LevelSelect.current_level)
+	get_tree().call_deferred("change_scene_to_file", LevelSelect.loadLevel(LevelSelect.current_level))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

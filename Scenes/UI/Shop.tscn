@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://docwgvmcsntsm"]
+[gd_scene format=3 uid="uid://bjqg0nrd07ds4"]
 
 [ext_resource type="Script" uid="uid://bo2wks1tds143" path="res://Scripts/UI/Shop_manager.gd" id="1_3jh66"]
 [ext_resource type="Texture2D" uid="uid://b2ck4gy6e6vna" path="res://Assets/Character/ye-removebg-preview.png" id="1_rllpi"]
@@ -7,10 +7,19 @@
 [ext_resource type="Resource" uid="uid://bwmgaluvcwjlt" path="res://Assets/Resource files/level presets/lvl1.tres" id="3_lmqlo"]
 [ext_resource type="Theme" uid="uid://cfx1uvctms1cn" path="res://Assets/UI/MAIN_THEME.tres" id="4_l5jkk"]
 [ext_resource type="Texture2D" uid="uid://buo67t4ru5fj8" path="res://Assets/UI/Main_menu.png" id="5_4vyng"]
+[ext_resource type="Texture2D" uid="uid://bj2lcck2ujf86" path="res://Assets/UI/Buttons.png" id="8_eedsn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lmqlo"]
 atlas = ExtResource("5_4vyng")
 region = Rect2(164, 6, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eedsn"]
+atlas = ExtResource("8_eedsn")
+region = Rect2(109, 182, 30, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8wv3"]
+atlas = ExtResource("8_eedsn")
+region = Rect2(161, 215, 22, 13)
 
 [node name="Shop" type="Control" unique_id=1132947318]
 layout_mode = 3
@@ -72,6 +81,7 @@ offset_left = 24.0
 offset_top = 16.0
 offset_right = 560.0
 offset_bottom = 264.0
+theme = ExtResource("4_l5jkk")
 text = "fdsafd"
 
 [node name="Coins" type="Label" parent="." unique_id=435451380]
@@ -80,4 +90,25 @@ offset_left = 976.0
 offset_top = 32.0
 offset_right = 1027.0
 offset_bottom = 55.0
+theme = ExtResource("4_l5jkk")
 text = "Coins :"
+
+[node name="PLAy" type="TextureButton" parent="." unique_id=2114204303]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 544.0
+offset_right = 1112.0
+offset_bottom = 624.0
+texture_normal = SubResource("AtlasTexture_eedsn")
+texture_pressed = SubResource("AtlasTexture_y8wv3")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="PLAy" unique_id=1927773918]
+layout_mode = 0
+offset_left = 32.0
+offset_top = -8.0
+offset_right = 200.0
+offset_bottom = 69.0
+theme = ExtResource("4_l5jkk")
+theme_override_font_sizes/font_size = 27
+text = "PLAY"
