@@ -1,11 +1,14 @@
 extends Node2D
-
-
 class_name Level
 @export var potions : levelPotions
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if LevelSelect.mode == "orb":
+		$Player.queue_free()
+	if LevelSelect.mode == "game":
+		$Foresight.queue_free()
+		
 	var tilemap = $TileMapBase
 	var killObject = $KillObjects/KillObject
 	var winObject = $WinObject

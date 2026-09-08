@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bsyy06njitgdf"]
+
+[ext_resource type="Script" uid="uid://cfxwq7mfwfp6l" path="res://Scenes/Level/foresight.gd" id="1_eu51x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qxnb"]
+
+[node name="Foresight" type="CharacterBody2D" unique_id=462147914]
+script = ExtResource("1_eu51x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=520398760]
+shape = SubResource("RectangleShape2D_0qxnb")
+disabled = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1700681963]
+zoom = Vector2(0.5, 0.5)

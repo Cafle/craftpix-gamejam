@@ -659,6 +659,7 @@ scale = Vector2(-1, 1)
 script = ExtResource("1_u1pkf")
 jump_force = 600.0
 gravity = 30.0
+lerp_factor = 0.5
 wall_jump_frames = 7
 nudgeularity = 30
 chonkiness = 0.03

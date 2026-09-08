@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bjqg0nrd07ds4"]
+[gd_scene format=3 uid="uid://de4prfcro8hkk"]
 
 [ext_resource type="Script" uid="uid://bo2wks1tds143" path="res://Scripts/UI/Shop_manager.gd" id="1_3jh66"]
 [ext_resource type="Texture2D" uid="uid://b2ck4gy6e6vna" path="res://Assets/Character/ye-removebg-preview.png" id="1_rllpi"]
@@ -8,6 +8,9 @@
 [ext_resource type="Theme" uid="uid://cfx1uvctms1cn" path="res://Assets/UI/MAIN_THEME.tres" id="4_l5jkk"]
 [ext_resource type="Texture2D" uid="uid://buo67t4ru5fj8" path="res://Assets/UI/Main_menu.png" id="5_4vyng"]
 [ext_resource type="Texture2D" uid="uid://bj2lcck2ujf86" path="res://Assets/UI/Buttons.png" id="8_eedsn"]
+[ext_resource type="Script" uid="uid://c6oaoc8350vwp" path="res://Scenes/UI/scrying_orb.gd" id="9_huxhe"]
+[ext_resource type="Shader" uid="uid://e6vnnddgd1lm" path="res://Scenes/Level/orb.gdshader" id="10_ug60e"]
+[ext_resource type="Texture2D" uid="uid://cyyg2fc76cnet" path="res://Assets/UI/orb.png" id="11_5xjke"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lmqlo"]
 atlas = ExtResource("5_4vyng")
@@ -20,6 +23,11 @@ region = Rect2(109, 182, 30, 14)
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8wv3"]
 atlas = ExtResource("8_eedsn")
 region = Rect2(161, 215, 22, 13)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5xjke"]
+shader = ExtResource("10_ug60e")
+shader_parameter/bulge = 0.6030000286425
+shader_parameter/radius = 0.490000023275
 
 [node name="Shop" type="Control" unique_id=1132947318]
 layout_mode = 3
@@ -39,8 +47,8 @@ offset_bottom = 324.0
 mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Container" unique_id=1862759272]
-position = Vector2(96, -212)
-scale = Vector2(3.3277404, 0.46420583)
+position = Vector2(19.00003, -223)
+scale = Vector2(2.0218122, 0.46420583)
 texture = ExtResource("1_rllpi")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=638452423]
@@ -112,3 +120,19 @@ offset_bottom = 69.0
 theme = ExtResource("4_l5jkk")
 theme_override_font_sizes/font_size = 27
 text = "PLAY"
+
+[node name="Scrying_Orb" type="Node2D" parent="." unique_id=237085134]
+script = ExtResource("9_huxhe")
+
+[node name="SubViewport" type="SubViewport" parent="Scrying_Orb" unique_id=48475338]
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Scrying_Orb" unique_id=1393521196]
+material = SubResource("ShaderMaterial_5xjke")
+position = Vector2(566, 147)
+
+[node name="Orb" type="Sprite2D" parent="Scrying_Orb" unique_id=1398697781]
+self_modulate = Color(1, 1, 1, 0.61960787)
+position = Vector2(566, 147)
+texture = ExtResource("11_5xjke")

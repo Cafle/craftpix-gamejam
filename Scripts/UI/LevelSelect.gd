@@ -1,5 +1,7 @@
 extends Node
 
+@onready var mode = "orb"
+
 @onready var SONGS: Array[AudioStreamMP3] = [
 		preload("res://Assets/Music/Ale and Maidens.mp3"),
 		preload("res://Assets/Music/Ale and Maidens.mp3"),

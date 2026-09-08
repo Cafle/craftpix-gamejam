@@ -35,9 +35,9 @@ func _ready() -> void:
 func _drinkPotion(pot: potionData) -> void:
 	match pot.id:
 		1:
-			speed *= 1.2
+			speed *= 1.5
 		2:
-			jump_force *= 1.2
+			jump_force *= 1.5
 
 func is_wall_jump_valid() -> bool:
 	if $AnimatedSprite2D/upWall.is_colliding() && $AnimatedSprite2D/downWall.is_colliding() && is_on_wall_only():
