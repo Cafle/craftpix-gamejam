@@ -106,7 +106,7 @@ text = "Ammendments"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="eopitois2" type="TextureButton" parent="Pause" unique_id=369526605]
+[node name="shop" type="TextureButton" parent="Pause" unique_id=369526605]
 layout_mode = 0
 offset_left = 68.000015
 offset_right = 308.0
@@ -117,14 +117,14 @@ texture_normal = SubResource("AtlasTexture_wapxx")
 texture_pressed = SubResource("AtlasTexture_fjwti")
 stretch_mode = 1
 
-[node name="Label" type="Label" parent="Pause/eopitois2" unique_id=1539451231]
+[node name="Label" type="Label" parent="Pause/shop" unique_id=1539451231]
 layout_mode = 0
 offset_left = 31.999992
 offset_top = 7.9999933
 offset_right = 218.0
 offset_bottom = 53.999992
 theme_override_font_sizes/font_size = 16
-text = "Ammendments"
+text = "Tavern"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -13,6 +13,8 @@ extends Control
 @onready var c_controls = $Controls/back
 @onready var quit = $Pause/quit
 @onready var resume = $Pause/back
+@onready var shop = $Pause/shop
+
 
 #sliders
 @onready var music = $Options/music
@@ -29,6 +31,7 @@ func _ready() -> void:
 	controls.button_up.connect(_openControls)
 	c_controls.button_up.connect(_closeControls)
 	restart.button_up.connect(_restart)
+	shop.button_up.connect(_shop)
 	
 	music.value_changed.connect(_changeVol.bind(1))
 	sfx.value_changed.connect(_changeVol.bind(2))
@@ -37,6 +40,10 @@ func _ready() -> void:
 	sfx.value = Sfx.volume_linear
 	music.value = Music.volume_linear
 
+
+func _shop() -> void:
+	LevelSelect.Coins = 10
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/shop.tscn")
 
 func _openOptions() -> void:
 	Pause_m.hide()
