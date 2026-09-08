@@ -7,6 +7,7 @@ extends Control
 @onready var grid = $CenterContainer/GridContainer
 @onready var Back = $back
 @onready var desc = $desc
+@onready var coins = $Coins
 
 @export_group("Level presets")
 @export var level_presets: Array[levelPotions]
@@ -19,6 +20,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	coins.text = "Coins: " + str(LevelSelect.Coins)
 	
 	grid.columns = columns
 	
@@ -32,7 +34,6 @@ func _ready() -> void:
 	var count = 0
 	for i in preset.potions:
 		if i != null:
-			print("set ", count, " to ", i.name)
 			grid.get_child(count).data = i
 		else:
 			print("null")
@@ -44,7 +45,15 @@ func _ready() -> void:
 	Back.button_up.connect(_back)
 
 func _changeDesc(text : String) -> void:
-	print(text)
+	desc.text = text
+
+func _buy(cost : int, index : int) -> void:
+	LevelSelect.Coins -= cost
+	coins.text = "Coins: " + str(LevelSelect.Coins)
+	grid.get_child(index).get_child(0).play("bought")
+	
+	
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

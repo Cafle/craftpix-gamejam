@@ -5,6 +5,8 @@ extends Control
 
 @onready var area = $Potion/Area2D
 
+var bought = false
+
 func _ready() -> void:
 	area.mouse_entered.connect(_dispDesc)
 	area.mouse_exited.connect(_hideDesc)
@@ -28,7 +30,12 @@ func _hideDesc() -> void:
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			if data:
-				print(data.name)
+			if data && !bought:
+				if data.cost > LevelSelect.Coins:
+					print("BOEKW")
+				else:
+					Inventory._add(data)
+					get_tree().current_scene._buy(data.cost, get_index())
+					bought = true
 			else:
 				print("null")

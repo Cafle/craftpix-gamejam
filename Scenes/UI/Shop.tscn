@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://de4prfcro8hkk"]
+[gd_scene format=3 uid="uid://docwgvmcsntsm"]
 
 [ext_resource type="Script" uid="uid://bo2wks1tds143" path="res://Scripts/UI/Shop_manager.gd" id="1_3jh66"]
 [ext_resource type="Texture2D" uid="uid://b2ck4gy6e6vna" path="res://Assets/Character/ye-removebg-preview.png" id="1_rllpi"]
@@ -37,6 +37,7 @@ texture = ExtResource("1_rllpi")
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=638452423]
 propagate_maximum_size = false
 layout_mode = 0
+offset_top = 216.0
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 2
@@ -72,3 +73,11 @@ offset_top = 16.0
 offset_right = 560.0
 offset_bottom = 264.0
 text = "fdsafd"
+
+[node name="Coins" type="Label" parent="." unique_id=435451380]
+layout_mode = 0
+offset_left = 976.0
+offset_top = 32.0
+offset_right = 1027.0
+offset_bottom = 55.0
+text = "Coins :"

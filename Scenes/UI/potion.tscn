@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://ddijnsggtqjod"]
 
 [ext_resource type="Texture2D" uid="uid://dfia050scr3ie" path="res://Assets/Level/spongebob-kanye.png" id="1_1hx43"]
+[ext_resource type="Texture2D" uid="uid://b1v05cprfp3re" path="res://GayHentaiFuta/ay-yo.jpeg" id="2_1hx43"]
 [ext_resource type="Script" uid="uid://br8p0s1fo2bvo" path="res://Scripts/UI/potionItem.gd" id="2_xg6sn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg6sn"]
+atlas = ExtResource("2_1hx43")
+region = Rect2(0, 0, 184, 148)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cjtqb"]
 atlas = ExtResource("1_1hx43")
@@ -19,6 +24,14 @@ region = Rect2(0, 332, 300, 166)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xg6sn")
+}],
+"loop": 1,
+"name": &"bought",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_cjtqb")
 }, {
 "duration": 1.0,
@@ -33,7 +46,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
-size = Vector2(296, 160)
+size = Vector2(333.9155, 179.28972)
 
 [node name="Potion" type="Control" unique_id=23882873]
 custom_minimum_size = Vector2(128, 128)
@@ -41,6 +54,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 1
 script = ExtResource("2_xg6sn")
 
 [node name="Potion" type="AnimatedSprite2D" parent="." unique_id=1815558133]
@@ -48,10 +62,10 @@ position = Vector2(73, 50.5)
 scale = Vector2(0.47333333, 0.64457834)
 sprite_frames = SubResource("SpriteFrames_kk4ix")
 autoplay = "default"
-frame_progress = 0.7417033
 
 [node name="Area2D" type="Area2D" parent="Potion" unique_id=1689554136]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Potion/Area2D" unique_id=812413821]
-position = Vector2(-4, 0)
+z_index = 1
+position = Vector2(-2.1126776, -3.8785067)
 shape = SubResource("RectangleShape2D_1vivr")
