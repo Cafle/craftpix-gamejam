@@ -113,7 +113,7 @@ func _setup_face_material() -> void:
 	face_material.shader = face_shader
 	face_material.set_shader_parameter("skin", SkinTone.darkened(0.15))
 	face_sprite.material = face_material
-	
+
 func _randomize_accessories() -> void:
 	_apply_head_accessory()
 	_apply_random_slice(face_sprite, face_sheet, face_count, face_chance)
