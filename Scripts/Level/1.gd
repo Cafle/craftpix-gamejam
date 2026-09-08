@@ -19,6 +19,8 @@ func _ready() -> void:
 	_replace_tiles(tilemap, 0, crateObject, Scan)
 	
 	$WinObject/Sprite2D/Area2D.body_entered.connect(_win)
+	
+	Inventory._activateHotbar($Photbar)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

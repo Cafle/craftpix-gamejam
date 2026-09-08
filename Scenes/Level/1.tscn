@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cscq1pcpbmqn3" path="res://Assets/Character/NPCsheet.png" id="10_arfpa"]
 [ext_resource type="Shader" uid="uid://g16ywxhl53ou" path="res://Assets/SFX/NPC_shader.gdshader" id="10_hs1xu"]
 [ext_resource type="Script" uid="uid://bm8cuw5sxwaft" path="res://Scenes/Level/NPC.gd" id="11_jnyrv"]
+[ext_resource type="PackedScene" uid="uid://7bwuopltt3ob" path="res://Scenes/UI/Photbar.tscn" id="13_76awh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6ncyj"]
 friction = 0.0
@@ -3566,3 +3567,5 @@ ShirtTone = Color(0, 0.3764706, 0, 1)
 Ruffle1Tone = Color(0.7411765, 0, 0, 1)
 Ruffle2Tone = Color(0.5673677, 0.56736773, 0.56736773, 1)
 LegTone = Color(0.8980392, 0.72156864, 0.56078434, 1)
+
+[node name="Photbar" parent="." unique_id=2047316283 instance=ExtResource("13_76awh")]

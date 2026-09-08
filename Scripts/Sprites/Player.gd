@@ -61,7 +61,6 @@ func _physics_process(delta):
 	
 	if slideFrame > 0:
 		slideFrame -= 1
-		print(slideFrame)
 	if direction:
 		if velocity.x < 0:
 			animator.scale.x = 1
