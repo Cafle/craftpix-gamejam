@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 class_name player
 # movement variables - tweak these to adjust feel
-@export var speed: float = 300
+@export var SPEED: float = 300
 @export var coyoteFrames: int = 5
-@export var jump_force: float = 400
+@export var JUMP_FORCE: float = 400
 @export var terminal_velocity: float = 2000
 @export var wall_slide_velocity: float = 100
 @export var gravity: float = 20
@@ -24,21 +24,43 @@ class_name player
 @onready var wjframe: int = 0
 @onready var roll_vel = 6 
 @onready var slideFrame = 0
+@onready var speed = 300
+@onready var jump_force = 400
 #animating 
 
 @onready var animator = $AnimatedSprite2D
 @onready var roll_or_slide = ""
 
+#buffs
+@onready var speed_buff = 0.0
+@onready var jump_buff = 0.0
+
 func _ready() -> void:
-	Inventory.potion_trigger.connect(_drinkPotion)
-
-func _drinkPotion(pot: potionData) -> void:
-	match pot.id:
-		1:
-			speed += 100
-		2:
-			jump_force += 80
-
+	pass
+	
+func _get_buffs() -> void:
+	#buff reset
+	speed_buff = 0
+	jump_buff = 0
+	
+	for i in 9:
+		var pot = Inventory.belly[i]
+		var amm = Inventory.amounts[i]
+		if pot and amm:
+			if amm:
+				match pot.id:
+					1:
+						speed_buff += 100 * amm
+					2:
+						jump_buff += 80 * amm
+	#mass reset to defaults
+	speed = SPEED
+	jump_force = JUMP_FORCE
+	#mass modification
+	speed += speed_buff
+	jump_force += jump_buff
+	
+	
 func is_wall_jump_valid() -> bool:
 	if $AnimatedSprite2D/upWall.is_colliding() && $AnimatedSprite2D/downWall.is_colliding() && is_on_wall_only():
 		$AnimatedSprite2D/upWall.force_raycast_update()
@@ -57,7 +79,8 @@ func is_wall_jump_valid() -> bool:
 	
 
 func _physics_process(delta):
-			
+	_get_buffs()
+	
 	var wall = is_wall_jump_valid()
 		
 	# apply gravity
@@ -162,7 +185,7 @@ func _physics_process(delta):
 		$CollisionShape2D.disabled = true
 		$RollShape.disabled = false
 	else:
-		if $UnRoll.is_colliding():
+		if $UnRoll.is_colliding() && $CollisionShape2D.disabled:
 			animator.play(roll_or_slide)
 			velocity.x = roll_vel
 		else:

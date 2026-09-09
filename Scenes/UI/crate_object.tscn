@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://crd5g28nkhiw7"]
 
-[ext_resource type="Script" uid="uid://c6ymd1hhfncc8" path="res://Scenes/Level/crate_object.gd" id="1_sodwm"]
+[ext_resource type="Script" uid="uid://c6ymd1hhfncc8" path="res://Scripts/Level/crate_object.gd" id="1_sodwm"]
 [ext_resource type="Texture2D" uid="uid://byqmadj646a4u" path="res://Assets/Level/TileMapVersion-1-0.png" id="2_5v11f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]

@@ -4,9 +4,13 @@ extends Node
 @onready var ogpotions : Array[potionData] 
 @onready var frame_delay = 87 # A decent time loaded into a level
 @onready var frame = 10
+@onready var amounts: Array[float] = [0,0,0,0,0,0,0,0,0,0]
+@onready var belly: Array[potionData] = []
+@onready var puking = false
 
 signal potion_trigger(pot: potionData)
 signal potion_drunk()
+signal barf(amount: float)
 
 var items : Array[Node2D] 
 var held = false
@@ -18,6 +22,7 @@ func _ready() -> void:
 	items.resize(10)		
 	potions.resize(10)
 	ogpotions.resize(10)
+	belly.resize(10)
 
 
 
@@ -90,3 +95,7 @@ func _refresh_vials() -> void:
 	for i in range(items.size()):
 		if items[i]:
 			items[i].set_potion(potions[i])
+			
+func _barf(left: float):
+	barf.emit(left)
+	

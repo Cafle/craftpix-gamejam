@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cms45vj63nioo"]
+
+[ext_resource type="Script" uid="uid://b4tmpsvownx71" path="res://Scripts/UI/stomach_bar.gd" id="1_gchyt"]
+[ext_resource type="Texture2D" uid="uid://cyv1opvoqersh" path="res://Assets/UI/ui.png" id="2_r0wlo"]
+[ext_resource type="Texture2D" uid="uid://c4g5oloyhcy7e" path="res://Assets/UI/barfSauce.png" id="3_gchyt"]
+[ext_resource type="Shader" uid="uid://blpnu4uhf41pc" path="res://Scenes/UI/potion_shader.gdshader" id="3_r0wlo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qxnb"]
+atlas = ExtResource("2_r0wlo")
+region = Rect2(11, 299, 90, 74)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1lnn2"]
+shader = ExtResource("3_r0wlo")
+shader_parameter/key_color1 = Color(0.69803923, 0.0627451, 0.1882353, 1)
+shader_parameter/new_color1 = Color(0, 1, 0, 1)
+shader_parameter/key_color2 = Color(0.85882354, 0.25490198, 0.38039216, 1)
+shader_parameter/new_color2 = Color(0, 1, 0, 1)
+shader_parameter/tolerance = 0.1
+
+[node name="Stomach bar" type="CanvasLayer" unique_id=1563503666]
+script = ExtResource("1_gchyt")
+
+[node name="Overbar" type="Sprite2D" parent="." unique_id=1055708627]
+position = Vector2(1091, 328)
+scale = Vector2(1.3111109, 8.702702)
+texture = SubResource("AtlasTexture_0qxnb")
+
+[node name="joose" type="Sprite2D" parent="." unique_id=1553943573]
+visible = false
+material = SubResource("ShaderMaterial_1lnn2")
+position = Vector2(1090, 611)
+texture = ExtResource("3_gchyt")
+offset = Vector2(0, -50)

@@ -10,9 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://brdee6rjftvff" path="res://Scenes/UI/Pause.tscn" id="6_o4euo"]
 [ext_resource type="PackedScene" uid="uid://bccucur7ysjjx" path="res://Scenes/Sprites/Coin.tscn" id="7_nj43y"]
 [ext_resource type="PackedScene" uid="uid://crd5g28nkhiw7" path="res://Scenes/UI/crate_object.tscn" id="8_mdlhh"]
+[ext_resource type="PackedScene" uid="uid://cms45vj63nioo" path="res://Scenes/UI/stomach_bar.tscn" id="9_aq2ub"]
 [ext_resource type="Texture2D" uid="uid://cscq1pcpbmqn3" path="res://Assets/Character/NPCsheet.png" id="10_arfpa"]
 [ext_resource type="Shader" uid="uid://g16ywxhl53ou" path="res://Assets/SFX/NPC_shader.gdshader" id="10_hs1xu"]
-[ext_resource type="Script" uid="uid://bm8cuw5sxwaft" path="res://Scenes/Level/NPC.gd" id="11_jnyrv"]
+[ext_resource type="Script" uid="uid://bm8cuw5sxwaft" path="res://Scripts/Sprites/NPC.gd" id="11_jnyrv"]
 [ext_resource type="PackedScene" uid="uid://7bwuopltt3ob" path="res://Scenes/UI/Photbar.tscn" id="13_76awh"]
 [ext_resource type="PackedScene" uid="uid://bsyy06njitgdf" path="res://Scenes/Level/Foresight.tscn" id="14_ipjxs"]
 
@@ -3536,6 +3537,8 @@ position = Vector2(531, 584)
 visible = false
 
 [node name="Photbar" parent="." unique_id=2047316283 instance=ExtResource("13_76awh")]
+
+[node name="Stomach bar" parent="." unique_id=1563503666 instance=ExtResource("9_aq2ub")]
 
 [node name="Seeing Orb" type="CanvasLayer" parent="." unique_id=669311729]
 
