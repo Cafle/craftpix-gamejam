@@ -23,6 +23,7 @@ extends Control
 func _ready() -> void:
 	Inventory._reset()
 	LevelSelect.mode = "orb"
+	
 	play.button_up.connect(_play)
 	
 	coins.text = "Coins: " + str(LevelSelect.Coins)

@@ -4,10 +4,7 @@ class_name Level
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if LevelSelect.mode == "orb":
-		$Player.queue_free()
-	if LevelSelect.mode == "game":
-		$Foresight.queue_free()
+
 		
 	var tilemap = $TileMapBase
 	var killObject = $KillObjects/KillObject
@@ -29,7 +26,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if LevelSelect.mode == "orb":
+		$"clouded Vision".show()
+		if $Player:
+			$Player.queue_free()
+	if LevelSelect.mode == "game":
+		$"clouded Vision".hide()
+		if $Foresight:
+			$Foresight.queue_free()
+
 
 func _win() -> void:
 	# THIS FUNCTION WAS THE ROOT CAUSE of progress not saving.

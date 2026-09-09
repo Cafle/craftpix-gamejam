@@ -54,9 +54,10 @@ texture = ExtResource("1_rllpi")
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=638452423]
 propagate_maximum_size = false
 layout_mode = 0
-offset_top = 216.0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = 142.0
+offset_top = 138.0
+offset_right = 1294.0
+offset_bottom = 570.0
 mouse_filter = 2
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=822432679]
@@ -122,6 +123,7 @@ theme_override_font_sizes/font_size = 27
 text = "PLAY"
 
 [node name="Scrying_Orb" type="Node2D" parent="." unique_id=237085134]
+position = Vector2(-419, 347)
 script = ExtResource("9_huxhe")
 
 [node name="SubViewport" type="SubViewport" parent="Scrying_Orb" unique_id=48475338]

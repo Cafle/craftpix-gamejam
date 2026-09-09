@@ -5,6 +5,7 @@ extends Node2D
 func _ready() -> void:
 	var path = "res://Scenes/Level/"+ str(LevelSelect.current_level) + ".tscn"
 	var level = load(path).instantiate()
+	level
 	$SubViewport.add_child(level)
 	$Sprite2D.texture = $SubViewport.get_texture()
 

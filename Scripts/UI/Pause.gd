@@ -77,6 +77,7 @@ func _restart() -> void:
 	
 func _quit() -> void:
 	get_tree().change_scene_to_file("res://Scenes/UI/Level Select.tscn")
+	
 	pass
 	
 func _changeVol(num: float, track: int) -> void:
