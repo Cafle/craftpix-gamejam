@@ -132,7 +132,6 @@ sprite_frames = SubResource("SpriteFrames_1vivr")
 autoplay = "default"
 frame_progress = 0.9096342
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node" unique_id=691327595]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Node" unique_id=1973414393]
 stream = ExtResource("10_hwx1e")
-volume_db = 13.607
-attenuation = 0.0
+volume_db = 5.197

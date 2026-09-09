@@ -1,10 +1,11 @@
 extends Node2D
 class_name Level
 @export var potions : levelPotions
+@onready var donezo = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
+	
 		
 	var tilemap = $TileMapBase
 	var killObject = $KillObjects/KillObject
@@ -28,12 +29,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if LevelSelect.mode == "orb":
 		$"clouded Vision".show()
-		if $Player:
+		if !donezo:
 			$Player.queue_free()
+			donezo = true
 	if LevelSelect.mode == "game":
 		$"clouded Vision".hide()
-		if $Foresight:
+		if !donezo:
 			$Foresight.queue_free()
+			donezo = true
 
 
 func _win() -> void:

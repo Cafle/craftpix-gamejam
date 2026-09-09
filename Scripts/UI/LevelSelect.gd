@@ -4,7 +4,7 @@ extends Node
 
 @onready var SONGS: Array[AudioStreamMP3] = [
 		preload("res://Assets/Music/Ale and Maidens.mp3"),
-		preload("res://Assets/Music/Ale and Maidens.mp3"),
+		preload("res://Assets/Music/First Sip.mp3"),
 		preload("res://Assets/Music/Teseract of Infinite Knowlege.mp3")	
 	]
 	
