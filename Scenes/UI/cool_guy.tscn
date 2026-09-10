@@ -1,0 +1,340 @@
+[gd_scene format=3 uid="uid://8ca8fw4r3b4x"]
+
+[ext_resource type="Script" uid="uid://dhbtuyjxr4n1b" path="res://Scenes/UI/title_graphics.gd" id="1_o8ljk"]
+[ext_resource type="Texture2D" uid="uid://cvuh4egrdouon" path="res://Assets/UI/TitleScreenAssets6.png" id="2_tbmrh"]
+[ext_resource type="Texture2D" uid="uid://csnsveapw1i8o" path="res://Assets/UI/TitleScreenAssets4.png" id="3_1ltdh"]
+[ext_resource type="Texture2D" uid="uid://t1rtrbvt2scs" path="res://Assets/UI/TitleScreenAssets3.png" id="4_jfi4x"]
+[ext_resource type="Texture2D" uid="uid://02p6i7ab2are" path="res://Assets/UI/TitleScreenAssets1.png" id="5_jjlgq"]
+[ext_resource type="Texture2D" uid="uid://cbq4kwo3yrfj" path="res://Assets/UI/TitleScreenAssets2.png" id="6_s0cdx"]
+[ext_resource type="Texture2D" uid="uid://gii07noryxhw" path="res://Assets/UI/TitleScreenAssets7.png" id="7_ymx86"]
+[ext_resource type="Texture2D" uid="uid://cmk7n6ypurunu" path="res://Assets/UI/TitleScreenAssets5.png" id="8_b6u1s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qxnb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tbmrh")
+}],
+"loop": 1,
+"name": &"Cutie",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1ltdh")
+}],
+"loop": 1,
+"name": &"Downey",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jfi4x")
+}],
+"loop": 1,
+"name": &"Split",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jjlgq")
+}],
+"loop": 1,
+"name": &"Stool",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_s0cdx")
+}],
+"loop": 1,
+"name": &"Webby",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ymx86")
+}],
+"loop": 1,
+"name": &"Wierd",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_b6u1s")
+}],
+"loop": 1,
+"name": &"Womp",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_t0ka2"]
+resource_name = "Blink out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(232, 428), Vector2(232, 428)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Thomas_Foolery:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.44714507, 0.4471451), Vector2(0, 0.447)]
+}
+
+[sub_resource type="Animation" id="Animation_qavul"]
+resource_name = "Blink_in"
+length = 1.5333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(232, 428), Vector2(232, 428)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Thomas_Foolery:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.447, 0), Vector2(0.447, 0.447)]
+}
+
+[sub_resource type="Animation" id="Animation_fkobf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(216, 436)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Thomas_Foolery:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Thomas_Foolery:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.44714507, 0.4471451)]
+}
+
+[sub_resource type="Animation" id="Animation_v3y71"]
+resource_name = "Slide in"
+length = 3.1333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.96),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-614, 336), Vector2(216, 436.00003)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Thomas_Foolery:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.96),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jfece"]
+resource_name = "Slide out"
+length = 2.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.03),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(216, 436.00003), Vector2(-294, 446.00003)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Thomas_Foolery:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.03),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.5707964]
+}
+
+[sub_resource type="Animation" id="Animation_ohf4x"]
+resource_name = "slam in"
+length = 2.1666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.29666662),
+"transitions": PackedFloat32Array(1, 0.7845841, 0.7845841),
+"update": 0,
+"values": [Vector2(-282, 262), Vector2(-109.00003, 206), Vector2(213, 436)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Thomas_Foolery:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.29666662),
+"transitions": PackedFloat32Array(1, 0.7845841, 0.7845841),
+"update": 0,
+"values": [0.0, -1.0471976, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Thomas_Foolery:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.29666662),
+"transitions": PackedFloat32Array(1, 0.7845841, 0.7845841),
+"update": 0,
+"values": [Vector2(0.44714507, 0.4471451), Vector2(1.1259043, 1.1259044), Vector2(0.4, 0.4)]
+}
+
+[sub_resource type="Animation" id="Animation_kl5yw"]
+resource_name = "slide up in"
+length = 3.2333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.97),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(216, 822), Vector2(216, 428.00003)]
+}
+
+[sub_resource type="Animation" id="Animation_umpsy"]
+resource_name = "spin out"
+length = 2.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.01, 1.5, 2.02),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(216, 446.00003), Vector2(216, 446.00003), Vector2(216, 446.00003), Vector2(216, 446.00003), Vector2(216, 446.00003)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Thomas_Foolery:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.01, 1.5, 2.02),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 3.1415927, 6.2831855, 9.42477796076938, 12.566370614359172]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Thomas_Foolery:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.01, 1.5, 2.02),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.44714507, 0.4471451), Vector2(0.306541, 0.3473267), Vector2(0.191805, 0.08155994), Vector2(0.061039206, 0.06636797), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k67d4"]
+_data = {
+&"Blink out": SubResource("Animation_t0ka2"),
+&"Blink_in": SubResource("Animation_qavul"),
+&"RESET": SubResource("Animation_fkobf"),
+&"Slide in": SubResource("Animation_v3y71"),
+&"Slide out": SubResource("Animation_jfece"),
+&"slam in": SubResource("Animation_ohf4x"),
+&"slide up in": SubResource("Animation_kl5yw"),
+&"spin out": SubResource("Animation_umpsy")
+}
+
+[node name="Cool_Guy" type="Node2D" unique_id=144017933]
+script = ExtResource("1_o8ljk")
+
+[node name="Thomas_Foolery" type="AnimatedSprite2D" parent="." unique_id=887397981]
+position = Vector2(216, 436)
+scale = Vector2(0.44714507, 0.4471451)
+sprite_frames = SubResource("SpriteFrames_0qxnb")
+animation = &"Womp"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1206022931]
+root_motion_local = true
+libraries/ = SubResource("AnimationLibrary_k67d4")

@@ -18,6 +18,8 @@ func _ready() -> void:
 	Inventory.potion_trigger.connect(_yummy_in_my_tummy)
 	current_tummy.resize(10)
 	amount_left.resize(10)
+	Inventory.amounts = [0,0,0,0,0,0,0,0,0,0]
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -34,7 +36,7 @@ func _yummy_in_my_tummy(pot: potionData) -> void:
 	add_child(clone)
 	clone.show()
 	amount_left[belly] = 1.0
-	clone.position.y -= _sum(amount_left) * 100 -100
+	clone.position.y -= _sum(amount_left) * 50 -50
 	current_tummy[belly] = clone
 	Inventory.belly[belly] = pot
 	Inventory.amounts[belly] = 1
@@ -49,9 +51,8 @@ func _barf(delta: float):
 	barf.emit()
 	if glorp_progress > 0:
 		glorp_progress -= delta/2
-		print(glorp_progress)
 		if current_tummy[belly-1]:
-			current_tummy[belly-1].scale.y = glorp_progress
+			current_tummy[belly-1].scale.y = glorp_progress/2
 			Inventory._barf(glorp_progress)
 			amount_left[belly] = glorp_progress
 	if glorp_progress <= 0.0:

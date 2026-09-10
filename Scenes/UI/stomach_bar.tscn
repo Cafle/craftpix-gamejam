@@ -29,5 +29,6 @@ texture = SubResource("AtlasTexture_0qxnb")
 visible = false
 material = SubResource("ShaderMaterial_1lnn2")
 position = Vector2(1090, 611)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_gchyt")
 offset = Vector2(0, -50)

@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://clpjyv4ct2x77" path="res://Scripts/UI/TitleMenu.gd" id="1_blp2d"]
 [ext_resource type="Theme" uid="uid://cfx1uvctms1cn" path="res://Assets/UI/MAIN_THEME.tres" id="2_blp2d"]
+[ext_resource type="Texture2D" uid="uid://86cbct3spmba" path="res://Assets/UI/Title.png" id="2_tt4j0"]
 [ext_resource type="Texture2D" uid="uid://buo67t4ru5fj8" path="res://Assets/UI/Main_menu.png" id="3_b4gak"]
 [ext_resource type="Texture2D" uid="uid://bj2lcck2ujf86" path="res://Assets/UI/Buttons.png" id="3_iubqq"]
 [ext_resource type="Texture2D" uid="uid://cyv1opvoqersh" path="res://Assets/UI/ui.png" id="4_gyje7"]
+[ext_resource type="PackedScene" uid="uid://8ca8fw4r3b4x" path="res://Scenes/UI/cool_guy.tscn" id="6_qfo3m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_15edo"]
 atlas = ExtResource("3_iubqq")
@@ -34,82 +36,6 @@ region = Rect2(193, 455, 56, 11)
 atlas = ExtResource("4_gyje7")
 region = Rect2(11, 443, 90, 90)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dmmdr"]
-region = Rect2(0, 0, 160, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2q342"]
-region = Rect2(160, 0, 160, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_64f7j"]
-region = Rect2(0, 100, 160, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g0wk8"]
-region = Rect2(160, 0, 160, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lv56i"]
-region = Rect2(0, 0, 160, 100)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_x64pm"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dmmdr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2q342")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_64f7j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g0wk8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lv56i")
-}],
-"loop": 1,
-"name": &"Title",
-"speed": 3.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ffl23"]
-region = Rect2(0, 0, 288, 162)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3dwhf"]
-region = Rect2(288, 0, 288, 162)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m7vdt"]
-region = Rect2(576, 0, 288, 162)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x64pm"]
-region = Rect2(0, 162, 288, 162)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hh73h"]
-region = Rect2(288, 162, 288, 162)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lmw6r"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ffl23")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3dwhf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m7vdt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x64pm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hh73h")
-}],
-"loop": 1,
-"name": &"new_animation",
-"speed": 5.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_8vrlf"]
 atlas = ExtResource("3_b4gak")
 region = Rect2(96, 4, 80, 168)
@@ -127,24 +53,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_blp2d")
 
-[node name="Title" type="Label" parent="." unique_id=1025298019]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.31500003
-anchor_right = 0.5
-anchor_bottom = 0.31500003
-offset_left = -372.0
-offset_top = -156.12001
-offset_right = 372.0
-offset_bottom = 22.87999
-grow_horizontal = 2
-theme = ExtResource("2_blp2d")
-theme_override_font_sizes/font_size = 64
-text = "Femboys vs. Futas"
-horizontal_alignment = 1
-
 [node name="TITLE" type="Control" parent="." unique_id=1161245110]
 anchors_preset = 0
 offset_left = 448.0
@@ -153,6 +61,21 @@ offset_right = 569.0
 offset_bottom = 427.0
 scale = Vector2(2.0379472, 2.0388608)
 theme = ExtResource("2_blp2d")
+
+[node name="bg" type="ColorRect" parent="TITLE" unique_id=1760691520]
+z_index = -2
+layout_mode = 0
+offset_left = -219.82904
+offset_top = -137.82204
+offset_right = 345.44562
+offset_bottom = 180.00249
+pivot_offset = Vector2(282.63733, 158.91225)
+color = Color(0.8, 0.24800001, 0.24800001, 1)
+
+[node name="Title" type="Sprite2D" parent="TITLE" unique_id=784081956]
+position = Vector2(62.80829, 21.09021)
+scale = Vector2(0.49068978, 0.4904699)
+texture = ExtResource("2_tt4j0")
 
 [node name="start" type="TextureButton" parent="TITLE" unique_id=1390614927]
 layout_mode = 0
@@ -254,20 +177,13 @@ mouse_filter = 2
 texture = SubResource("AtlasTexture_v5gy4")
 stretch_mode = 5
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2049331059]
-position = Vector2(582, 153)
-scale = Vector2(3.11637, 3.11637)
-sprite_frames = SubResource("SpriteFrames_x64pm")
-animation = &"Title"
-autoplay = "Title"
-frame = 3
-frame_progress = 0.31814447
+[node name="Cool_Guy" parent="TITLE" unique_id=1793466634 instance=ExtResource("6_qfo3m")]
+position = Vector2(345.44565, -137.82207)
+scale = Vector2(-0.447, 0.447)
 
-[node name="bg" type="AnimatedSprite2D" parent="." unique_id=1425081680]
-z_index = -1
-position = Vector2(855, 422)
-sprite_frames = SubResource("SpriteFrames_lmw6r")
-animation = &"new_animation"
+[node name="Cool_Guy2" parent="TITLE" unique_id=144017933 instance=ExtResource("6_qfo3m")]
+position = Vector2(-219.82906, -137.82208)
+scale = Vector2(0.447, 0.447)
 
 [node name="Options" type="Control" parent="." unique_id=1402613683]
 visible = false

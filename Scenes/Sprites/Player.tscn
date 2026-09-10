@@ -614,7 +614,7 @@ gradient = SubResource("Gradient_x3irn")
 particle_flag_disable_z = true
 angle_min = -114.899994
 angle_max = 1.0728835e-05
-spread = 54.213
+spread = 49.252
 initial_velocity_max = 169.56999
 gravity = Vector3(0, 98, 0)
 scale_max = 4.65
@@ -626,6 +626,44 @@ turbulence_noise_scale = 7.993
 turbulence_influence_min = 0.0
 sub_emitter_mode = 3
 sub_emitter_amount_at_collision = 1
+
+[sub_resource type="Gradient" id="Gradient_p63x1"]
+offsets = PackedFloat32Array(0, 0.043814432, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.7666667, 0, 1, 1, 0.03333336, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mfxiq"]
+gradient = SubResource("Gradient_p63x1")
+
+[sub_resource type="Curve" id="Curve_g5x6d"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.22907491, 2.0982146), -19.614052, -19.614052, 0, 0, Vector2(0.5198238, 5), 2.2245204, 2.2245204, 0, 0, Vector2(0.81057274, 2.8571432), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_ii4m5"]
+curve = SubResource("Curve_g5x6d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3mw3n"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 7.100011
+spread = 17.008
+initial_velocity_min = 189.78
+initial_velocity_max = 324.82
+angular_velocity_min = -225.99
+angular_velocity_max = -105.110016
+gravity = Vector3(-30, 0, 0)
+scale_min = 0.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_ii4m5")
+color_ramp = SubResource("GradientTexture1D_mfxiq")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.009999977
+turbulence_enabled = true
+turbulence_noise_strength = 12.91
+turbulence_influence_min = 0.019000001
+turbulence_influence_max = 0.116000004
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 1.490116e-06
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qxnb"]
 size = Vector2(10.938271, 19.141972)
@@ -668,7 +706,7 @@ process_material = SubResource("ParticleProcessMaterial_0qxnb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=809624899]
 position = Vector2(1, -32)
 sprite_frames = SubResource("SpriteFrames_0qxnb")
-animation = &"wall slide"
+animation = &"walk"
 autoplay = "idle"
 
 [node name="downWall" type="RayCast2D" parent="AnimatedSprite2D" unique_id=1120436354]
@@ -680,7 +718,7 @@ position = Vector2(0, 32)
 target_position = Vector2(18, -36)
 
 [node name="mouth" type="Marker2D" parent="AnimatedSprite2D" unique_id=1531278394]
-position = Vector2(-7, 12)
+position = Vector2(10, 9)
 gizmo_extents = 32.5
 script = ExtResource("6_x3irn")
 
@@ -688,10 +726,23 @@ script = ExtResource("6_x3irn")
 emitting = false
 amount = 200
 speed_scale = 2.35
+local_coords = true
 trail_enabled = true
 trail_sections = 22
 trail_section_subdivisions = 2
 process_material = SubResource("ParticleProcessMaterial_w24ir")
+
+[node name="Flames" type="GPUParticles2D" parent="AnimatedSprite2D/mouth" unique_id=784172135]
+emitting = false
+amount = 300
+preprocess = 1.2
+speed_scale = 3.44
+local_coords = true
+trail_enabled = true
+trail_lifetime = 0.5
+trail_sections = 22
+trail_section_subdivisions = 8
+process_material = SubResource("ParticleProcessMaterial_3mw3n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1674230172]
 visible = false

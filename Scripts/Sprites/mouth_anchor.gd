@@ -44,7 +44,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	_update_mouth()
-	$Barf.emitting = Inventory.puking
+	var fire := false
+	for pot in Inventory.belly:
+		if pot and pot.id == 88:
+			fire = true
+			break
+	$Flames.emitting = Inventory.puking and fire
+	$Barf.emitting = Inventory.puking and not fire
 
 func _update_mouth() -> void:
 	var animator = get_parent()
@@ -55,5 +61,7 @@ func _update_mouth() -> void:
 	if MOUTH_ROTATIONS.has(anim):
 		var rots: Array = MOUTH_ROTATIONS[anim]
 		rotation_degrees = rots[min(animator.frame, rots.size() - 1)]
+	elif anim.contains("wall"):
+		rotation_degrees = 180
 	else:
 		rotation_degrees = 0.0

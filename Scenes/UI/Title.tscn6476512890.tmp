@@ -1,0 +1,658 @@
+[gd_scene format=3 uid="uid://cut5a7ch532n3"]
+
+[ext_resource type="Script" uid="uid://clpjyv4ct2x77" path="res://Scripts/UI/TitleMenu.gd" id="1_blp2d"]
+[ext_resource type="Theme" uid="uid://cfx1uvctms1cn" path="res://Assets/UI/MAIN_THEME.tres" id="2_blp2d"]
+[ext_resource type="Texture2D" uid="uid://86cbct3spmba" path="res://Assets/UI/Title.png" id="2_tt4j0"]
+[ext_resource type="Texture2D" uid="uid://buo67t4ru5fj8" path="res://Assets/UI/Main_menu.png" id="3_b4gak"]
+[ext_resource type="Texture2D" uid="uid://bj2lcck2ujf86" path="res://Assets/UI/Buttons.png" id="3_iubqq"]
+[ext_resource type="Script" uid="uid://dhbtuyjxr4n1b" path="res://Scenes/UI/title_graphics.gd" id="3_sydhl"]
+[ext_resource type="Texture2D" uid="uid://cyv1opvoqersh" path="res://Assets/UI/ui.png" id="4_gyje7"]
+[ext_resource type="Texture2D" uid="uid://cvuh4egrdouon" path="res://Assets/UI/TitleScreenAssets6.png" id="7_178wh"]
+[ext_resource type="Texture2D" uid="uid://csnsveapw1i8o" path="res://Assets/UI/TitleScreenAssets4.png" id="8_sydhl"]
+[ext_resource type="Texture2D" uid="uid://t1rtrbvt2scs" path="res://Assets/UI/TitleScreenAssets3.png" id="9_edfne"]
+[ext_resource type="Texture2D" uid="uid://02p6i7ab2are" path="res://Assets/UI/TitleScreenAssets1.png" id="10_dvr26"]
+[ext_resource type="Texture2D" uid="uid://cbq4kwo3yrfj" path="res://Assets/UI/TitleScreenAssets2.png" id="11_fa1pr"]
+[ext_resource type="Texture2D" uid="uid://gii07noryxhw" path="res://Assets/UI/TitleScreenAssets7.png" id="12_n5r2y"]
+[ext_resource type="Texture2D" uid="uid://cmk7n6ypurunu" path="res://Assets/UI/TitleScreenAssets5.png" id="13_jdpg1"]
+[ext_resource type="Script" uid="uid://bbr6sp4d70b4b" path="res://Scenes/UI/title_graphics2.gd" id="14_edfne"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15edo"]
+atlas = ExtResource("3_iubqq")
+region = Rect2(113, 454, 56, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oclb"]
+atlas = ExtResource("3_iubqq")
+region = Rect2(193, 455, 56, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfdur"]
+atlas = ExtResource("3_iubqq")
+region = Rect2(113, 454, 56, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ithen"]
+atlas = ExtResource("3_iubqq")
+region = Rect2(193, 455, 56, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_178wh"]
+atlas = ExtResource("3_iubqq")
+region = Rect2(113, 454, 56, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sydhl"]
+atlas = ExtResource("3_iubqq")
+region = Rect2(193, 455, 56, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5gy4"]
+atlas = ExtResource("4_gyje7")
+region = Rect2(11, 443, 90, 90)
+
+[sub_resource type="Animation" id="Animation_t0ka2"]
+resource_name = "Blink out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(232, 428), Vector2(232, 428)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.44714507, 0.4471451), Vector2(0, 0.447)]
+}
+
+[sub_resource type="Animation" id="Animation_qavul"]
+resource_name = "Blink_in"
+length = 1.5333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(232, 428), Vector2(232, 428)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.447, 0), Vector2(0.447, 0.447)]
+}
+
+[sub_resource type="Animation" id="Animation_fkobf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(216, 436)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.44714507, 0.4471451)]
+}
+
+[sub_resource type="Animation" id="Animation_v3y71"]
+resource_name = "Slide in"
+length = 3.1333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.96),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-614, 336), Vector2(216, 436.00003)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.96),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jfece"]
+resource_name = "Slide out"
+length = 2.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.03),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(216, 436.00003), Vector2(-294, 446.00003)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.03),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.5707964]
+}
+
+[sub_resource type="Animation" id="Animation_ohf4x"]
+resource_name = "slam in"
+length = 2.1666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.29666662),
+"transitions": PackedFloat32Array(1, 0.7845841, 0.7845841),
+"update": 0,
+"values": [Vector2(-282, 262), Vector2(-109.00003, 206), Vector2(213, 436)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.29666662),
+"transitions": PackedFloat32Array(1, 0.7845841, 0.7845841),
+"update": 0,
+"values": [0.0, -1.0471976, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.29666662),
+"transitions": PackedFloat32Array(1, 0.7845841, 0.7845841),
+"update": 0,
+"values": [Vector2(0.44714507, 0.4471451), Vector2(1.1259043, 1.1259044), Vector2(0.4, 0.4)]
+}
+
+[sub_resource type="Animation" id="Animation_kl5yw"]
+resource_name = "slide up in"
+length = 3.2333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.97),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(216, 822), Vector2(216, 428.00003)]
+}
+
+[sub_resource type="Animation" id="Animation_umpsy"]
+resource_name = "spin out"
+length = 2.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.01, 1.5, 2.02),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(216, 446.00003), Vector2(216, 446.00003), Vector2(216, 446.00003), Vector2(216, 446.00003), Vector2(216, 446.00003)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.01, 1.5, 2.02),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 3.1415927, 6.2831855, 9.42477796076938, 12.566370614359172]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TITLE/Cool_Guy/AnimationPlayer/Thomas_Foolery:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.01, 1.5, 2.02),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.44714507, 0.4471451), Vector2(0.306541, 0.3473267), Vector2(0.191805, 0.08155994), Vector2(0.061039206, 0.06636797), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k67d4"]
+_data = {
+&"Blink out": SubResource("Animation_t0ka2"),
+&"Blink_in": SubResource("Animation_qavul"),
+&"RESET": SubResource("Animation_fkobf"),
+&"Slide in": SubResource("Animation_v3y71"),
+&"Slide out": SubResource("Animation_jfece"),
+&"slam in": SubResource("Animation_ohf4x"),
+&"slide up in": SubResource("Animation_kl5yw"),
+&"spin out": SubResource("Animation_umpsy")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qxnb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_178wh")
+}],
+"loop": 1,
+"name": &"Cutie",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_sydhl")
+}],
+"loop": 1,
+"name": &"Downey",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_edfne")
+}],
+"loop": 1,
+"name": &"Split",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_dvr26")
+}],
+"loop": 1,
+"name": &"Stool",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_fa1pr")
+}],
+"loop": 1,
+"name": &"Webby",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_n5r2y")
+}],
+"loop": 1,
+"name": &"Wierd",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_jdpg1")
+}],
+"loop": 1,
+"name": &"Womp",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vrlf"]
+atlas = ExtResource("3_b4gak")
+region = Rect2(96, 4, 80, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt4j0"]
+atlas = ExtResource("3_b4gak")
+region = Rect2(164, 6, 9, 9)
+
+[node name="Control" type="Control" unique_id=823947577]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_blp2d")
+
+[node name="TITLE" type="Control" parent="." unique_id=1161245110]
+anchors_preset = 0
+offset_left = 448.0
+offset_top = 281.0
+offset_right = 569.0
+offset_bottom = 427.0
+scale = Vector2(2.0379472, 2.0388608)
+theme = ExtResource("2_blp2d")
+
+[node name="bg" type="ColorRect" parent="TITLE" unique_id=1760691520]
+z_index = -2
+layout_mode = 0
+offset_left = -219.82904
+offset_top = -137.82204
+offset_right = 345.44562
+offset_bottom = 180.00249
+pivot_offset = Vector2(282.63733, 158.91225)
+color = Color(0.8, 0.24800001, 0.24800001, 1)
+
+[node name="Title" type="Sprite2D" parent="TITLE" unique_id=784081956]
+position = Vector2(62.80829, 21.09021)
+scale = Vector2(0.49068978, 0.4904699)
+texture = ExtResource("2_tt4j0")
+
+[node name="start" type="TextureButton" parent="TITLE" unique_id=1390614927]
+layout_mode = 0
+offset_left = -9.323107
+offset_right = 150.6769
+offset_bottom = 35.0
+theme = ExtResource("2_blp2d")
+texture_normal = SubResource("AtlasTexture_15edo")
+texture_pressed = SubResource("AtlasTexture_0oclb")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TITLE/start" unique_id=1464323705]
+layout_mode = 0
+offset_left = 12.757936
+offset_top = -9.809399
+offset_right = 146.75793
+offset_bottom = 36.1906
+theme_override_font_sizes/font_size = 14
+text = "Commence"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="eopitois" type="TextureButton" parent="TITLE" unique_id=1784606736]
+layout_mode = 0
+offset_left = -9.323107
+offset_top = 41.19948
+offset_right = 150.6769
+offset_bottom = 76.19948
+theme = ExtResource("2_blp2d")
+button_mask = 3
+texture_normal = SubResource("AtlasTexture_kfdur")
+texture_pressed = SubResource("AtlasTexture_ithen")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TITLE/eopitois" unique_id=857575990]
+layout_mode = 0
+offset_top = -8.337989
+offset_right = 162.0
+offset_bottom = 37.66201
+theme_override_font_sizes/font_size = 12
+text = "ammendments"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="quit" type="TextureButton" parent="TITLE" unique_id=1683901437]
+layout_mode = 0
+offset_left = -8.832418
+offset_top = 120.165146
+offset_right = 151.16759
+offset_bottom = 155.16513
+theme = ExtResource("2_blp2d")
+button_mask = 3
+texture_normal = SubResource("AtlasTexture_178wh")
+texture_pressed = SubResource("AtlasTexture_sydhl")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TITLE/quit" unique_id=743048432]
+layout_mode = 0
+offset_left = 39.255184
+offset_top = -11.280808
+offset_right = 123.25519
+offset_bottom = 34.719193
+theme_override_font_sizes/font_size = 14
+text = "Depart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="rebirth" type="TextureButton" parent="TITLE" unique_id=1590729092]
+layout_mode = 0
+offset_left = -8.341724
+offset_top = 80.92755
+offset_right = 151.65825
+offset_bottom = 115.92752
+theme = ExtResource("2_blp2d")
+button_mask = 3
+texture_normal = SubResource("AtlasTexture_178wh")
+texture_pressed = SubResource("AtlasTexture_sydhl")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TITLE/rebirth" unique_id=1229272544]
+layout_mode = 0
+offset_left = 19.627592
+offset_top = -8.828459
+offset_right = 145.6276
+offset_bottom = 37.17154
+theme_override_font_sizes/font_size = 14
+text = "ReJourney"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TITLE" unique_id=2077926771]
+z_index = -2
+layout_mode = 0
+offset_left = -17.664845
+offset_top = -16.675983
+offset_right = 161.43694
+offset_bottom = 170.19307
+mouse_filter = 2
+texture = SubResource("AtlasTexture_v5gy4")
+stretch_mode = 5
+
+[node name="Cool_Guy" type="Control" parent="TITLE" unique_id=1181631832]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_sydhl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TITLE/Cool_Guy" unique_id=2086275243]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_k67d4")
+
+[node name="Thomas_Foolery" type="AnimatedSprite2D" parent="TITLE/Cool_Guy/AnimationPlayer" unique_id=1553578113]
+position = Vector2(216, 436)
+scale = Vector2(0.44714507, 0.4471451)
+sprite_frames = SubResource("SpriteFrames_0qxnb")
+animation = &"Womp"
+
+[node name="Cool_Guy2" type="Control" parent="TITLE" unique_id=724720160]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("14_edfne")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TITLE/Cool_Guy2" unique_id=2049588560]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_k67d4")
+
+[node name="Thomas_Foolery" type="AnimatedSprite2D" parent="TITLE/Cool_Guy2/AnimationPlayer" unique_id=1602984245]
+position = Vector2(216, 436)
+scale = Vector2(0.44714507, 0.4471451)
+sprite_frames = SubResource("SpriteFrames_0qxnb")
+animation = &"Womp"
+
+[node name="Options" type="Control" parent="." unique_id=1402613683]
+visible = false
+anchors_preset = 0
+offset_left = 390.0
+offset_top = 236.0
+offset_right = 750.0
+offset_bottom = 572.0
+theme = ExtResource("2_blp2d")
+
+[node name="music" type="HSlider" parent="Options" unique_id=338260500]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 100.000015
+offset_right = 306.0
+offset_bottom = 156.00002
+theme = ExtResource("2_blp2d")
+max_value = 1.0
+step = 0.01
+tick_count = 4
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="RichTextLabel" type="Label" parent="Options/music" unique_id=1143313625]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -52.0
+offset_right = 228.0
+offset_bottom = 4.0
+theme = ExtResource("2_blp2d")
+text = "Sonnets 'n Tunes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sfx" type="HSlider" parent="Options" unique_id=1277889957]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 4.0000153
+offset_right = 306.0
+offset_bottom = 60.000015
+theme = ExtResource("2_blp2d")
+max_value = 1.0
+step = 0.01
+tick_count = 4
+ticks_position = 3
+
+[node name="RichTextLabel" type="Label" parent="Options/sfx" unique_id=1643722386]
+layout_mode = 0
+offset_left = -14.0
+offset_top = -34.0
+offset_right = 236.0
+offset_bottom = 22.0
+theme = ExtResource("2_blp2d")
+text = "Knocks 'n clatters"
+
+[node name="options" type="Label" parent="Options" unique_id=1162886862]
+layout_mode = 0
+offset_left = -382.0
+offset_top = -218.99998
+offset_right = 770.0
+offset_bottom = 13.000015
+theme = ExtResource("2_blp2d")
+theme_override_font_sizes/font_size = 26
+text = "Inclinations"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Options" unique_id=1652959102]
+z_index = -1
+layout_mode = 0
+offset_left = 40.0
+offset_top = -220.0
+offset_right = 120.0
+offset_bottom = -52.0
+scale = Vector2(3.690606, 3.690606)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_8vrlf")
+
+[node name="back" type="TextureButton" parent="Options" unique_id=807604382]
+z_index = 5
+z_as_relative = false
+layout_mode = 0
+offset_left = 290.0
+offset_top = -212.0
+offset_right = 322.0
+offset_bottom = -180.0
+theme = ExtResource("2_blp2d")
+texture_normal = SubResource("AtlasTexture_tt4j0")
+texture_pressed = SubResource("AtlasTexture_tt4j0")
+stretch_mode = 0
+
+[node name="C_Shake" type="Control" parent="Options" unique_id=1376074909]
+anchors_preset = 0
+offset_left = -390.0
+offset_top = -236.0
+offset_right = -350.0
+offset_bottom = -196.0
+
+[node name="Label" type="Label" parent="Options/C_Shake" unique_id=657719024]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 384.0
+offset_right = 742.0
+offset_bottom = 484.0
+theme_override_constants/line_spacing = -21
+theme_override_font_sizes/font_size = 20
+text = "   Ocular 
+Tremblen"
+
+[node name="C_shake" type="CheckBox" parent="Options/C_Shake" unique_id=2044798911]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 394.0
+offset_right = 480.0
+offset_bottom = 418.0
+scale = Vector2(4, 4)
+theme = ExtResource("2_blp2d")
+icon_alignment = 1
+
+[connection signal="button_up" from="TITLE/start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="TITLE/quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="TITLE/rebirth" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="Options/back" to="." method="_on_back_button_up"]

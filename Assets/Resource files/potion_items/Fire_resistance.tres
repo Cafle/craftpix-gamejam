@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_y1wvn")
-name = "Dragon Scale"
+id = 88
+name = "fire res"
 taste = "testy"
-desc = "hopefully it works"
 cost = 1
 potency = 1
 texture = 15

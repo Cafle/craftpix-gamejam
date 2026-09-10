@@ -6,6 +6,16 @@ extends Control
 @onready var quit = $TITLE/quit
 @onready var rebirth = $TITLE/rebirth
 
+@onready var bg: ColorRect = $TITLE/bg
+var _spectrum: AudioEffectSpectrumAnalyzerInstance
+var _hue := 0.0
+var _cooldown := 0.0
+
+@export var beat_threshold: float = 0.015
+@export var hue_step: float = 0.14
+@export var min_gap: float = 0.25
+
+
 
 #sliders
 @onready var music = $Options/music
@@ -14,7 +24,6 @@ extends Control
 
 
 func _start_pressed() -> void:
-	print("Start attempted")
 	get_tree().change_scene_to_file("res://Scenes/UI/Level Select.tscn")
 
 func _changeVol(num: float, track: int) -> void:
@@ -38,7 +47,6 @@ func _options_pressed() -> void:
 	$Options.show()
 
 func _quit_pressed() -> void:
-	print("Quit attempted")
 	get_tree().quit()
 
 #Needs button first before 
@@ -50,6 +58,9 @@ func _new_save_pressed() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var bus := AudioServer.get_bus_index("Music")
+	_spectrum = AudioServer.get_bus_effect_instance(bus, 0)
+	
 	start.button_up.connect(_start_pressed)
 	options.button_up.connect(_options_pressed)
 	quit.button_up.connect(_quit_pressed)
@@ -64,8 +75,15 @@ pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	pass
+	if not _spectrum:
+		return
+	_cooldown = maxf(_cooldown - delta, 0.0)
+	var mag := _spectrum.get_magnitude_for_frequency_range(20.0, 150.0).length()
+	if mag > beat_threshold and _cooldown <= 0.0:
+		_hue = fmod(_hue + hue_step, 1.0)
+		bg.color = Color.from_hsv(_hue, 0.5, 0.55)
+		_cooldown = min_gap
+
 
 
 func _on_eopitois_button_up() -> void:
