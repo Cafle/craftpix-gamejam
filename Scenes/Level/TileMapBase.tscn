@@ -1321,6 +1321,7 @@ texture = ExtResource("1_6ncyj")
 [sub_resource type="TileSet" id="TileSet_0qxnb"]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 17
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_6ncyj")
 custom_data_layer_0/name = "kill"
 custom_data_layer_0/type = 1

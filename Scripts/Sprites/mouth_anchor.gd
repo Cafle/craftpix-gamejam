@@ -49,8 +49,10 @@ func _process(delta: float) -> void:
 		if pot and pot.id == 88:
 			fire = true
 			break
-	$Flames.emitting = Inventory.puking and fire
+	var breathing_fire := Inventory.puking and fire
+	$Flames.emitting = breathing_fire
 	$Barf.emitting = Inventory.puking and not fire
+	$FireBreathArea/CollisionShape2D.disabled = not breathing_fire
 
 func _update_mouth() -> void:
 	var animator = get_parent()

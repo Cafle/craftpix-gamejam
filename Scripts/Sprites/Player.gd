@@ -261,3 +261,5 @@ func camera_shake(strength: float, duration: float = 0.3):
 		tween.tween_property(camera, "position", original_pos + offset, duration / shakes)
 	tween.tween_property(camera, "position", original_pos, duration / shakes)
 	
+func is_slamming() -> bool:
+	return velocity.y >= 1200

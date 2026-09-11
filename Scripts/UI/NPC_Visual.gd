@@ -122,7 +122,7 @@ func _apply_head_accessory() -> void:
 	if is_female:
 		# Women: hair or bald only, never a hat
 		hat_sprite.visible = false
-		_apply_random_slice(hair_sprite, hair_sheet, hair_count, hair_chance)
+		_apply_random_slice(hair_sprite, hair_sheet, hair_count, 1.0)
 	else:
 		# Men: hat, hair, or bald - three-way split
 		var roll := randf()

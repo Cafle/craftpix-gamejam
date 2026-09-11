@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dr7g0b70x4huo"]
+[gd_scene load_steps=98 format=3 uid="uid://dr7g0b70x4huo"]
 
 [ext_resource type="Texture2D" uid="uid://b2ck4gy6e6vna" path="res://Assets/Character/ye-removebg-preview.png" id="1_3liw5"]
 [ext_resource type="Script" uid="uid://baen3bn8wjgug" path="res://Scripts/Sprites/Player.gd" id="1_u1pkf"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bshyrl0oxkk3b" path="res://Scripts/Sprites/mouth_anchor.gd" id="6_x3irn"]
 [ext_resource type="Script" uid="uid://b3jfl767l70b8" path="res://Scenes/Sprites/drunk_effects.gd" id="7_p63x1"]
 [ext_resource type="Shader" uid="uid://ckye4pg06614n" path="res://Scenes/Sprites/Drunk_effects.gdshader" id="8_mfxiq"]
+[ext_resource type="Script" uid="uid://bn4pl70f3wry6" path="res://Scenes/Sprites/fire_breath.gd" id="9_fire1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mfxiq"]
 shader = ExtResource("8_mfxiq")
@@ -678,6 +679,9 @@ collision_friction = 1.0
 collision_bounce = 1.0
 collision_use_scale = true
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ai85"]
+size = Vector2(49, 29)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qxnb"]
 size = Vector2(10.938271, 19.141972)
 
@@ -695,6 +699,7 @@ radius = 18.0
 height = 80.0
 
 [node name="Player" type="CharacterBody2D" unique_id=671294045]
+position = Vector2(481, 1228)
 scale = Vector2(-1, 1)
 script = ExtResource("1_u1pkf")
 JUMP_FORCE = 500.0
@@ -775,6 +780,15 @@ trail_lifetime = 0.5
 trail_sections = 22
 trail_section_subdivisions = 8
 process_material = SubResource("ParticleProcessMaterial_3mw3n")
+
+[node name="FireBreathArea" type="Area2D" parent="AnimatedSprite2D/mouth" unique_id=1784240915]
+position = Vector2(32, -7)
+collision_layer = 8
+script = ExtResource("9_fire1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/mouth/FireBreathArea" unique_id=958948862]
+position = Vector2(-7.5, -0.5)
+shape = SubResource("RectangleShape2D_4ai85")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1674230172]
 visible = false
