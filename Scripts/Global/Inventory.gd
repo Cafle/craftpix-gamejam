@@ -18,6 +18,11 @@ var held = false
 var photbar : CanvasLayer
 var vial : Node2D
 
+func _sum(arr: Array) -> float:
+	var sum = 0
+	for i in arr:
+		sum += i
+	return sum
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	items.resize(10)		
@@ -29,6 +34,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	
 	var currentScene = get_tree().current_scene
 	
 	if currentScene is not Level:
@@ -80,18 +87,19 @@ func _reset() -> void:
 	items = [null, null, null, null,null,null,null,null,null,null]
 	
 func _drink() -> void:
-	if intoxication +  potions[0].proof <= 10:
-		if potions[0] is potionData:
-			intoxication += potions[0].proof
-			potion_drunk.emit()
-			potion_trigger.emit(potions[0])
-			var bot = items[0]
-			var temp = potions[0]
-			for i in range (9):
-				potions[i] = potions[i + 1]
-				items[i] = items[i + 1]
-				
-			potions[9] = null
+	if potions[0]:
+		if intoxication + potions[0].proof <= 10:
+			if potions[0] is potionData:
+				intoxication += potions[0].proof
+				potion_drunk.emit()
+				potion_trigger.emit(potions[0])
+				var bot = items[0]
+				var temp = potions[0]
+				for i in range (9):
+					potions[i] = potions[i + 1]
+					items[i] = items[i + 1]
+					
+				potions[9] = null
 		_refresh_vials()
 
 func _refresh_vials() -> void:

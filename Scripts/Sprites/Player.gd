@@ -74,7 +74,8 @@ func is_wall_jump_valid() -> bool:
 				tile_pos = down_collider.local_to_map(up_collider.to_local($AnimatedSprite2D/upWall.get_collision_point()))
 				tile_data = down_collider.get_cell_tile_data(tile_pos)
 				if tile_data and tile_data.get_custom_data("wallJumpable"):
-					return true
+					if Inventory.intoxication < 1:
+						return true
 	return false
 	
 
@@ -95,8 +96,13 @@ func _physics_process(delta):
 			animator.scale.x = -1
 		if Input.is_action_just_pressed("ui_down") && slideFrame < 1:
 			velocity.x *= 1.5
+			if Inventory.intoxication > 0:
+				velocity.x /= 4
+				animator.play_backwards("slide")
+			else: 
+				animator.play("slide")
 			roll_vel = velocity.x
-			animator.play("slide")
+			
 			slideFrame = slide_cooldown
 		
 		

@@ -6,24 +6,9 @@
 [ext_resource type="Shader" uid="uid://blpnu4uhf41pc" path="res://Scenes/UI/potion_shader.gdshader" id="3_r0wlo"]
 [ext_resource type="Texture2D" uid="uid://b0o4pwq80mkhy" path="res://Assets/UI/BellyBar.png" id="4_oebs7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1lnn2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8ljk"]
 atlas = ExtResource("4_oebs7")
 region = Rect2(122, 0, 78, 648)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oebs7"]
-atlas = ExtResource("4_oebs7")
-region = Rect2(6, 432, 94, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tbsd7"]
-atlas = ExtResource("4_oebs7")
-region = Rect2(6, 496, 94, 30)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hs8v1"]
-load_path = "res://.godot/imported/BellyBar.png-ae70b2ebc8d382cbc1685e30f2f3d41f.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o8ljk"]
-atlas = SubResource("CompressedTexture2D_hs8v1")
-region = Rect2(6, 560, 94, 30)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1lnn2"]
 shader = ExtResource("3_r0wlo")
@@ -76,7 +61,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1291, 324), Vector2(1113, 324)]
+"values": [Vector2(1191, 324), Vector2(1113, 324)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -88,7 +73,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1291, 324), Vector2(1052, 324)]
+"values": [Vector2(1130, 324), Vector2(1052, 324)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbsd7"]
@@ -101,25 +86,9 @@ _data = {
 script = ExtResource("1_gchyt")
 
 [node name="Overbar" type="Sprite2D" parent="." unique_id=1055708627]
+top_level = true
 z_index = 1
 position = Vector2(1321, 324)
-texture = SubResource("AtlasTexture_1lnn2")
-
-[node name="Wasted" type="Sprite2D" parent="Overbar" unique_id=468764293]
-oversampling_with_scale = 2
-z_index = 1
-z_as_relative = false
-position = Vector2(-76, 315)
-texture = SubResource("AtlasTexture_oebs7")
-
-[node name="Sloshed" type="Sprite2D" parent="Overbar" unique_id=27656778]
-z_index = 1
-position = Vector2(-76, 315)
-texture = SubResource("AtlasTexture_tbsd7")
-
-[node name="Tipsy" type="Sprite2D" parent="Overbar" unique_id=951321581]
-z_index = 1
-position = Vector2(-76, 315)
 texture = SubResource("AtlasTexture_o8ljk")
 
 [node name="PotionMask" type="Sprite2D" parent="." unique_id=1383895080]
@@ -139,7 +108,3 @@ offset = Vector2(0, -32)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1740037684]
 libraries/ = SubResource("AnimationLibrary_tbsd7")
-speed_scale = 4.0
-
-[node name="Timer" type="Timer" parent="." unique_id=435217033]
-wait_time = 3.0
