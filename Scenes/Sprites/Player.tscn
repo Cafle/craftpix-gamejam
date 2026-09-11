@@ -6,6 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://c87qxchpqw6ev" path="res://Assets/Character/images-removebg-preview (4).png" id="2_jlful"]
 [ext_resource type="Texture2D" uid="uid://b2e6rci5brsfl" path="res://Assets/Character/PlayerSheeet.png" id="4_v6dqo"]
 [ext_resource type="Script" uid="uid://bshyrl0oxkk3b" path="res://Scripts/Sprites/mouth_anchor.gd" id="6_x3irn"]
+[ext_resource type="Script" uid="uid://b3jfl767l70b8" path="res://Scenes/Sprites/drunk_effects.gd" id="7_p63x1"]
+[ext_resource type="Shader" uid="uid://ckye4pg06614n" path="res://Scenes/Sprites/Drunk_effects.gdshader" id="8_mfxiq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mfxiq"]
+shader = ExtResource("8_mfxiq")
+shader_parameter/offset = 0.02
+shader_parameter/coffset = 0.02
+shader_parameter/strength = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0qxnb"]
 radius = 5.564442
@@ -676,6 +684,12 @@ size = Vector2(10.938271, 19.141972)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57q14"]
 size = Vector2(10.938271, 7.8618813)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p63x1"]
+shader = ExtResource("8_mfxiq")
+shader_parameter/offset = 0.02
+shader_parameter/coffset = 0.02
+shader_parameter/strength = 0.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
 radius = 18.0
 height = 80.0
@@ -689,6 +703,19 @@ lerp_factor = 0.5
 wall_jump_frames = 7
 nudgeularity = 30
 chonkiness = 0.03
+
+[node name="drunk effects" type="CanvasLayer" parent="." unique_id=92756712]
+script = ExtResource("7_p63x1")
+
+[node name="yes" type="ColorRect" parent="drunk effects" unique_id=657746619]
+z_index = 5
+material = SubResource("ShaderMaterial_mfxiq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Rounded feet" type="CollisionShape2D" parent="." unique_id=1950648930]
 visible = false
@@ -763,6 +790,8 @@ shape = SubResource("RectangleShape2D_57q14")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1190891230]
 visible = false
+material = SubResource("ShaderMaterial_p63x1")
+ignore_rotation = false
 zoom = Vector2(1.7, 1.7)
 limit_left = -1900
 limit_bottom = 800
@@ -782,25 +811,5 @@ debug_color = Color(0.9694641, 0, 0.46431375, 0.41960785)
 [node name="UnRoll" type="RayCast2D" parent="." unique_id=4230792]
 position = Vector2(0, 29)
 target_position = Vector2(0, -67)
-
-[node name="drunk effects" type="Node2D" parent="." unique_id=543462195]
-
-[node name="tipsy" type="SubViewport" parent="drunk effects" unique_id=409953034]
-
-[node name="sloshed" type="SubViewport" parent="drunk effects" unique_id=2061046156]
-
-[node name="wasted" type="SubViewport" parent="drunk effects" unique_id=253343373]
-
-[node name="tipsyR" type="TextureRect" parent="drunk effects" unique_id=746590644]
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="sloshedR" type="TextureRect" parent="drunk effects" unique_id=1772059242]
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="wastedR" type="TextureRect" parent="drunk effects" unique_id=710563873]
-offset_right = 1152.0
-offset_bottom = 648.0
 
 [connection signal="body_entered" from="KillHitbox" to="." method="_on_area_2d_body_entered"]
