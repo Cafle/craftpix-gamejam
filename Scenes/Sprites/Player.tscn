@@ -624,6 +624,7 @@ turbulence_enabled = true
 turbulence_noise_strength = 0.0
 turbulence_noise_scale = 7.993
 turbulence_influence_min = 0.0
+collision_mode = 2
 sub_emitter_mode = 3
 sub_emitter_amount_at_collision = 1
 
@@ -664,6 +665,10 @@ turbulence_influence_min = 0.019000001
 turbulence_influence_max = 0.116000004
 turbulence_initial_displacement_min = 1.490116e-06
 turbulence_initial_displacement_max = 1.490116e-06
+collision_mode = 1
+collision_friction = 1.0
+collision_bounce = 1.0
+collision_use_scale = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qxnb"]
 size = Vector2(10.938271, 19.141972)
@@ -777,5 +782,25 @@ debug_color = Color(0.9694641, 0, 0.46431375, 0.41960785)
 [node name="UnRoll" type="RayCast2D" parent="." unique_id=4230792]
 position = Vector2(0, 29)
 target_position = Vector2(0, -67)
+
+[node name="drunk effects" type="Node2D" parent="." unique_id=543462195]
+
+[node name="tipsy" type="SubViewport" parent="drunk effects" unique_id=409953034]
+
+[node name="sloshed" type="SubViewport" parent="drunk effects" unique_id=2061046156]
+
+[node name="wasted" type="SubViewport" parent="drunk effects" unique_id=253343373]
+
+[node name="tipsyR" type="TextureRect" parent="drunk effects" unique_id=746590644]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="sloshedR" type="TextureRect" parent="drunk effects" unique_id=1772059242]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="wastedR" type="TextureRect" parent="drunk effects" unique_id=710563873]
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [connection signal="body_entered" from="KillHitbox" to="." method="_on_area_2d_body_entered"]

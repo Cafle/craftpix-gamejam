@@ -88,20 +88,27 @@ func _reset() -> void:
 	
 func _drink() -> void:
 	if potions[0]:
-		if intoxication + potions[0].proof <= 10:
-			if potions[0] is potionData:
-				intoxication += potions[0].proof
-				potion_drunk.emit()
-				potion_trigger.emit(potions[0])
-				var bot = items[0]
-				var temp = potions[0]
-				for i in range (9):
-					potions[i] = potions[i + 1]
-					items[i] = items[i + 1]
-					
-				potions[9] = null
-		_refresh_vials()
+		if potions[0] is potionData:
+			potion_drunk.emit()
+			potion_trigger.emit(potions[0])
+			var bot = items[0]
+			var temp = potions[0]
+			for i in range (9):
+				potions[i] = potions[i + 1]
+				items[i] = items[i + 1]
+				
+			potions[9] = null
+	_refresh_vials()
 
+func _reversePotions() -> void:
+	ogpotions.reverse()
+	var i = 0
+	while not ogpotions[i]:
+		for x in range (9):
+			ogpotions[x] = ogpotions[x + 1]
+		ogpotions[9] = null
+		
+	
 func _refresh_vials() -> void:
 	for i in range(items.size()):
 		if items[i]:

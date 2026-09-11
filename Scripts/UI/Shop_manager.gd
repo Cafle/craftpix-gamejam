@@ -59,6 +59,7 @@ func _buy(cost : int, index : int) -> void:
 	grid.get_child(index).get_child(0).play("bought")
 	
 func _play() -> void:
+	Inventory._reversePotions()
 	LevelSelect.mode = "game"
 	LevelSelect._playSong(LevelSelect.current_level)
 	get_tree().call_deferred("change_scene_to_file", LevelSelect.loadLevel(LevelSelect.current_level))
