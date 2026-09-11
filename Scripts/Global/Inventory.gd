@@ -7,6 +7,7 @@ extends Node
 @onready var amounts: Array[float] = [0,0,0,0,0,0,0,0,0,0]
 @onready var belly: Array[potionData] = []
 @onready var puking = false
+@onready var intoxication = 0
 
 signal potion_trigger(pot: potionData)
 signal potion_drunk()
@@ -79,17 +80,19 @@ func _reset() -> void:
 	items = [null, null, null, null,null,null,null,null,null,null]
 	
 func _drink() -> void:
-	if potions[0] is potionData:
-		potion_drunk.emit()
-		potion_trigger.emit(potions[0])
-		var bot = items[0]
-		var temp = potions[0]
-		for i in range (9):
-			potions[i] = potions[i + 1]
-			items[i] = items[i + 1]
-			
-		potions[9] = null
-	_refresh_vials()
+	if intoxication +  potions[0].proof <= 10:
+		if potions[0] is potionData:
+			intoxication += potions[0].proof
+			potion_drunk.emit()
+			potion_trigger.emit(potions[0])
+			var bot = items[0]
+			var temp = potions[0]
+			for i in range (9):
+				potions[i] = potions[i + 1]
+				items[i] = items[i + 1]
+				
+			potions[9] = null
+		_refresh_vials()
 
 func _refresh_vials() -> void:
 	for i in range(items.size()):

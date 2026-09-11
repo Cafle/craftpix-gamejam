@@ -11,6 +11,7 @@ extends Resource
 @export var cost: int
 @export var potency: int
 @export var color: Color
+@export var proof : int
 
 #change this type later for now its int
 @export var texture : int
