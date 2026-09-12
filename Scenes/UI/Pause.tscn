@@ -30,6 +30,7 @@ atlas = ExtResource("2_hcn70")
 region = Rect2(164, 6, 9, 9)
 
 [node name="Pause" type="Control" unique_id=1471747148]
+process_mode = 3
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -41,6 +42,7 @@ theme = ExtResource("1_evds0")
 script = ExtResource("2_lw4m2")
 
 [node name="Pause" type="Control" parent="." unique_id=122944174]
+process_mode = 3
 anchors_preset = 0
 offset_left = 390.0
 offset_top = 236.0
@@ -49,6 +51,7 @@ offset_bottom = 572.0
 theme = ExtResource("1_evds0")
 
 [node name="Halt" type="Label" parent="Pause" unique_id=1716112591]
+process_mode = 3
 layout_mode = 0
 offset_left = -382.0
 offset_top = -260.0
@@ -61,6 +64,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Pause" unique_id=1588164788]
+process_mode = 3
 z_index = -1
 layout_mode = 0
 offset_left = 40.0
@@ -72,6 +76,7 @@ mouse_filter = 2
 texture = SubResource("AtlasTexture_fny3v")
 
 [node name="back" type="TextureButton" parent="Pause" unique_id=311516088]
+process_mode = 3
 z_index = 5
 z_as_relative = false
 layout_mode = 0
@@ -85,11 +90,12 @@ texture_pressed = SubResource("AtlasTexture_lw4m2")
 stretch_mode = 1
 
 [node name="eopitois" type="TextureButton" parent="Pause" unique_id=58728054]
+process_mode = 3
 layout_mode = 0
-offset_left = 68.000015
-offset_top = -92.0
-offset_right = 308.0
-offset_bottom = -17.0
+offset_left = 66.000015
+offset_top = -68.0
+offset_right = 306.0
+offset_bottom = 7.0
 theme = ExtResource("1_evds0")
 button_mask = 3
 texture_normal = SubResource("AtlasTexture_wapxx")
@@ -97,21 +103,24 @@ texture_pressed = SubResource("AtlasTexture_fjwti")
 stretch_mode = 1
 
 [node name="Label" type="Label" parent="Pause/eopitois" unique_id=981160210]
+process_mode = 3
 layout_mode = 0
 offset_left = 31.999992
 offset_top = 7.9999933
 offset_right = 218.0
 offset_bottom = 53.999992
 theme_override_font_sizes/font_size = 16
-text = "Ammendments"
+text = "AMMENDMENTS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="shop" type="TextureButton" parent="Pause" unique_id=369526605]
+process_mode = 3
 layout_mode = 0
 offset_left = 68.000015
+offset_top = 16.0
 offset_right = 308.0
-offset_bottom = 75.0
+offset_bottom = 91.0
 theme = ExtResource("1_evds0")
 button_mask = 3
 texture_normal = SubResource("AtlasTexture_wapxx")
@@ -119,17 +128,19 @@ texture_pressed = SubResource("AtlasTexture_fjwti")
 stretch_mode = 1
 
 [node name="Label" type="Label" parent="Pause/shop" unique_id=1539451231]
+physics_interpolation_mode = 0
 layout_mode = 0
 offset_left = 31.999992
 offset_top = 7.9999933
 offset_right = 218.0
 offset_bottom = 53.999992
 theme_override_font_sizes/font_size = 16
-text = "Tavern"
+text = "TAVERN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="quit" type="TextureButton" parent="Pause" unique_id=36346799]
+process_mode = 3
 layout_mode = 0
 offset_left = 66.000015
 offset_top = 300.0
@@ -142,22 +153,24 @@ texture_pressed = SubResource("AtlasTexture_fjwti")
 stretch_mode = 1
 
 [node name="Label" type="Label" parent="Pause/quit" unique_id=1857873234]
+physics_interpolation_mode = 0
 layout_mode = 0
 offset_left = 31.999992
 offset_top = 7.9999933
 offset_right = 218.0
 offset_bottom = 53.999992
 theme_override_font_sizes/font_size = 16
-text = "Retreat"
+text = "RETREAT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Restart" type="TextureButton" parent="Pause" unique_id=539956234]
+process_mode = 3
 layout_mode = 0
 offset_left = 66.000015
-offset_top = 84.0
+offset_top = 100.0
 offset_right = 306.0
-offset_bottom = 159.0
+offset_bottom = 175.0
 theme = ExtResource("1_evds0")
 button_mask = 3
 texture_normal = SubResource("AtlasTexture_wapxx")
@@ -165,22 +178,24 @@ texture_pressed = SubResource("AtlasTexture_fjwti")
 stretch_mode = 1
 
 [node name="Label" type="Label" parent="Pause/Restart" unique_id=780671168]
+physics_interpolation_mode = 0
 layout_mode = 0
 offset_left = 31.999992
 offset_top = 7.9999933
 offset_right = 218.0
 offset_bottom = 53.999992
 theme_override_font_sizes/font_size = 16
-text = "Restart"
+text = "RESTART"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Controls" type="TextureButton" parent="Pause" unique_id=386253524]
+process_mode = 3
 layout_mode = 0
 offset_left = 66.000015
-offset_top = 180.0
+offset_top = 188.0
 offset_right = 306.0
-offset_bottom = 255.0
+offset_bottom = 263.0
 theme = ExtResource("1_evds0")
 button_mask = 3
 texture_normal = SubResource("AtlasTexture_wapxx")
@@ -188,17 +203,19 @@ texture_pressed = SubResource("AtlasTexture_fjwti")
 stretch_mode = 1
 
 [node name="Label" type="Label" parent="Pause/Controls" unique_id=1517213658]
+physics_interpolation_mode = 0
 layout_mode = 0
 offset_left = 31.999992
 offset_top = 7.9999933
 offset_right = 218.0
 offset_bottom = 53.999992
 theme_override_font_sizes/font_size = 16
-text = "Controls"
+text = "CONTROLS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Options" type="Control" parent="." unique_id=2066528716]
+process_mode = 3
 visible = false
 anchors_preset = 0
 offset_left = 390.0
@@ -208,6 +225,7 @@ offset_bottom = 572.0
 theme = ExtResource("1_evds0")
 
 [node name="music" type="HSlider" parent="Options" unique_id=432398634]
+process_mode = 3
 layout_mode = 0
 offset_left = 82.0
 offset_top = 100.000015
@@ -221,6 +239,7 @@ ticks_on_borders = true
 ticks_position = 3
 
 [node name="RichTextLabel" type="Label" parent="Options/music" unique_id=581972488]
+process_mode = 3
 layout_mode = 0
 offset_left = -3.0
 offset_top = -52.0
@@ -232,6 +251,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="sfx" type="HSlider" parent="Options" unique_id=1681532199]
+process_mode = 3
 layout_mode = 0
 offset_left = 82.0
 offset_top = 4.0000153
@@ -244,6 +264,7 @@ tick_count = 4
 ticks_position = 3
 
 [node name="RichTextLabel" type="Label" parent="Options/sfx" unique_id=1115606371]
+process_mode = 3
 layout_mode = 0
 offset_left = -14.0
 offset_top = -34.0
@@ -253,6 +274,7 @@ theme = ExtResource("1_evds0")
 text = "Knocks 'n clatters"
 
 [node name="options" type="Label" parent="Options" unique_id=1512612744]
+process_mode = 3
 layout_mode = 0
 offset_left = -382.0
 offset_top = -218.99998
@@ -265,6 +287,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Options" unique_id=74886256]
+process_mode = 3
 z_index = -1
 layout_mode = 0
 offset_left = 40.0
@@ -276,6 +299,7 @@ mouse_filter = 2
 texture = SubResource("AtlasTexture_fn5q5")
 
 [node name="back" type="TextureButton" parent="Options" unique_id=1571796636]
+process_mode = 3
 z_index = 5
 z_as_relative = false
 layout_mode = 0
@@ -289,6 +313,7 @@ texture_pressed = SubResource("AtlasTexture_et4ke")
 stretch_mode = 0
 
 [node name="C_Shake" type="Control" parent="Options" unique_id=680996376]
+process_mode = 3
 anchors_preset = 0
 offset_left = -390.0
 offset_top = -236.0
@@ -296,6 +321,7 @@ offset_right = -350.0
 offset_bottom = -196.0
 
 [node name="Label" type="Label" parent="Options/C_Shake" unique_id=873046503]
+process_mode = 3
 layout_mode = 0
 offset_left = 536.0
 offset_top = 392.0
@@ -308,6 +334,7 @@ text = "   Ocular
 Tremblin'"
 
 [node name="C_shake" type="CheckBox" parent="Options/C_Shake" unique_id=1557198633]
+process_mode = 3
 layout_mode = 0
 offset_left = 456.0
 offset_top = 400.0
@@ -318,6 +345,7 @@ theme = ExtResource("1_evds0")
 icon_alignment = 1
 
 [node name="Controls" type="Control" parent="." unique_id=1673033591]
+process_mode = 3
 visible = false
 anchors_preset = 0
 offset_left = 390.0
@@ -327,6 +355,7 @@ offset_bottom = 572.0
 theme = ExtResource("1_evds0")
 
 [node name="title" type="Label" parent="Controls" unique_id=1413322566]
+process_mode = 3
 layout_mode = 0
 offset_left = -382.0
 offset_top = -218.99998
@@ -339,20 +368,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="content" type="Label" parent="Controls" unique_id=1376327664]
+process_mode = 3
 layout_mode = 0
 offset_left = 42.0
-offset_top = -218.99998
+offset_top = -180.0
 offset_right = 338.0
-offset_bottom = 396.0
+offset_bottom = 435.0
 theme = ExtResource("1_evds0")
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 23
 text = "L/R - Walk
 Up - Jump
-Down - Roll"
+Down - Roll
+L Click - drink
+R Click - puke"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Controls" unique_id=1384742792]
+process_mode = 3
 z_index = -1
 layout_mode = 0
 offset_left = 40.0
@@ -364,6 +397,7 @@ mouse_filter = 2
 texture = SubResource("AtlasTexture_fn5q5")
 
 [node name="back" type="TextureButton" parent="Controls" unique_id=1271729700]
+process_mode = 3
 z_index = 5
 z_as_relative = false
 layout_mode = 0

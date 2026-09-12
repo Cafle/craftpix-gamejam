@@ -44,6 +44,7 @@ func _ready() -> void:
 
 func _shop() -> void:
 	LevelSelect.Coins = 10
+	get_tree().paused = false
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/shop.tscn")
 
 func _openOptions() -> void:
@@ -59,25 +60,24 @@ func _closeOptions() -> void:
 func _openControls() -> void:
 	Pause_m.hide()
 	Control_m.show()
-	pass
 	
 func _closeControls() -> void:
 	Pause_m.show()
 	Control_m.hide()
-	pass
 	
 func _resume() -> void:
 	Pause_m.show()
 	self.hide()
-	pass
+	get_tree().paused = false
 	
 func _restart() -> void:
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 	pass
 	
 func _quit() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/UI/Level Select.tscn")
-	
 	pass
 	
 func _changeVol(num: float, track: int) -> void:
@@ -100,5 +100,6 @@ func _changeVol(num: float, track: int) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
+		get_tree().paused = true
 		self.show()
 	pass
