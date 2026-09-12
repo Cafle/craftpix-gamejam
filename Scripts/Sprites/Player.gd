@@ -17,6 +17,9 @@ class_name player
 @export var chonkiness: float = 0.05
 @export var slide_cooldown: int = 70
 
+@export_group("Health")
+@export var max_health: int = 1
+
 # coyote time + jump buffer variables
 
 @onready var jbuffer: int = 0
@@ -35,9 +38,16 @@ class_name player
 @onready var speed_buff = 0.0
 @onready var jump_buff = 0.0
 
+#health / death
+var health: int = max_health
+var is_dead: bool = false
+
+signal died
+signal health_changed(current: int, max: int)
+
 func _ready() -> void:
-	pass
-	
+	health = max_health
+
 func _get_buffs() -> void:
 	#buff reset
 	speed_buff = 0
@@ -50,9 +60,9 @@ func _get_buffs() -> void:
 			if amm:
 				match pot.id:
 					1:
-						speed_buff += 150 * amm
+						speed_buff += 100 * amm
 					2:
-						jump_buff += 150 * amm
+						jump_buff += 80 * amm
 	#mass reset to defaults
 	speed = SPEED
 	jump_force = JUMP_FORCE
@@ -82,6 +92,9 @@ func is_wall_jump_valid() -> bool:
 	
 
 func _physics_process(delta):
+	if is_dead:
+		return
+
 	_get_buffs()
 	
 	var wall = is_wall_jump_valid()
@@ -265,3 +278,25 @@ func camera_shake(strength: float, duration: float = 0.3):
 	
 func is_slamming() -> bool:
 	return velocity.y >= 1200
+
+func take_damage(amount: int = 1) -> void:
+	if is_dead:
+		return
+	health -= amount
+	health_changed.emit(health, max_health)
+	_die()  # one hit is always lethal, regardless of max_health/amount
+
+func _flash_hit() -> void:
+	animator.modulate = Color(1, 0.4, 0.4)
+	var tween := create_tween()
+	tween.tween_property(animator, "modulate", Color.WHITE, 0.15)
+
+func _die() -> void:
+	if is_dead:
+		return
+	is_dead = true
+	velocity = Vector2.ZERO
+	animator.play("death")
+	died.emit()
+	if get_parent().has_method("_lost"):
+		get_parent()._lost(1)
