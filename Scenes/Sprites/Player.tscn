@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b2e6rci5brsfl" path="res://Assets/Character/PlayerSheeet.png" id="4_v6dqo"]
 [ext_resource type="Script" uid="uid://bshyrl0oxkk3b" path="res://Scripts/Sprites/mouth_anchor.gd" id="6_x3irn"]
 [ext_resource type="Script" uid="uid://b3jfl767l70b8" path="res://Scenes/Sprites/drunk_effects.gd" id="7_p63x1"]
+[ext_resource type="Texture2D" uid="uid://s424fqfwndol" path="res://Assets/UI/Nigward.png" id="8_ii4m5"]
 [ext_resource type="Shader" uid="uid://ckye4pg06614n" path="res://Scenes/Sprites/Drunk_effects.gdshader" id="8_mfxiq"]
 [ext_resource type="Script" uid="uid://bn4pl70f3wry6" path="res://Scenes/Sprites/fire_breath.gd" id="9_fire1"]
 
@@ -749,8 +750,14 @@ autoplay = "idle"
 position = Vector2(0, 32)
 target_position = Vector2(19, 19)
 
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D/downWall" unique_id=1929624333]
+position = Vector2(28, -31)
+scale = Vector2(0.028872678, 0.019294012)
+texture = ExtResource("8_ii4m5")
+
 [node name="upWall" type="RayCast2D" parent="AnimatedSprite2D" unique_id=793905645]
 position = Vector2(0, 32)
+exclude_parent = false
 target_position = Vector2(18, -36)
 
 [node name="mouth" type="Marker2D" parent="AnimatedSprite2D" unique_id=1531278394]
@@ -806,6 +813,7 @@ visible = false
 material = SubResource("ShaderMaterial_p63x1")
 ignore_rotation = false
 zoom = Vector2(1.7, 1.7)
+limit_enabled = false
 limit_left = -1900
 limit_top = -10000003
 limit_bottom = 797

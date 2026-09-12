@@ -68,10 +68,12 @@ func is_wall_jump_valid() -> bool:
 		var up_collider = $AnimatedSprite2D/upWall.get_collider()
 		var down_collider = $AnimatedSprite2D/downWall.get_collider()
 		if up_collider is TileMapLayer && down_collider is TileMapLayer:
-			var tile_pos = up_collider.local_to_map(up_collider.to_local($AnimatedSprite2D/upWall.get_collision_point()))
+			var up_point = $AnimatedSprite2D/upWall.get_collision_point() - $AnimatedSprite2D/upWall.get_collision_normal() * 2.0
+			var tile_pos = up_collider.local_to_map(up_collider.to_local(up_point))
 			var tile_data = up_collider.get_cell_tile_data(tile_pos)
 			if tile_data and tile_data.get_custom_data("wallJumpable"):
-				tile_pos = down_collider.local_to_map(up_collider.to_local($AnimatedSprite2D/upWall.get_collision_point()))
+				var down_point = $AnimatedSprite2D/upWall.get_collision_point() - $AnimatedSprite2D/upWall.get_collision_normal() * 2.0
+				tile_pos = down_collider.local_to_map(up_collider.to_local(down_point))
 				tile_data = down_collider.get_cell_tile_data(tile_pos)
 				if tile_data and tile_data.get_custom_data("wallJumpable"):
 					if Inventory.intoxication < 1:
