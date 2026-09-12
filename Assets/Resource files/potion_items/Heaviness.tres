@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_pv1ih")
+id = 5
 name = "Stone Bone"
 taste = "Not that kind of bone!"
 desc = "big boi"

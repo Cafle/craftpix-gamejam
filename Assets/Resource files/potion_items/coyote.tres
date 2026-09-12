@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="potionData" format=3 uid="uid://bexu2b6xrtepg"]
+
+[ext_resource type="Script" uid="uid://3oymf2mr7i32" path="res://Scripts/UI/potionData.gd" id="1_36ovc"]
+
+[resource]
+script = ExtResource("1_36ovc")
+id = 3
+name = "coyote time"
+taste = "like rabbit"
+desc = "walk on air"
+cost = 3
+potency = 1
+color = Color(0.56435204, 0.83414364, 0.97256523, 1)
+texture = 15
+metadata/_custom_type_script = "uid://3oymf2mr7i32"

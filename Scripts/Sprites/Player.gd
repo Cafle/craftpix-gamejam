@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name player
 # movement variables - tweak these to adjust feel
 @export var SPEED: float = 300
-@export var coyoteFrames: int = 5
+@export var COYOTE_FRAMES: int = 5
 @export var JUMP_FORCE: float = 400
 @export var terminal_velocity: float = 2000
 @export var wall_slide_velocity: float = 100
@@ -14,7 +14,7 @@ class_name player
 @export var fall_multiplier: float = 1.5
 @export var nudgeularity: int = 10
 @export var jump_buffer_timer: float = 100.0
-@export var chonkiness: float = 0.05
+@export var CHONKYOG: float = 0.05
 @export var slide_cooldown: int = 70
 
 @export_group("Health")
@@ -23,12 +23,15 @@ class_name player
 # coyote time + jump buffer variables
 
 @onready var jbuffer: int = 0
+@onready var coyoteFrames: int = COYOTE_FRAMES
 @onready var coyote: int = 0
 @onready var wjframe: int = 0
 @onready var roll_vel = 6 
 @onready var slideFrame = 0
 @onready var speed = 300
 @onready var jump_force = 400
+@onready var jumping = false
+@onready var chonkiness = CHONKYOG
 #animating 
 
 @onready var animator = $AnimatedSprite2D
@@ -37,7 +40,10 @@ class_name player
 #buffs
 @onready var speed_buff = 0.0
 @onready var jump_buff = 0.0
-
+@onready var coyote_buff = 0
+@onready var facingl = 1
+@onready var scale_change = 1
+@onready var weight_buff = 0
 #health / death
 var health: int = max_health
 var is_dead: bool = false
@@ -52,6 +58,9 @@ func _get_buffs() -> void:
 	#buff reset
 	speed_buff = 0
 	jump_buff = 0
+	coyote_buff = 0
+	scale_change = 1
+	weight_buff = 0
 	
 	for i in 9:
 		var pot = Inventory.belly[i]
@@ -63,31 +72,54 @@ func _get_buffs() -> void:
 						speed_buff += 100 * amm
 					2:
 						jump_buff += 80 * amm
+					3:
+						coyote_buff = 13
+					4:
+						scale_change = 0.5
+					5:
+						weight_buff = .1
+						
+						
 	#mass reset to defaults
+	
 	speed = SPEED
 	jump_force = JUMP_FORCE
+	coyoteFrames = COYOTE_FRAMES
+	chonkiness = CHONKYOG
+	
 	#mass modification
 	speed += speed_buff
 	jump_force += jump_buff
+	coyoteFrames += coyote_buff
+	chonkiness += weight_buff
+
+	
+	scale.x = scale_change * facingl
+	rotation = 0
 	
 	
 func is_wall_jump_valid() -> bool:
-	if $AnimatedSprite2D/upWall.is_colliding() && $AnimatedSprite2D/downWall.is_colliding() && is_on_wall_only():
-		$AnimatedSprite2D/upWall.force_raycast_update()
-		$AnimatedSprite2D/downWall.force_raycast_update()
-		var up_collider = $AnimatedSprite2D/upWall.get_collider()
-		var down_collider = $AnimatedSprite2D/downWall.get_collider()
+	if $AnimatedSprite2D/scalets/upWall.is_colliding() && $AnimatedSprite2D/scalets/downWall.is_colliding() && is_on_wall_only():
+		$AnimatedSprite2D/scalets/upWall.force_raycast_update()
+		$AnimatedSprite2D/scalets/downWall.force_raycast_update()
+		var up_collider = $AnimatedSprite2D/scalets/upWall.get_collider()
+		var down_collider = $AnimatedSprite2D/scalets/downWall.get_collider()
 		if up_collider is TileMapLayer && down_collider is TileMapLayer:
-			var up_point = $AnimatedSprite2D/upWall.get_collision_point() - $AnimatedSprite2D/upWall.get_collision_normal() * 2.0
+			print("stage 1")
+			var up_point = $AnimatedSprite2D/scalets/upWall.get_collision_point() - $AnimatedSprite2D/scalets/upWall.get_collision_normal() * 2.0
 			var tile_pos = up_collider.local_to_map(up_collider.to_local(up_point))
 			var tile_data = up_collider.get_cell_tile_data(tile_pos)
 			if tile_data and tile_data.get_custom_data("wallJumpable"):
-				var down_point = $AnimatedSprite2D/upWall.get_collision_point() - $AnimatedSprite2D/upWall.get_collision_normal() * 2.0
+				print("stage 2")
+				var down_point = $AnimatedSprite2D/scalets/upWall.get_collision_point() - $AnimatedSprite2D/scalets/upWall.get_collision_normal() * 2.0
 				tile_pos = down_collider.local_to_map(up_collider.to_local(down_point))
 				tile_data = down_collider.get_cell_tile_data(tile_pos)
 				if tile_data and tile_data.get_custom_data("wallJumpable"):
+					print("stage 3")
 					if Inventory.intoxication < 1:
+						print("stage 4")
 						return true
+						
 	return false
 	
 
@@ -98,17 +130,20 @@ func _physics_process(delta):
 	_get_buffs()
 	
 	var wall = is_wall_jump_valid()
+
 		
 	# apply gravity
 	var direction = Input.get_axis("ui_left", "ui_right")
-	
+	var temp_pos = position
 	if slideFrame > 0:
 		slideFrame -= 1
 	if direction:
 		if velocity.x < 0:
-			animator.scale.x = 1
-		elif velocity.x >0:
-			animator.scale.x = -1
+			
+			facingl = -1
+		elif velocity.x > 0:
+			facingl = 1
+				
 		if Input.is_action_just_pressed("ui_down") && slideFrame < 1:
 			velocity.x *= 1.5
 			if Inventory.intoxication > 0:
@@ -120,15 +155,16 @@ func _physics_process(delta):
 			
 			slideFrame = slide_cooldown
 		
+	_apply_body_transform()
 		
 	if is_on_floor():
+
 		if direction && ((!animator.animation == "hard land" && !(animator.animation == "roll" || animator.animation == "slide"))|| animator.animation == "idle"):
 			animator.play("walk")
 		else:
 			if (!animator.animation == "land" && !animator.animation == "hard land" && !(animator.animation == "roll" || animator.animation == "slide")) || !animator.is_playing():
 				animator.play("idle")
-			
-			
+		jumping = false			
 		coyote = 0
 		velocity.y = 0
 		
@@ -161,19 +197,21 @@ func _physics_process(delta):
 		jbuffer -= delta
 	# handle jump buffer
 	var jump_condition = (is_on_floor() or (wall and direction)
-	or coyote<coyoteFrames or (is_on_floor() and 
-	jbuffer > 0))
+	or (coyote<coyoteFrames) or 
+	(is_on_floor() and jbuffer > 0))
 	# handle jump input
 
 	if animator.animation != "hard land":
-		if (jump_condition && Input.is_action_just_pressed("ui_up")) or (is_on_floor() and jbuffer > 0 and Input.is_action_pressed("ui_up")):
+		if  (jump_condition && Input.is_action_just_pressed("ui_up")) or (is_on_floor() and jbuffer > 0 and Input.is_action_pressed("ui_up")):
+			jumping = true
+			coyote = coyoteFrames
 			animator.play("jump")
 			jbuffer = 0
 			velocity.y = jump_force * -1
 			if wall && direction:
 				animator.play("wall jump")
 				wjframe = wall_jump_frames
-				velocity.x = speed *1.5  * -direction
+				velocity.x = speed * 1.5  * -direction
 				
 	
 	if Input.is_action_just_released("ui_up") && velocity.y < 0:
@@ -181,8 +219,6 @@ func _physics_process(delta):
 		if velocity.y > 0:
 			animator.play("fall")
 			velocity.y = 0
-	
-	
 	
 	
 	if wjframe == 0:
@@ -238,7 +274,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D.scale.y /= 10
 		$AnimatedSprite2D.position.y += 50
 		
-		camera_shake(chonkiness * y_vel, 0.3)
+		camera_shake(chonkiness * y_vel, 0.3 * (15 * chonkiness))
 		
 		$AnimatedSprite2D.scale.y = stretchMe
 		$AnimatedSprite2D.position.y -= 50
@@ -257,6 +293,12 @@ func _physics_process(delta):
 				velocity.y = y_vel
 				break
 #
+
+
+func _apply_body_transform() -> void:
+	transform = Transform2D(0.0, Vector2(scale_change * facingl, scale_change), 0.0, position)
+	
+	
 func _on_area_2d_body_entered(body: Node2D):
 	if body is KillObject:
 		get_parent()._lost(1)

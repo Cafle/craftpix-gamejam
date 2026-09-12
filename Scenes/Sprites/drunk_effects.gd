@@ -9,7 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	$"../Camera2D".rotation_degrees = 180
+	$"../Camera2D".rotation_degrees = 0
 	var mat = $yes.material
 	if Inventory.intoxication >= 2:
 		var t := Time.get_ticks_msec() * 0.001

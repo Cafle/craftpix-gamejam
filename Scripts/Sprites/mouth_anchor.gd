@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 	$FireBreathArea/CollisionShape2D.disabled = not breathing_fire
 
 func _update_mouth() -> void:
-	var animator = get_parent()
+	var animator = get_parent().get_parent()
 	var anim = animator.animation
 	if MOUTH_ANCHORS.has(anim):
 		var frames: Array = MOUTH_ANCHORS[anim]
