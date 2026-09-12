@@ -696,7 +696,7 @@ shader_parameter/strength = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
 radius = 18.0
-height = 80.0
+height = 64.0
 
 [node name="Player" type="CharacterBody2D" unique_id=671294045]
 script = ExtResource("1_u1pkf")
@@ -817,11 +817,11 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="KillHitbox" type="Area2D" parent="." unique_id=1299921152]
-visible = false
 position = Vector2(-4.7683716e-07, 30.31892)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillHitbox" unique_id=586047037]
-position = Vector2(4.7683716e-07, -31.31892)
+visible = false
+position = Vector2(4.7683716e-07, -32.31892)
 shape = SubResource("CapsuleShape2D_1vivr")
 debug_color = Color(0.9694641, 0, 0.46431375, 0.41960785)
 
