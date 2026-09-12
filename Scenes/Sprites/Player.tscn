@@ -701,6 +701,7 @@ height = 80.0
 [node name="Player" type="CharacterBody2D" unique_id=671294045]
 scale = Vector2(-1, 1)
 script = ExtResource("1_u1pkf")
+coyoteFrames = 7
 JUMP_FORCE = 500.0
 gravity = 30.0
 lerp_factor = 0.5

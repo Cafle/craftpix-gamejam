@@ -50,9 +50,9 @@ func _get_buffs() -> void:
 			if amm:
 				match pot.id:
 					1:
-						speed_buff += 100 * amm
+						speed_buff += 150 * amm
 					2:
-						jump_buff += 80 * amm
+						jump_buff += 150 * amm
 	#mass reset to defaults
 	speed = SPEED
 	jump_force = JUMP_FORCE
