@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://7bwuopltt3ob" path="res://Scenes/UI/Photbar.tscn" id="13_76awh"]
 [ext_resource type="PackedScene" uid="uid://bsyy06njitgdf" path="res://Scenes/Level/Foresight.tscn" id="14_ipjxs"]
 [ext_resource type="PackedScene" uid="uid://bbxdi5kal1jjh" path="res://NPC.tscn" id="17_8xaiv"]
+[ext_resource type="PackedScene" uid="uid://copfqv53c4qfo" path="res://enemy_knight.tscn" id="18_gjnvc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kgr2"]
 texture = ExtResource("5_1kgr2")
@@ -3509,7 +3510,7 @@ animations = [{
 script = ExtResource("1_autlg")
 
 [node name="Player" parent="." unique_id=671294045 instance=ExtResource("1_1aull")]
-position = Vector2(-1546, 560)
+position = Vector2(1455, 496)
 floor_stop_on_slope = false
 floor_max_angle = 0.82030475
 floor_snap_length = 2.2
@@ -3628,3 +3629,7 @@ position = Vector2(-1431, 267)
 
 [node name="WinObject2" parent="." unique_id=296522410 instance=ExtResource("3_jd5si")]
 position = Vector2(-809, 465)
+
+[node name="EnemyKnight" parent="." unique_id=825388984 instance=ExtResource("18_gjnvc")]
+position = Vector2(1998, 536)
+jump_force = 300.0

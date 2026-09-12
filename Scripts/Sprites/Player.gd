@@ -296,7 +296,6 @@ func _die() -> void:
 		return
 	is_dead = true
 	velocity = Vector2.ZERO
-	animator.play("death")
 	died.emit()
 	if get_parent().has_method("_lost"):
 		get_parent()._lost(1)

@@ -307,9 +307,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kr0a4")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"running_attack",
-"speed": 6.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -342,7 +342,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u88wu"]
-radius = 30.413813
+radius = 25.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0pka"]
 size = Vector2(32, 73)
@@ -354,45 +354,49 @@ size = Vector2(32, 73)
 radius = 1766.8877
 
 [node name="EnemyKnight" type="CharacterBody2D" unique_id=825388984]
+scale = Vector2(1.2, 1.2)
+collision_layer = 8
+collision_mask = 24
 script = ExtResource("1_ndosu")
+move_speed = 110.0
+chase_speed = 310.0
+wander_radius = 200.0
+jump_force = 450.0
+jump_range = 150.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=899064221]
 sprite_frames = SubResource("SpriteFrames_ld1re")
 animation = &"running_attack"
 autoplay = "idle"
-frame_progress = 0.09012384
+frame = 3
 speed_scale = 2.0
 
 [node name="AttackHitbox" type="Area2D" parent="AnimatedSprite2D" unique_id=1420306205]
+position = Vector2(0, 35)
+collision_layer = 0
+collision_mask = 0
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AttackHitbox" unique_id=623297462]
-position = Vector2(28, 24)
 shape = SubResource("CircleShape2D_u88wu")
 
 [node name="BodyShape" type="CollisionShape2D" parent="." unique_id=691231023]
-visible = false
-position = Vector2(-35, 28)
+position = Vector2(-33, 28)
 shape = SubResource("RectangleShape2D_u0pka")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1545406271]
-visible = false
-position = Vector2(-15, 28)
+position = Vector2(-33, 28)
 collision_layer = 8
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1148986784]
-visible = false
-position = Vector2(-20, 0)
 shape = SubResource("RectangleShape2D_ndosu")
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=478118242]
-visible = false
-position = Vector2(-4, 28)
+position = Vector2(-33, 28)
 collision_layer = 8
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=929970972]
 visible = false
-position = Vector2(-29, -2)
 shape = SubResource("CircleShape2D_u0pka")
