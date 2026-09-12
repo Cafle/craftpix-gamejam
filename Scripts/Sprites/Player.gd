@@ -303,16 +303,17 @@ func _on_area_2d_body_entered(body: Node2D):
 
 
 func camera_shake(strength: float, duration: float = 0.3):
-	$Smash.amount = round((strength*strength)/600)
-	$Smash.emitting = true
-	var camera = $Camera2D
-	var original_pos = camera.position
-	var tween = create_tween()
-	var shakes = 8
-	for i in shakes:
-		var offset = Vector2(0, strength if i % 2 == 0 else -strength)
-		tween.tween_property(camera, "position", original_pos + offset, duration / shakes)
-	tween.tween_property(camera, "position", original_pos, duration / shakes)
+	if Inventory.screenShake:
+		$Smash.amount = round((strength*strength)/600)
+		$Smash.emitting = true
+		var camera = $Camera2D
+		var original_pos = camera.position
+		var tween = create_tween()
+		var shakes = 8
+		for i in shakes:
+			var offset = Vector2(0, strength if i % 2 == 0 else -strength)
+			tween.tween_property(camera, "position", original_pos + offset, duration / shakes)
+		tween.tween_property(camera, "position", original_pos, duration / shakes)
 	
 func is_slamming() -> bool:
 	return velocity.y >= 1200

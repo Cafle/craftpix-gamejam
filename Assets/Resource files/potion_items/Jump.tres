@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_0yk4e")
-id = 2
+id = 1
 name = "Rabbits Mead"
 taste = "testy"
 desc = "jump higher"

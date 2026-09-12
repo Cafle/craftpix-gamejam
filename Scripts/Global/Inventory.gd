@@ -13,6 +13,7 @@ signal potion_trigger(pot: potionData)
 signal potion_drunk()
 signal barf(amount: float)
 
+var screenShake = true;
 var items : Array[Node2D] 
 var held = false
 var photbar : CanvasLayer

@@ -15,10 +15,16 @@ extends Control
 @onready var resume = $Pause/back
 @onready var shop = $Pause/shop
 
+#audio busses
+@onready var music_idx = AudioServer.get_bus_index("Music")
+@onready var sex = AudioServer.get_bus_index("SFX")
 
 #sliders
 @onready var music = $Options/music
 @onready var sfx = $Options/sfx
+
+#screen shake toggle
+@onready var SS = $Options/C_Shake/C_shake
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,10 +43,17 @@ func _ready() -> void:
 	music.value_changed.connect(_changeVol.bind(1))
 	sfx.value_changed.connect(_changeVol.bind(2))
 	
+	SS.toggled.connect(_changeSS)
+	
 	#set sliders to correct values
-	sfx.value = Sfx.volume_linear
-	music.value = Music.volume_linear
-
+	
+	sfx.value = db_to_linear(AudioServer.get_bus_volume_db(sex))
+	music.value = db_to_linear(AudioServer.get_bus_volume_db(music_idx))
+	
+	#set screen shake to correct value
+	
+	SS.button_pressed = Inventory.screenShake
+	
 
 func _shop() -> void:
 	LevelSelect.Coins = 10
@@ -85,18 +98,22 @@ func _changeVol(num: float, track: int) -> void:
 	if track == 1:
 		# Prevent math errors with log of zero by clamping or checking
 		if num <= 0.0:
-			Music.volume_db = -80.0 # Muted
+			AudioServer.set_bus_volume_db(music_idx, -10.0)
 		else:
-			Music.volume_db = linear_to_db(num)
+			AudioServer.set_bus_volume_db(music_idx, linear_to_db(num))
 	else:
 		# Prevent math errors with log of zero by clamping or checking
 		#Sfx with capital S represents global scene of sfx audioplayer
 		if num <= 0.0:
-			Sfx.volume_db = -80.0 # Muted
+			AudioServer.set_bus_volume_db(sex, -10.0)
 		else:
-			Sfx.volume_db = linear_to_db(num)
+			AudioServer.set_bus_volume_db(sex, linear_to_db(num))
 
-		
+func _changeSS(toggle : bool) -> void:
+	if toggle:
+		Inventory.screenShake = true
+	else:
+		Inventory.screenShake = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
