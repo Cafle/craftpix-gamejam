@@ -23,6 +23,7 @@ func _sum(arr: Array) -> float:
 	for i in arr:
 		sum += i
 	return sum
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	items.resize(10)		
@@ -101,12 +102,13 @@ func _drink() -> void:
 	_refresh_vials()
 
 func _reversePotions() -> void:
-	ogpotions.reverse()
-	var i = 0
-	while not ogpotions[i]:
-		for x in range (9):
-			ogpotions[x] = ogpotions[x + 1]
-		ogpotions[9] = null
+	if ogpotions[0]:
+		ogpotions.reverse()
+		var i = 0
+		while not ogpotions[i]:
+			for x in range (9):
+				ogpotions[x] = ogpotions[x + 1]
+			ogpotions[9] = null
 		
 	
 func _refresh_vials() -> void:

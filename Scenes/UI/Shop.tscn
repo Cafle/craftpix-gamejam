@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b1ae4tmrwodm2" path="res://Scripts/UI/levelPotions.gd" id="2_lmqlo"]
 [ext_resource type="Resource" uid="uid://bwmgaluvcwjlt" path="res://Assets/Resource files/level presets/lvl1.tres" id="3_lmqlo"]
 [ext_resource type="Theme" uid="uid://cfx1uvctms1cn" path="res://Assets/UI/MAIN_THEME.tres" id="4_l5jkk"]
+[ext_resource type="Resource" uid="uid://42jnk74pwlcn" path="res://Assets/Resource files/level presets/lvl2.tres" id="4_sfqx0"]
 [ext_resource type="Texture2D" uid="uid://buo67t4ru5fj8" path="res://Assets/UI/Main_menu.png" id="5_4vyng"]
 [ext_resource type="Texture2D" uid="uid://bj2lcck2ujf86" path="res://Assets/UI/Buttons.png" id="8_eedsn"]
 [ext_resource type="Script" uid="uid://c6oaoc8350vwp" path="res://Scripts/UI/scrying_orb.gd" id="9_huxhe"]
@@ -36,7 +37,7 @@ mouse_filter = 1
 script = ExtResource("1_3jh66")
 potions = 10
 columns = 5
-level_presets = Array[ExtResource("2_lmqlo")]([ExtResource("3_lmqlo"), null, null, null, null, null, null, null, null, null])
+level_presets = Array[ExtResource("2_lmqlo")]([ExtResource("3_lmqlo"), ExtResource("4_sfqx0"), null, null, null, null, null, null, null, null])
 
 [node name="Container" type="Control" parent="." unique_id=830695573]
 anchors_preset = 0

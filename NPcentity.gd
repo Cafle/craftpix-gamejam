@@ -83,7 +83,7 @@ func _pick_new_wander_target() -> void:
 
 func _update_facing() -> void:
 	if velocity.x != 0:
-		visual.scale.x = -1 if velocity.x > 0 else 1
+		visual.scale.x = 1 if velocity.x > 0 else -1
 
 func _update_animation() -> void:
 	var target_animation := "idle"

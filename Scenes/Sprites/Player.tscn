@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://dr7g0b70x4huo"]
+[gd_scene format=3 uid="uid://dr7g0b70x4huo"]
 
 [ext_resource type="Texture2D" uid="uid://b2ck4gy6e6vna" path="res://Assets/Character/ye-removebg-preview.png" id="1_3liw5"]
 [ext_resource type="Script" uid="uid://baen3bn8wjgug" path="res://Scripts/Sprites/Player.gd" id="1_u1pkf"]
@@ -699,7 +699,6 @@ radius = 18.0
 height = 80.0
 
 [node name="Player" type="CharacterBody2D" unique_id=671294045]
-position = Vector2(481, 1228)
 scale = Vector2(-1, 1)
 script = ExtResource("1_u1pkf")
 JUMP_FORCE = 500.0
@@ -808,7 +807,8 @@ material = SubResource("ShaderMaterial_p63x1")
 ignore_rotation = false
 zoom = Vector2(1.7, 1.7)
 limit_left = -1900
-limit_bottom = 800
+limit_top = -10000003
+limit_bottom = 797
 position_smoothing_speed = 20.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true

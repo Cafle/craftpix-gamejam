@@ -3505,7 +3505,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="1" type="Node2D" unique_id=1281663097]
+[node name="2" type="Node2D" unique_id=1281663097]
 script = ExtResource("1_autlg")
 
 [node name="Player" parent="." unique_id=671294045 instance=ExtResource("1_1aull")]
@@ -3624,3 +3624,6 @@ position = Vector2(-1244, 544)
 
 [node name="CharacterBody2D" parent="." unique_id=1165132786 instance=ExtResource("17_8xaiv")]
 position = Vector2(-1431, 267)
+
+[node name="WinObject2" parent="." unique_id=296522410 instance=ExtResource("3_jd5si")]
+position = Vector2(-1180, 489)

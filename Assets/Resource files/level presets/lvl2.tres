@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="levelPotions" format=3 uid="uid://42jnk74pwlcn"]
+
+[ext_resource type="Script" uid="uid://3oymf2mr7i32" path="res://Scripts/UI/potionData.gd" id="1_gxou2"]
+[ext_resource type="Resource" uid="uid://brpofv6fa3bpx" path="res://Assets/Resource files/potion_items/Jump.tres" id="2_0hik3"]
+[ext_resource type="Resource" uid="uid://67gmne1juveb" path="res://Assets/Resource files/potion_items/Speed.tres" id="3_vj0hl"]
+[ext_resource type="Resource" uid="uid://cm051orxp7jkd" path="res://Assets/Resource files/potion_items/Fire_Barf.tres" id="4_pm0gf"]
+[ext_resource type="Script" uid="uid://b1ae4tmrwodm2" path="res://Scripts/UI/levelPotions.gd" id="5_3hoo4"]
+
+[resource]
+script = ExtResource("5_3hoo4")
+potions = Array[ExtResource("1_gxou2")]([ExtResource("2_0hik3"), ExtResource("3_vj0hl"), ExtResource("2_0hik3"), ExtResource("3_vj0hl"), ExtResource("3_vj0hl"), ExtResource("3_vj0hl"), ExtResource("3_vj0hl"), ExtResource("4_pm0gf"), ExtResource("2_0hik3"), ExtResource("2_0hik3")])
+metadata/_custom_type_script = "uid://b1ae4tmrwodm2"

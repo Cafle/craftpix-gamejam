@@ -54,7 +54,7 @@ func _new_save_pressed() -> void:
 	#NEW. Resets progress, then drops the player straight into level 1 on a clean save.
 	print("New save started")
 	LevelSelect.resetProgress()
-	get_tree().call_deferred("change_scene_to_file", "res://Scenes/Level/1.tscn") 
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/Level Select.tscn") 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
