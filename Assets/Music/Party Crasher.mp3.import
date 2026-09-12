@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgerc8knp8cml"
+path="res://.godot/imported/Party Crasher.mp3-d05e1438ca0dd7e03530eb2ba45993cb.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Party Crasher.mp3"
+dest_files=["res://.godot/imported/Party Crasher.mp3-d05e1438ca0dd7e03530eb2ba45993cb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
