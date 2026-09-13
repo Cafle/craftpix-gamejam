@@ -4,17 +4,19 @@
 [ext_resource type="Script" uid="uid://dd3c8sthss71r" path="res://Scripts/dart.gd" id="1_mplrj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
-size = Vector2(272, 274)
+size = Vector2(65, 67)
 
 [node name="Dart" type="Area2D" unique_id=636099894]
 z_index = 2
 script = ExtResource("1_mplrj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1241291708]
+position = Vector2(-1.5, -0.5)
 shape = SubResource("RectangleShape2D_1vivr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=429024478]
-scale = Vector2(0.4, 0.4)
+position = Vector2(-0.50000095, -4.7683716e-06)
+scale = Vector2(0.09925926, 0.10059171)
 texture = ExtResource("1_12uh2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

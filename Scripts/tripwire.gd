@@ -1,11 +1,17 @@
 extends Area2D
 
+@export_group("if timer 0 not repeating, otherwise set second value")
+@export var timer = 0
+@export var max_shots = 0
 
 signal shoot()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if timer != 0:
+		await get_tree().create_timer(timer).timeout
+		shoot.emit()
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

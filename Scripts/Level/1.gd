@@ -5,7 +5,6 @@ class_name Level
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	%FloodWater.end_x = %FloodEndMarker.global_position.x
 		
 	var tilemap = $TileMapBase
 	var killObject = $KillObjects/KillObject

@@ -10,6 +10,6 @@ taste = "YUMEE"
 desc = "Makes you drunk"
 cost = 3
 potency = 1
-color = Color(0.25490198, 0.003921569, 0.003921569, 1)
+color = Color(0.9411765, 0.54901963, 0.105882354, 1)
 texture = 15
 metadata/_custom_type_script = "uid://3oymf2mr7i32"
