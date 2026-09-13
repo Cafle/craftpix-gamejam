@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cms45vj63nioo" path="res://Scenes/UI/stomach_bar.tscn" id="9_4p61a"]
 [ext_resource type="PackedScene" uid="uid://brdee6rjftvff" path="res://Scenes/UI/Pause.tscn" id="10_sm05k"]
 [ext_resource type="PackedScene" uid="uid://crd5g28nkhiw7" path="res://Scenes/UI/crate_object.tscn" id="12_tes0b"]
+[ext_resource type="PackedScene" uid="uid://g1h04aw12lcd" path="res://Scenes/Misc/breakable_block.tscn" id="13_susv2"]
 [ext_resource type="PackedScene" uid="uid://bsyy06njitgdf" path="res://Scenes/Level/Foresight.tscn" id="13_xj4pt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kgr2"]
@@ -3391,3 +3392,25 @@ text = "tripwieres wlil fire arrows from locations (maybe random maye alwasy sid
 color = Color(0.3374654, 0.22986484, 0.49000138, 1)
 energy = 0.62
 blend_mode = 1
+
+[node name="breakable floors" type="Node2D" parent="." unique_id=2009204874]
+
+[node name="BreakableBlock" parent="breakable floors" unique_id=1089730632 instance=ExtResource("13_susv2")]
+position = Vector2(-16, 911)
+scale = Vector2(3.9599988, 1)
+fragile = true
+
+[node name="BreakableBlock2" parent="breakable floors" unique_id=1160972725 instance=ExtResource("13_susv2")]
+position = Vector2(4370, 690)
+scale = Vector2(3.9599988, 1)
+fragile = true
+
+[node name="BreakableBlock3" parent="breakable floors" unique_id=1129258919 instance=ExtResource("13_susv2")]
+position = Vector2(5168, 717)
+scale = Vector2(3.9599988, 1)
+fragile = true
+
+[node name="BreakableBlock4" parent="breakable floors" unique_id=1791365343 instance=ExtResource("13_susv2")]
+position = Vector2(11120, 654)
+scale = Vector2(3.9599988, 1)
+fragile = true

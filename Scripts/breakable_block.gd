@@ -4,10 +4,12 @@ class_name BreakableBlock
 
 @export_group("Break Conditions")
 @export var chonkiness_threshold: float = 0.05
+@export var fragile: bool = false
 
 @export_group("Effects")
 @export var shake_strength: float = 8.0
 @export var shake_duration: float = 0.2
+
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -51,7 +53,7 @@ func _check_body(body: Node2D) -> void:
 	if body is player:
 		var p: player = body
 		print("checking player -> slamming: ", p.is_slamming(), " last_landing_speed: ", p.speed, " chonkiness: ", p.chonkiness)
-		if p.is_slamming() or p.chonkiness > chonkiness_threshold:
+		if (p.is_slamming() or p.chonkiness > chonkiness_threshold) or fragile:
 			_break(p)
 
 

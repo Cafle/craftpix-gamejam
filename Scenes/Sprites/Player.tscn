@@ -16,8 +16,8 @@ shader_parameter/offset = 0.02
 shader_parameter/coffset = 0.02
 shader_parameter/strength = 0.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0qxnb"]
-radius = 5.564442
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5x6d"]
+size = Vector2(10.9382715, 10.93827)
 
 [sub_resource type="Curve" id="Curve_v6dqo"]
 _limits = [0.0, 3.0, 0.0, 1.0]
@@ -736,13 +736,11 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Rounded feet" type="CollisionShape2D" parent="." unique_id=1950648930]
-visible = false
-position = Vector2(0, 16)
+position = Vector2(-4.7683716e-07, 16)
 scale = Vector2(2.925508, 2.9255085)
-shape = SubResource("CircleShape2D_0qxnb")
+shape = SubResource("RectangleShape2D_g5x6d")
 
 [node name="Smash" type="GPUParticles2D" parent="." unique_id=1655648377]
-visible = false
 emitting = false
 amount = 12
 texture = ExtResource("2_57q14")
@@ -778,7 +776,6 @@ gizmo_extents = 32.5
 script = ExtResource("6_x3irn")
 
 [node name="DirectionalLight2D" type="PointLight2D" parent="AnimatedSprite2D/scalets/mouth" unique_id=1295351544]
-visible = false
 position = Vector2(60, -17)
 color = Color(0.95809287, 0.40302873, 0, 1)
 texture = SubResource("GradientTexture2D_1vivr")
@@ -815,13 +812,11 @@ position = Vector2(-7.5, -0.5)
 shape = SubResource("RectangleShape2D_4ai85")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1674230172]
-visible = false
 position = Vector2(0, -9.999998)
 scale = Vector2(2.925508, 2.9255085)
 shape = SubResource("RectangleShape2D_0qxnb")
 
 [node name="RollShape" type="CollisionShape2D" parent="." unique_id=1447577574]
-visible = false
 position = Vector2(0, 6.5)
 scale = Vector2(2.925508, 2.9255085)
 shape = SubResource("RectangleShape2D_57q14")

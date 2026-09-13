@@ -94,12 +94,6 @@ func _get_buffs() -> void:
 						scale_change = 0.5
 					5:
 						weight_buff = .1
-					6:
-						pass
-						#beer
-					7: 
-						pass
-						#float
 						
 	#mass reset to defaults
 	
