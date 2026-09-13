@@ -14,23 +14,26 @@ func _ready() -> void:
 	area.mouse_entered.connect(_dispDesc)
 	area.mouse_exited.connect(_hideDesc)
 	_apply_data()
-	pass # Replace with function body.
 
 func _apply_data() -> void:
 	if data and is_node_ready():
 		$Potion.modulate = data.color
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !data:
+		hide()
+	else:
+		show()
 	pass
 
 #when hovered
 func _dispDesc() -> void:
 	if data:
-		get_tree().current_scene._changeDesc(data.desc)
+		get_tree().current_scene._changeDesc(data.desc, data.name, data.cost)
 
 #when un-hovered
 func _hideDesc() -> void:
-	get_tree().current_scene._changeDesc("")
+	get_tree().current_scene._changeDesc("", "", 0)
 
 #when clicked	
 func _gui_input(event: InputEvent) -> void:

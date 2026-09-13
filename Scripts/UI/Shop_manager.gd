@@ -7,16 +7,13 @@ extends Control
 @onready var grid = $CenterContainer/GridContainer
 @onready var Back = $back
 @onready var desc = $desc
+@onready var Pname = $name
 @onready var coins = $Coins
 @onready var play = $PLAy
+@onready var tender = $Container/bartender
 
 @export_group("Level presets")
 @export var level_presets: Array[levelPotions]
-
-@export_group("Potion Presets")
-@export var jump: potionData
-@export var speed: potionData
-
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,10 +37,11 @@ func _ready() -> void:
 	var count = 0
 	if preset:
 		for i in preset.potions:
-			if i != null:
+			if i:
 				grid.get_child(count).data = i
 			else:
-				print("null")
+				print("ok")
+				#grid.get_child(count).hide()
 			
 			count += 1
 	
@@ -51,13 +49,20 @@ func _ready() -> void:
 		
 	Back.button_up.connect(_back)
 
-func _changeDesc(text : String) -> void:
+func _changeDesc(text : String, name : String, cost : int) -> void:
+	if text == "":
+		tender.frame = 0
+		Pname.text = ""
+	else:
+		Pname.text = name + " | Cost: " + str(cost)
+		tender.frame = 1
+	
 	desc.text = text
 
 func _buy(cost : int, index : int) -> void:
 	LevelSelect.Coins -= cost
 	coins.text = "Coins: " + str(LevelSelect.Coins)
-	grid.get_child(index).get_child(0).play("bought")
+	grid.get_child(index).get_child(0).hide()
 	
 func _play() -> void:
 	Inventory._reversePotions()

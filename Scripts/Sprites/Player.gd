@@ -365,7 +365,6 @@ func _physics_process(delta):
 				position.x -= i
 				velocity.y = y_vel
 				break
-#
 
 func _float_fart(amount: int) -> void:
 	var contains = false
