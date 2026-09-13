@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://g1h04aw12lcd"]
+
+[ext_resource type="Script" uid="uid://djqteck8gr11a" path="res://Scripts/breakable_block.gd" id="1_ofc15"]
+[ext_resource type="Texture2D" uid="uid://s424fqfwndol" path="res://Assets/UI/Nigward.png" id="2_20sil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7jpp"]
+size = Vector2(24, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ld1re"]
+
+[node name="BreakableBlock" type="StaticBody2D" unique_id=1089730632]
+script = ExtResource("1_ofc15")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1599152707]
+position = Vector2(1.7881393e-07, -4.7683716e-07)
+scale = Vector2(0.029629633, 0.0295858)
+texture = ExtResource("2_20sil")
+
+[node name="BreakDetector" type="Area2D" parent="." unique_id=930376385]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakDetector" unique_id=2093125426]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_a7jpp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1803735034]
+shape = SubResource("RectangleShape2D_ld1re")

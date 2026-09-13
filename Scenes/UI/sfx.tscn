@@ -2,3 +2,4 @@
 
 [node name="SFX" type="AudioStreamPlayer2D" unique_id=1900023273]
 volume_db = -5.823
+bus = &"SFX"
