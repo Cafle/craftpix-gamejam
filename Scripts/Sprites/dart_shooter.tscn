@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://vm82a8r31jai"]
+
+[ext_resource type="Script" uid="uid://bqbcc0srpnwfn" path="res://Scripts/Sprites/dart_shooter.gd" id="1_ne1bi"]
+
+[node name="DartShooter" type="Node2D" unique_id=1014714224]
+script = ExtResource("1_ne1bi")
