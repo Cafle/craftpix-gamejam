@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://buo67t4ru5fj8" path="res://Assets/UI/Main_menu.png" id="5_4vyng"]
 [ext_resource type="Resource" uid="uid://dbrjf6g48l8g5" path="res://Assets/Resource files/level presets/lvl3.tres" id="5_cbx4h"]
 [ext_resource type="Resource" uid="uid://cxe2wemnedh34" path="res://Assets/Resource files/level presets/lvl4.tres" id="6_tk6jg"]
+[ext_resource type="Resource" uid="uid://5r8dhirog0vh" path="res://Assets/Resource files/level presets/lvl7.tres" id="7_meort"]
 [ext_resource type="Texture2D" uid="uid://bj2lcck2ujf86" path="res://Assets/UI/Buttons.png" id="8_eedsn"]
 [ext_resource type="Script" uid="uid://c6oaoc8350vwp" path="res://Scripts/UI/scrying_orb.gd" id="9_huxhe"]
 [ext_resource type="Shader" uid="uid://e6vnnddgd1lm" path="res://Scenes/Level/orb.gdshader" id="10_ug60e"]
@@ -39,7 +40,7 @@ mouse_filter = 1
 script = ExtResource("1_3jh66")
 potions = 10
 columns = 5
-level_presets = Array[ExtResource("2_lmqlo")]([ExtResource("3_lmqlo"), ExtResource("4_sfqx0"), ExtResource("5_cbx4h"), ExtResource("6_tk6jg"), null, null, null, null, null, null])
+level_presets = Array[ExtResource("2_lmqlo")]([ExtResource("3_lmqlo"), ExtResource("4_sfqx0"), ExtResource("5_cbx4h"), ExtResource("6_tk6jg"), null, null, null, ExtResource("7_meort"), null, null])
 
 [node name="Container" type="Control" parent="." unique_id=830695573]
 anchors_preset = 0

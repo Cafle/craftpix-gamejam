@@ -38,7 +38,6 @@ func _ready() -> void:
 	var preset = level_presets[LevelSelect.current_level - 1]
 	
 	var count = 0
-	
 	if preset:
 		for i in preset.potions:
 			if i != null:
