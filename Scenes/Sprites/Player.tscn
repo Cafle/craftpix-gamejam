@@ -849,4 +849,7 @@ visible = false
 position = Vector2(0, 29)
 target_position = Vector2(0, -67)
 
+[node name="groundCollider" type="RayCast2D" parent="." unique_id=466904143]
+target_position = Vector2(0, 174)
+
 [connection signal="body_entered" from="KillHitbox" to="." method="_on_area_2d_body_entered"]

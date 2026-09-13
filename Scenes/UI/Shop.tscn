@@ -40,7 +40,7 @@ mouse_filter = 1
 script = ExtResource("1_3jh66")
 potions = 10
 columns = 5
-level_presets = Array[ExtResource("2_lmqlo")]([ExtResource("3_lmqlo"), ExtResource("4_sfqx0"), ExtResource("5_cbx4h"), ExtResource("6_tk6jg"), null, null, null, ExtResource("7_meort"), null, null])
+level_presets = Array[ExtResource("2_lmqlo")]([ExtResource("3_lmqlo"), ExtResource("4_sfqx0"), ExtResource("5_cbx4h"), ExtResource("6_tk6jg"), null, null, ExtResource("7_meort"), ExtResource("7_meort"), null, null])
 
 [node name="Container" type="Control" parent="." unique_id=830695573]
 anchors_preset = 0

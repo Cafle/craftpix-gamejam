@@ -42,6 +42,7 @@ func _ready() -> void:
 	await $AnimationPlayer.animation_finished
 	show()
 
+	#Inventory.barf.connect(_barf)
 	Inventory.potion_trigger.connect(_yummy_in_my_tummy)
 
 
@@ -58,7 +59,7 @@ func _process(delta: float) -> void:
 	
 	
 	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and belly > 0:
+	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) or Inventory.force_barf) and belly > 0:
 		_barf(delta)
 	else:
 		Inventory.puking = false
@@ -120,6 +121,32 @@ func _yummy_in_my_tummy(pot: potionData) -> void:
 	_sync_inventory()
 	_poke()
 
+func _throwup(delta: float) -> void:
+	if belly <= 0:
+		return
+
+	_poke()
+	Inventory.puking = true
+	barf.emit()
+
+	glorp_progress = maxf(glorp_progress - delta * barf_rate, 0.0)
+	amount_left[belly - 1] = glorp_progress
+
+	var top = current_tummy[belly - 1]
+	if top:
+		top.scale.y = glorp_progress
+	Inventory._barf(glorp_progress)
+
+	if glorp_progress <= 0.0:
+		if top:
+			top.queue_free()
+		current_tummy[belly - 1] = null
+		amount_left[belly - 1] = 0.0
+		belly -= 1
+		Inventory.belly[belly] = null
+		glorp_progress = amount_left[belly - 1] if belly > 0 else 1.0
+
+	_sync_inventory()
 
 func _barf(delta: float) -> void:
 	if belly <= 0:

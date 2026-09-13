@@ -8,6 +8,7 @@ extends Node
 @onready var belly: Array[potionData] = []
 @onready var puking = false
 @onready var intoxication = 0
+@onready var force_barf = false
 
 signal potion_trigger(pot: potionData)
 signal potion_drunk()

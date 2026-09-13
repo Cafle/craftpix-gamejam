@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var move_speed: float = 600.0
+@export var move_speed: float = 300.0
 @export var accelerate: bool = false
 @export var acceleration: float = 5.0
 

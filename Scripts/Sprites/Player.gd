@@ -25,6 +25,11 @@ class_name player
 
 @export_group("Potion effects")
 @export var floating_fall: float = 0
+
+@export_group("Terrain effects")
+@export var slime_jump_multiplier: float = 0.5   # jump force multiplier while standing on slime
+@export var sludge_puke_interval: float = 0.5    # seconds between barfs while standing on sludge
+@export var sludge_puke_amount: float = 1.0
 # coyote time + jump buffer variables
 
 @onready var jbuffer: int = 0
@@ -49,6 +54,11 @@ class_name player
 @onready var facingl = 1
 @onready var scale_change = 1
 @onready var weight_buff = 0
+
+#terrain state (slime / sludge)
+@onready var is_on_slime: bool = false
+@onready var is_on_sludge: bool = false
+@onready var sludge_timer: float = 0.0
 
 #health / death
 var health: int = max_health
@@ -132,6 +142,38 @@ func is_wall_jump_valid() -> bool:
 						return true
 						
 	return false
+
+
+# NEW — inspects the floor-facing slide collisions from the *previous*
+# move_and_slide() call (the same source is_on_floor() reads from) and
+# checks the "slime" / "sludge" custom data booleans on whatever tile
+# is underfoot. Safe to call at the top of _physics_process, before the
+# jump/gravity logic that needs to know about it this frame.
+func _update_floor_tile_effects() -> void:
+	is_on_slime = false
+	is_on_sludge = false
+	if $groundCollider.is_colliding():
+		var tm = $groundCollider.get_collider()
+		if tm is TileMapLayer:
+			var tile_pos = tm.local_to_map(tm.to_local(position))
+			var tile_data = tm.get_cell_tile_data(tile_pos)
+			if tile_data:
+				print(tile_data.get_custom_data("sludge"))
+				if tile_data.get_custom_data("slime"):
+					is_on_slime = true
+					print("fuck slimes")
+				if tile_data.get_custom_data("sludge"):
+					is_on_sludge = true
+					print("brug")
+
+
+# NEW — while standing on a sludge tile, keeps Inventory.puking true (which
+# drives the mouth marker's barf particles) and fires Inventory._barf()
+# on a fixed interval. Stops the instant is_on_sludge goes false, i.e. the
+# frame the player leaves the tile.
+func _update_sludge_puking(delta: float) -> void:
+	Inventory.force_barf = is_on_sludge
+		
 	
 
 func _physics_process(delta):
@@ -139,6 +181,8 @@ func _physics_process(delta):
 		return
 
 	_get_buffs()
+	_update_floor_tile_effects()
+	_update_sludge_puking(delta)
 	
 	var wall = is_wall_jump_valid()
 
@@ -218,7 +262,9 @@ func _physics_process(delta):
 			coyote = coyoteFrames
 			animator.play("jump")
 			jbuffer = 0
-			velocity.y = jump_force * -1
+			# NEW — reduce jump force while standing on slime
+			var effective_jump_force = jump_force * (slime_jump_multiplier if is_on_slime else 1.0)
+			velocity.y = effective_jump_force * -1
 			if wall && direction:
 				animator.play("wall jump")
 				wjframe = wall_jump_frames
@@ -320,7 +366,6 @@ func _physics_process(delta):
 				velocity.y = y_vel
 				break
 #
-
 
 func _float_fart(amount: int) -> void:
 	var contains = false
