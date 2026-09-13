@@ -118,9 +118,9 @@ stretch_mode = 1
 [node name="desc" type="Label" parent="." unique_id=634191409]
 layout_mode = 0
 offset_left = 719.0
-offset_top = 142.0
+offset_top = 141.0
 offset_right = 1255.0
-offset_bottom = 390.0
+offset_bottom = 389.0
 theme = ExtResource("4_l5jkk")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Check your orb dude"
