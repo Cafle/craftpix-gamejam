@@ -39,10 +39,7 @@ func _ready() -> void:
 		for i in preset.potions:
 			if i:
 				grid.get_child(count).data = i
-			else:
-				print("ok")
-				#grid.get_child(count).hide()
-			
+	
 			count += 1
 	
 	
@@ -51,13 +48,15 @@ func _ready() -> void:
 
 func _changeDesc(text : String, name : String, cost : int) -> void:
 	if text == "":
+		desc.text = "Check your orb!"
 		tender.frame = 0
-		Pname.text = ""
+		Pname.text = "YO!"
 	else:
+		desc.text = text
 		Pname.text = name + " | Cost: " + str(cost)
 		tender.frame = 1
 	
-	desc.text = text
+	
 
 func _buy(cost : int, index : int) -> void:
 	LevelSelect.Coins -= cost
