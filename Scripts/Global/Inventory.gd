@@ -32,7 +32,8 @@ func _ready() -> void:
 	ogpotions.resize(10)
 	belly.resize(10)
 
-
+func _contains_floating() -> bool:
+	return true;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

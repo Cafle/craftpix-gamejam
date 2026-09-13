@@ -612,6 +612,18 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_g5x6d"]
+offsets = PackedFloat32Array(0.6603774, 1)
+colors = PackedColorArray(0.8421053, 0.8421053, 0.8421053, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1vivr"]
+gradient = SubResource("Gradient_g5x6d")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5352941, 0.5058824)
+fill_to = Vector2(0.24705882, 0.07647059)
+
 [sub_resource type="Gradient" id="Gradient_x3irn"]
 offsets = PackedFloat32Array(0, 0.378866)
 colors = PackedColorArray(0.85, 0.78880006, 0.23799998, 1, 0.6117514, 0.4850862, 0, 1)
@@ -709,6 +721,7 @@ wall_jump_frames = 7
 nudgeularity = 30
 
 [node name="drunk effects" type="CanvasLayer" parent="." unique_id=92756712]
+visible = false
 script = ExtResource("7_p63x1")
 
 [node name="yes" type="ColorRect" parent="drunk effects" unique_id=657746619]
@@ -723,11 +736,13 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Rounded feet" type="CollisionShape2D" parent="." unique_id=1950648930]
+visible = false
 position = Vector2(0, 16)
 scale = Vector2(2.925508, 2.9255085)
 shape = SubResource("CircleShape2D_0qxnb")
 
 [node name="Smash" type="GPUParticles2D" parent="." unique_id=1655648377]
+visible = false
 emitting = false
 amount = 12
 texture = ExtResource("2_57q14")
@@ -762,6 +777,12 @@ position = Vector2(10, 9)
 gizmo_extents = 32.5
 script = ExtResource("6_x3irn")
 
+[node name="DirectionalLight2D" type="PointLight2D" parent="AnimatedSprite2D/scalets/mouth" unique_id=1295351544]
+visible = false
+position = Vector2(60, -17)
+color = Color(0.95809287, 0.40302873, 0, 1)
+texture = SubResource("GradientTexture2D_1vivr")
+
 [node name="Barf" type="GPUParticles2D" parent="AnimatedSprite2D/scalets/mouth" unique_id=15536313]
 emitting = false
 amount = 200
@@ -794,11 +815,13 @@ position = Vector2(-7.5, -0.5)
 shape = SubResource("RectangleShape2D_4ai85")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1674230172]
+visible = false
 position = Vector2(0, -9.999998)
 scale = Vector2(2.925508, 2.9255085)
 shape = SubResource("RectangleShape2D_0qxnb")
 
 [node name="RollShape" type="CollisionShape2D" parent="." unique_id=1447577574]
+visible = false
 position = Vector2(0, 6.5)
 scale = Vector2(2.925508, 2.9255085)
 shape = SubResource("RectangleShape2D_57q14")
@@ -816,14 +839,17 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="KillHitbox" type="Area2D" parent="." unique_id=1299921152]
+visible = false
 position = Vector2(-4.7683716e-07, 30.31892)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillHitbox" unique_id=586047037]
+visible = false
 position = Vector2(4.7683716e-07, -32.31892)
 shape = SubResource("CapsuleShape2D_1vivr")
 debug_color = Color(0.9694641, 0, 0.46431375, 0.41960785)
 
 [node name="UnRoll" type="RayCast2D" parent="." unique_id=4230792]
+visible = false
 position = Vector2(0, 29)
 target_position = Vector2(0, -67)
 

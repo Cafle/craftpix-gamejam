@@ -15,6 +15,7 @@ const WALL_SLIDE    : Array[Vector2] = [Vector2(-7, 12), Vector2(-7, 12)]
 const ROLL_ROTATION  : Array[float] = [0, 135, 214, 231, 231, -34, 0, 0, 0]
 const SLIDE_ROTATION : Array[float] = [0, -38, -48, -24, -62, -62, -24, 0, 0, 0, 0]
 
+
 const MOUTH_ANCHORS := {
 	"fall": FALL,
 	"rise": RISE,

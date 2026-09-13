@@ -23,6 +23,8 @@ class_name player
 @export_group("Combat")
 @export var slam_velocity_threshold: float = 1200.0
 
+@export_group("Potion effects")
+@export var floating_fall: float = 0
 # coyote time + jump buffer variables
 
 @onready var jbuffer: int = 0
@@ -47,9 +49,12 @@ class_name player
 @onready var facingl = 1
 @onready var scale_change = 1
 @onready var weight_buff = 0
+
 #health / death
 var health: int = max_health
 var is_dead: bool = false
+
+var floating : bool 
 
 # NEW — velocity.y captured immediately before move_and_slide() runs.
 # move_and_slide() zeroes/cancels velocity.y as part of its collision
@@ -63,6 +68,7 @@ signal health_changed(current: int, max: int)
 
 func _ready() -> void:
 	health = max_health
+	Inventory.barf.connect(_float_fart)
 
 func _get_buffs() -> void:
 	#buff reset
@@ -88,7 +94,12 @@ func _get_buffs() -> void:
 						scale_change = 0.5
 					5:
 						weight_buff = .1
-						
+					6:
+						pass
+						#beer
+					7: 
+						pass
+						#float
 						
 	#mass reset to defaults
 	
@@ -256,6 +267,8 @@ func _physics_process(delta):
 	if (animator.animation == "slide" or animator.animation == "roll"):
 		roll_or_slide = animator.animation 
 	
+	
+	
 	move_and_slide()
 	
 	if animator.animation == "roll" or animator.animation == "slide":
@@ -314,6 +327,16 @@ func _physics_process(delta):
 				break
 #
 
+func _float_fart(amount: int) -> void:
+	var contains = false
+	for pot in Inventory.belly:
+		if pot and pot.id == 7:
+			contains = true
+			break
+			
+	if velocity.y > floating_fall and contains:
+				velocity.y = floating_fall
+				rotation_degrees = 90
 
 func _apply_body_transform() -> void:
 	transform = Transform2D(0.0, Vector2(scale_change * facingl, scale_change), 0.0, position)
