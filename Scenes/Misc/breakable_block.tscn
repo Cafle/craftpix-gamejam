@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://s424fqfwndol" path="res://Assets/UI/Nigward.png" id="2_20sil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7jpp"]
-size = Vector2(24, 23)
+size = Vector2(21, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ld1re"]
 
@@ -21,7 +21,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BreakDetector" unique_id=2093125426]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_a7jpp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1803735034]

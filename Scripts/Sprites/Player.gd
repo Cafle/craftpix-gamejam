@@ -20,6 +20,9 @@ class_name player
 @export_group("Health")
 @export var max_health: int = 1
 
+@export_group("Combat")
+@export var slam_velocity_threshold: float = 1200.0
+
 # coyote time + jump buffer variables
 
 @onready var jbuffer: int = 0
@@ -47,6 +50,13 @@ class_name player
 #health / death
 var health: int = max_health
 var is_dead: bool = false
+
+# NEW — velocity.y captured immediately before move_and_slide() runs.
+# move_and_slide() zeroes/cancels velocity.y as part of its collision
+# response, so anything checking live velocity.y AFTER that call (e.g.
+# other scripts reacting to a landing) will read a value that no longer
+# reflects the actual impact speed. Read last_fall_speed instead.
+var last_fall_speed: float = 0.0
 
 signal died
 signal health_changed(current: int, max: int)
@@ -229,6 +239,20 @@ func _physics_process(delta):
 	var y_vel = velocity.y
 	var x_vel = velocity.x	
 	var was_floored = is_on_floor()
+	# NEW — stash the pre-slide vertical velocity for anything outside this
+	# script (e.g. BreakableBlock.is_slamming() checks) that needs to know
+	# the real impact speed. move_and_slide() below will cancel velocity.y
+	# on landing, so this is the last point where it's still accurate.
+	#only update while airborne. The "is_on_floor(): velocity.y = 0"
+	# branch above runs every single grounded frame, not just the landing
+	# frame — so if we captured y_vel unconditionally here, last_fall_speed
+	# would get stomped back to 0 on the very next physics tick, before
+	# anything (body_entered signals, per-frame overlap polling, etc.) gets
+	# a chance to read the real impact speed. Leaving it untouched once
+	# grounded lets it hold the true impact value until the player leaves
+	# the floor and starts a new fall.
+	if not was_floored:
+		last_fall_speed = y_vel
 	if (animator.animation == "slide" or animator.animation == "roll"):
 		roll_or_slide = animator.animation 
 	
@@ -315,9 +339,10 @@ func camera_shake(strength: float, duration: float = 0.3):
 			tween.tween_property(camera, "position", original_pos + offset, duration / shakes)
 		tween.tween_property(camera, "position", original_pos, duration / shakes)
 	
+
 func is_slamming() -> bool:
-	print("ve;",velocity.y)
-	return velocity.y >= 150
+	print("y vel = ", last_fall_speed)
+	return last_fall_speed >= slam_velocity_threshold
 
 func take_damage(amount: int = 1) -> void:
 	if is_dead:
