@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c87qxchpqw6ev" path="res://Assets/Character/images-removebg-preview (4).png" id="2_jlful"]
 [ext_resource type="Texture2D" uid="uid://b2e6rci5brsfl" path="res://Assets/Character/PlayerSheeet.png" id="4_v6dqo"]
 [ext_resource type="Script" uid="uid://bshyrl0oxkk3b" path="res://Scripts/Sprites/mouth_anchor.gd" id="6_x3irn"]
-[ext_resource type="Script" uid="uid://b3jfl767l70b8" path="res://Scenes/Sprites/drunk_effects.gd" id="7_p63x1"]
+[ext_resource type="Script" uid="uid://b3jfl767l70b8" path="res://Scripts/Sprites/drunk_effects.gd" id="7_p63x1"]
 [ext_resource type="Shader" uid="uid://ckye4pg06614n" path="res://Scenes/Sprites/Drunk_effects.gdshader" id="8_mfxiq"]
-[ext_resource type="Script" uid="uid://bn4pl70f3wry6" path="res://Scenes/Sprites/fire_breath.gd" id="9_fire1"]
+[ext_resource type="Script" uid="uid://bn4pl70f3wry6" path="res://Scripts/Sprites/fire_breath.gd" id="9_fire1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mfxiq"]
 shader = ExtResource("8_mfxiq")

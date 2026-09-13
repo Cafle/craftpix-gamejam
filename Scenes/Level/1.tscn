@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://7bwuopltt3ob" path="res://Scenes/UI/Photbar.tscn" id="13_76awh"]
 [ext_resource type="PackedScene" uid="uid://dvm6rlrw4qelu" path="res://Scenes/Sprites/spawner.tscn" id="14_1kgr2"]
 [ext_resource type="PackedScene" uid="uid://bsyy06njitgdf" path="res://Scenes/Level/Foresight.tscn" id="14_ipjxs"]
+[ext_resource type="PackedScene" uid="uid://bbxdi5kal1jjh" path="res://NPC.tscn" id="17_8xaiv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kgr2"]
 texture = ExtResource("5_1kgr2")
@@ -3426,14 +3427,7 @@ position = Vector2(-1244, 544)
 [node name="WinObject2" parent="." unique_id=296522410 instance=ExtResource("3_jd5si")]
 position = Vector2(5615, -10)
 
-[node name="NpcSpawner" parent="." unique_id=7524420 instance=ExtResource("14_1kgr2")]
-
-[node name="NPC" type="Node2D" parent="NpcSpawner" unique_id=155361466]
-
-[node name="Node2D" type="Node2D" parent="NpcSpawner/NPC" unique_id=272956224]
-position = Vector2(-1166, 542)
-
-[node name="ENEMIES" type="Node2D" parent="NpcSpawner" unique_id=98381397]
-
-[node name="Node2D" type="Node2D" parent="NpcSpawner/ENEMIES" unique_id=73976791]
-position = Vector2(-1715, 534)
+[node name="Spawner" parent="." unique_id=7524420 instance=ExtResource("14_1kgr2")]
+position = Vector2(-1176, 529)
+spawn_me = ExtResource("17_8xaiv")
+time_between = 300

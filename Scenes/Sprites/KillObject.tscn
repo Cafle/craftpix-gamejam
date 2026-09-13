@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0mgipnettt0f"]
 
-[ext_resource type="Script" uid="uid://bj18y2eqg0v0w" path="res://Scenes/Sprites/kill_object.gd" id="1_mxek5"]
+[ext_resource type="Script" uid="uid://bj18y2eqg0v0w" path="res://Scripts/Sprites/kill_object.gd" id="1_mxek5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qxnb"]
 size = Vector2(32, 32)
