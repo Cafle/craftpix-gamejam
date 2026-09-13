@@ -38,13 +38,15 @@ func _ready() -> void:
 	var preset = level_presets[LevelSelect.current_level - 1]
 	
 	var count = 0
-	for i in preset.potions:
-		if i != null:
-			grid.get_child(count).data = i
-		else:
-			print("null")
-		
-		count += 1
+	
+	if preset:
+		for i in preset.potions:
+			if i != null:
+				grid.get_child(count).data = i
+			else:
+				print("null")
+			
+			count += 1
 	
 	
 		

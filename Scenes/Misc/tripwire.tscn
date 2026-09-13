@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ce64akpvouw8k"]
+
+[ext_resource type="Script" uid="uid://753iqn64x64p" path="res://Scripts/tripwire.gd" id="1_pr31d"]
+[ext_resource type="Texture2D" uid="uid://b2ck4gy6e6vna" path="res://Assets/Character/ye-removebg-preview.png" id="2_75nph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+
+[node name="Tripwire" type="Area2D" unique_id=730332157]
+script = ExtResource("1_pr31d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=767068749]
+position = Vector2(-9.536743e-07, -1.4305115e-06)
+scale = Vector2(0.06263982, 0.04474274)
+texture = ExtResource("2_75nph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=31538079]
+shape = SubResource("RectangleShape2D_1vivr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
