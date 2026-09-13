@@ -778,6 +778,7 @@ script = ExtResource("6_x3irn")
 [node name="DirectionalLight2D" type="PointLight2D" parent="AnimatedSprite2D/scalets/mouth" unique_id=1295351544]
 position = Vector2(60, -17)
 color = Color(0.95809287, 0.40302873, 0, 1)
+energy = 1.62
 texture = SubResource("GradientTexture2D_1vivr")
 
 [node name="Barf" type="GPUParticles2D" parent="AnimatedSprite2D/scalets/mouth" unique_id=15536313]

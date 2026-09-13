@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is player:
+	if body is player and direction != Vector2(0,0):
 		body._die()
 	else:
 		direction = Vector2(0,0)

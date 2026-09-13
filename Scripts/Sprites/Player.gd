@@ -321,6 +321,7 @@ func _physics_process(delta):
 				break
 #
 
+
 func _float_fart(amount: int) -> void:
 	var contains = false
 	for pot in Inventory.belly:

@@ -9,8 +9,9 @@ signal shoot()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if timer != 0:
-		await get_tree().create_timer(timer).timeout
-		shoot.emit()
+		for i in range(999):
+			await get_tree().create_timer(timer).timeout
+			shoot.emit()
 
 
 

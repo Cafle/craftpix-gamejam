@@ -52,6 +52,10 @@ func _process(delta: float) -> void:
 			break
 	var breathing_fire := Inventory.puking and fire
 	$Flames.emitting = breathing_fire
+	if breathing_fire:
+		$DirectionalLight2D.show()
+	else:
+		$DirectionalLight2D.hide()
 	$Barf.emitting = Inventory.puking and not fire
 	$FireBreathArea/CollisionShape2D.disabled = not breathing_fire
 
