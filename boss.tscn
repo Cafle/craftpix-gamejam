@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://brhgfv7xmxjts"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mihky"]
+load_path = "res://.godot/imported/Boss.png-c465a9f3b53d024b836be5cf264cf34f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qxnb"]
+atlas = SubResource("CompressedTexture2D_mihky")
+region = Rect2(145, 86, 80, 128)
+
+[node name="BOSS" type="Node2D" unique_id=775095733]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1323645127]
+
+[node name="Boss" type="Sprite2D" parent="." unique_id=571889657]
+texture = SubResource("AtlasTexture_0qxnb")

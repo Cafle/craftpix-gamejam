@@ -806,6 +806,7 @@ process_material = SubResource("ParticleProcessMaterial_3mw3n")
 [node name="FireBreathArea" type="Area2D" parent="AnimatedSprite2D/scalets/mouth" unique_id=1784240915]
 position = Vector2(32, -7)
 collision_layer = 8
+collision_mask = 9
 script = ExtResource("9_fire1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/scalets/mouth/FireBreathArea" unique_id=958948862]

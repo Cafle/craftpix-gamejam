@@ -347,6 +347,9 @@ size = Vector2(163.66666, 74.83333)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_poc7j"]
 size = Vector2(28.333332, 59.166664)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0qxnb"]
+radius = 32.360813
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qxnb"]
 size = Vector2(24, 64)
 
@@ -394,6 +397,14 @@ position = Vector2(32.5, -33.5)
 position = Vector2(-15.833338, 33.91667)
 shape = SubResource("RectangleShape2D_poc7j")
 debug_color = Color(0.98, 0, 0.016333085, 0.49019608)
+
+[node name="Die" type="Area2D" parent="pivot" unique_id=1886673057]
+collision_layer = 9
+collision_mask = 9
+
+[node name="Die" type="CollisionShape2D" parent="pivot/Die" unique_id=592735723]
+shape = SubResource("CircleShape2D_0qxnb")
+debug_color = Color(0.7081954, 0.31456578, 0.92783654, 0.41960785)
 
 [node name="HitBox" type="CollisionShape2D" parent="." unique_id=1404640358]
 position = Vector2(0, 5)

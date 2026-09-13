@@ -21,7 +21,6 @@ var player_node: Node2D = null
 var found := false
 var dir := 1
 
-
 func _ready() -> void:
 	sight.body_entered.connect(_found_player)
 	dir = StartDir
@@ -30,13 +29,22 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:
 		jumping = false
 	move_and_slide()
+	_check_death()
 	_face()
 
+func _check_death() -> void:
+	for bod in $pivot/Die.get_overlapping_areas():
+		print("is fire?")
+		if bod is FireBreathHitbox:
+			print("AGGGHH")
+			_kms()
 
 func _cycle() -> void:
 	await get_tree().physics_frame
@@ -83,11 +91,13 @@ func _chase() -> void:
 		
 		if absf(to_player_x) < attack_range and absf(to_player_y) < attack_range:
 			velocity.x = 0
+			await _check_death()
 			anim.play("running_attack")
 			await anim.animation_finished
-			if is_instance_valid(player_node) and player_node.has_method("_die"):
+			if is_instance_valid(player_node) and player_node.has_method("_die") and not anim.animation == "death":
 				#print("kill")
 				player_node._die()
+				pass
 		else:
 			_run(signi(int(to_player_x)))
 			await get_tree().physics_frame
@@ -128,3 +138,8 @@ func _found_player(body) -> void:
 	if body is player:
 		found = true
 		player_node = body
+		
+func _kms() -> void:
+	anim.play("death")
+	await  anim.animation_finished
+	queue_free()
