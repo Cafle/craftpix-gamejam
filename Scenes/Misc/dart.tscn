@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://u63ttk8y162b"]
+
+[ext_resource type="Texture2D" uid="uid://s424fqfwndol" path="res://Assets/UI/Nigward.png" id="1_12uh2"]
+[ext_resource type="Script" uid="uid://dd3c8sthss71r" path="res://Scripts/dart.gd" id="1_mplrj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+size = Vector2(272, 274)
+
+[node name="Dart" type="Area2D" unique_id=636099894]
+script = ExtResource("1_mplrj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1241291708]
+shape = SubResource("RectangleShape2D_1vivr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=429024478]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_12uh2")

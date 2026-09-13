@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://crd5g28nkhiw7" path="res://Scenes/UI/crate_object.tscn" id="12_tes0b"]
 [ext_resource type="PackedScene" uid="uid://g1h04aw12lcd" path="res://Scenes/Misc/breakable_block.tscn" id="13_susv2"]
 [ext_resource type="PackedScene" uid="uid://bsyy06njitgdf" path="res://Scenes/Level/Foresight.tscn" id="13_xj4pt"]
+[ext_resource type="PackedScene" uid="uid://vm82a8r31jai" path="res://Scenes/Misc/dart_shooter.tscn" id="14_74h1a"]
+[ext_resource type="PackedScene" uid="uid://u63ttk8y162b" path="res://Scenes/Misc/dart.tscn" id="15_scuol"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kgr2"]
 texture = ExtResource("3_ck02b")
@@ -3320,6 +3322,7 @@ sources/2 = SubResource("TileSetAtlasSource_jnyrv")
 sources/1 = SubResource("TileSetAtlasSource_aq2ub")
 
 [node name="4" type="Node2D" unique_id=1281663097]
+position = Vector2(0, -1)
 script = ExtResource("1_scuol")
 
 [node name="Player" parent="." unique_id=671294045 instance=ExtResource("2_t7c2y")]
@@ -3414,3 +3417,8 @@ fragile = true
 position = Vector2(11120, 654)
 scale = Vector2(3.9599988, 1)
 fragile = true
+
+[node name="DartShooter" parent="." unique_id=1014714224 instance=ExtResource("14_74h1a")]
+z_index = -5
+position = Vector2(-670, 725)
+dart = ExtResource("15_scuol")
