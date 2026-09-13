@@ -120,4 +120,3 @@ func _refresh_vials() -> void:
 			
 func _barf(left: float):
 	barf.emit(left)
-	

@@ -2,10 +2,12 @@ extends Node2D
 class_name Level
 @export var potions : levelPotions
 @onready var donezo = false
+@onready var flood_trigger = $FloodTrigger
+@onready var flood_water = $FloodWater
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-		
+
 	var tilemap = $TileMapBase
 	var killObject = $KillObjects/KillObject
 	var winObject = $WinObject
