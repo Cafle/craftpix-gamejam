@@ -358,7 +358,7 @@ collision_layer = 0
 collision_mask = 16
 collision_priority = 10.0
 script = ExtResource("1_hb8ge")
-attack_range = 4.0
+attack_range = 20.0
 ledge_pause = 1.0
 
 [node name="pivot" type="Marker2D" parent="." unique_id=1989441308]

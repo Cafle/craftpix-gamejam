@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3won5kwd0gti"
+path="res://.godot/imported/Tavern of Wonders.mp3-9207dc62a8e6849fbfb0369eece8e5d1.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Tavern of Wonders.mp3"
+dest_files=["res://.godot/imported/Tavern of Wonders.mp3-9207dc62a8e6849fbfb0369eece8e5d1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

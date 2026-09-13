@@ -86,12 +86,12 @@ func _chase() -> void:
 			anim.play("running_attack")
 			await anim.animation_finished
 			if is_instance_valid(player_node) and player_node.has_method("_die"):
-				print("kill")
-				#player_node._die()
+				#print("kill")
+				player_node._die()
 		else:
 			_run(signi(int(to_player_x)))
 			await get_tree().physics_frame
-			if to_player_y < -30 and not jumping:
+			if to_player_y < -150 and not jumping:
 				jumping = true
 				anim.play("jump")
 				velocity.y = -420

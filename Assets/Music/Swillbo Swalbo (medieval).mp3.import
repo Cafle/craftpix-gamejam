@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bd7j4ot4xnyki"
+path="res://.godot/imported/Swillbo Swalbo (medieval).mp3-f5f0d1b16c7639056b38f92daa407e1a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Swillbo Swalbo (medieval).mp3"
+dest_files=["res://.godot/imported/Swillbo Swalbo (medieval).mp3-f5f0d1b16c7639056b38f92daa407e1a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
