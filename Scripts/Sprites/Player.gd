@@ -155,7 +155,8 @@ func _update_floor_tile_effects() -> void:
 	if $groundCollider.is_colliding():
 		var tm = $groundCollider.get_collider()
 		if tm is TileMapLayer:
-			var tile_pos = tm.local_to_map(tm.to_local(position))
+			var pos = position + Vector2(0, 30)
+			var tile_pos = tm.local_to_map(tm.to_local(pos))
 			var tile_data = tm.get_cell_tile_data(tile_pos)
 			if tile_data:
 				print(tile_data.get_custom_data("sludge"))
