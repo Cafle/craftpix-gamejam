@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dffsuen5hoyov"
+path="res://.godot/imported/AY meow.mp3-d9037e5886fb4e47cfa665b806c73a45.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/AY meow.mp3"
+dest_files=["res://.godot/imported/AY meow.mp3-d9037e5886fb4e47cfa665b806c73a45.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

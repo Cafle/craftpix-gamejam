@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://2mikyxukl7ar"]
 
 [ext_resource type="Script" uid="uid://dejkemh6dps0y" path="res://Scripts/Level/WinObject.gd" id="1_ar8of"]
-[ext_resource type="Texture2D" uid="uid://dfia050scr3ie" path="res://Assets/Level/spongebob-kanye.png" id="1_nmab6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ar8of"]
 size = Vector2(304, 496)
@@ -11,7 +10,6 @@ script = ExtResource("1_ar8of")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=297919247]
 scale = Vector2(0.17333335, 0.08032128)
-texture = ExtResource("1_nmab6")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=909099933]
 

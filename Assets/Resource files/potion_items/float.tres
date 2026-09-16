@@ -5,11 +5,11 @@
 [resource]
 script = ExtResource("1_d5wod")
 id = 7
-name = "Floating"
+name = "Ascending "
 taste = "testy"
-desc = "FART"
+desc = "projectile puking to slow your fall. gnarly . . ."
 cost = 3
 potency = 1
-color = Color(0.36896524, 0.8953359, 0, 1)
+color = Color(0.6492049, 0.67928433, 0.75042874, 1)
 texture = 15
 metadata/_custom_type_script = "uid://3oymf2mr7i32"

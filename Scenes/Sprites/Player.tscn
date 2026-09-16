@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b2e6rci5brsfl" path="res://Assets/Character/PlayerSheeet.png" id="4_v6dqo"]
 [ext_resource type="Script" uid="uid://bshyrl0oxkk3b" path="res://Scripts/Sprites/mouth_anchor.gd" id="6_x3irn"]
 [ext_resource type="Script" uid="uid://b3jfl767l70b8" path="res://Scripts/Sprites/drunk_effects.gd" id="7_p63x1"]
-[ext_resource type="Shader" uid="uid://ckye4pg06614n" path="res://Scenes/Sprites/Drunk_effects.gdshader" id="8_mfxiq"]
+[ext_resource type="Shader" uid="uid://ckye4pg06614n" path="res://Scripts/UI/Drunk_effects.gdshader" id="8_mfxiq"]
 [ext_resource type="Script" uid="uid://bn4pl70f3wry6" path="res://Scripts/Sprites/fire_breath.gd" id="9_fire1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mfxiq"]
@@ -711,7 +711,7 @@ radius = 18.0
 height = 64.0
 
 [node name="Player" type="CharacterBody2D" unique_id=671294045]
-collision_layer = 3
+collision_layer = 131
 collision_mask = 3
 script = ExtResource("1_u1pkf")
 JUMP_FORCE = 750.0
@@ -721,7 +721,6 @@ wall_jump_frames = 7
 nudgeularity = 30
 
 [node name="drunk effects" type="CanvasLayer" parent="." unique_id=92756712]
-visible = false
 script = ExtResource("7_p63x1")
 
 [node name="yes" type="ColorRect" parent="drunk effects" unique_id=657746619]
@@ -762,13 +761,12 @@ frame_progress = 0.44054225
 [node name="scalets" type="Node2D" parent="AnimatedSprite2D" unique_id=983472067]
 
 [node name="downWall" type="RayCast2D" parent="AnimatedSprite2D/scalets" unique_id=1120436354]
-position = Vector2(0, 32)
-target_position = Vector2(19, 19)
+position = Vector2(0, 48)
+target_position = Vector2(24, 0)
 
 [node name="upWall" type="RayCast2D" parent="AnimatedSprite2D/scalets" unique_id=793905645]
-position = Vector2(0, 32)
-exclude_parent = false
-target_position = Vector2(18, -36)
+position = Vector2(0, 12)
+target_position = Vector2(24, 0)
 
 [node name="mouth" type="Marker2D" parent="AnimatedSprite2D/scalets" unique_id=1531278394]
 position = Vector2(10, 9)
@@ -776,6 +774,7 @@ gizmo_extents = 32.5
 script = ExtResource("6_x3irn")
 
 [node name="DirectionalLight2D" type="PointLight2D" parent="AnimatedSprite2D/scalets/mouth" unique_id=1295351544]
+visible = false
 position = Vector2(60, -17)
 color = Color(0.95809287, 0.40302873, 0, 1)
 energy = 1.62
@@ -813,11 +812,13 @@ position = Vector2(-7.5, -0.5)
 shape = SubResource("RectangleShape2D_4ai85")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1674230172]
+visible = false
 position = Vector2(0, -9.999998)
 scale = Vector2(2.925508, 2.9255085)
 shape = SubResource("RectangleShape2D_0qxnb")
 
 [node name="RollShape" type="CollisionShape2D" parent="." unique_id=1447577574]
+visible = false
 position = Vector2(0, 6.5)
 scale = Vector2(2.925508, 2.9255085)
 shape = SubResource("RectangleShape2D_57q14")
@@ -845,7 +846,6 @@ shape = SubResource("CapsuleShape2D_1vivr")
 debug_color = Color(0.9694641, 0, 0.46431375, 0.41960785)
 
 [node name="UnRoll" type="RayCast2D" parent="." unique_id=4230792]
-visible = false
 position = Vector2(0, 29)
 target_position = Vector2(0, -67)
 

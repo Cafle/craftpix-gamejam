@@ -28,6 +28,7 @@ func _sum(arr: Array) -> float:
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	LevelSelect.unlockLevel(10)
 	items.resize(10)		
 	potions.resize(10)
 	ogpotions.resize(10)

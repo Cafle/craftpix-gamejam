@@ -106,7 +106,7 @@ func apply_shader_colors() -> void:
 	face_material.set_shader_parameter("skin", SkinTone.darkened(0.15))
 	face_material.set_shader_parameter("tolerance", 0.08)  # back to default, precise key handles the nose now
 	face_sprite.material = face_material
-	print("face material assigned: ", face_sprite.material, " skin param: ", face_material.get_shader_parameter("skin"))
+	#print("face material assigned: ", face_sprite.material, " skin param: ", face_material.get_shader_parameter("skin"))
 
 func _setup_face_material() -> void:
 	var face_material := ShaderMaterial.new()

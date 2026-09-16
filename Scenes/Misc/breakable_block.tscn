@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://g1h04aw12lcd"]
 
-[ext_resource type="Script" uid="uid://djqteck8gr11a" path="res://Scripts/breakable_block.gd" id="1_ofc15"]
+[ext_resource type="Script" uid="uid://djqteck8gr11a" path="res://Scripts/Level/breakable_block.gd" id="1_ofc15"]
 [ext_resource type="Texture2D" uid="uid://s424fqfwndol" path="res://Assets/UI/Nigward.png" id="2_20sil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7jpp"]

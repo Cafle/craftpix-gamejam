@@ -5,11 +5,11 @@
 [resource]
 script = ExtResource("1_36ovc")
 id = 3
-name = "coyote time"
+name = "Blind Faith Brew"
 taste = "like rabbit"
-desc = "walk on air"
+desc = "You remember that coyote guy from looney tunes? something like that . . ."
 cost = 3
 potency = 1
-color = Color(0.56435204, 0.83414364, 0.97256523, 1)
+color = Color(0.45504063, 0.3138706, 1, 1)
 texture = 15
 metadata/_custom_type_script = "uid://3oymf2mr7i32"

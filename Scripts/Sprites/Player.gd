@@ -159,13 +159,13 @@ func _update_floor_tile_effects() -> void:
 			var tile_pos = tm.local_to_map(tm.to_local(pos))
 			var tile_data = tm.get_cell_tile_data(tile_pos)
 			if tile_data:
-				print(tile_data.get_custom_data("sludge"))
+				#print(tile_data.get_custom_data("sludge"))
 				if tile_data.get_custom_data("slime"):
 					is_on_slime = true
-					print("fuck slimes")
+					#print("fuck slimes")
 				if tile_data.get_custom_data("sludge"):
 					is_on_sludge = true
-					print("brug")
+					#print("brug")
 
 
 # NEW — while standing on a sludge tile, keeps Inventory.puking true (which
@@ -404,7 +404,6 @@ func camera_shake(strength: float, duration: float = 0.3):
 	
 
 func is_slamming() -> bool:
-	print("y vel = ", last_fall_speed)
 	return last_fall_speed >= slam_velocity_threshold
 
 func take_damage(amount: int = 1) -> void:

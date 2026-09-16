@@ -14,7 +14,8 @@ func _ready() -> void:
 func _pressed() -> void:
 	if !locked:
 		LevelSelect.current_level = level
-		get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/shop.tscn")
+		get_tree().change_scene_to_packed(LevelSelect.loadLevel(level))
+		#get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/shop.tscn")
 		#now handeled in sho[ manager
 		#LevelSelect._playSong(level)
 		#get_tree().call_deferred("change_scene_to_file", LevelSelect.loadLevel(level))
