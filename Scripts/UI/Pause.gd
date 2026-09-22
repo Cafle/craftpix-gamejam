@@ -1,5 +1,7 @@
 extends Control
 
+@onready var preshop =  preload("res://Scenes/UI/shop.tscn")
+
 #menus
 @onready var Pause_m = $Pause
 @onready var Option_m = $Options
@@ -58,7 +60,8 @@ func _ready() -> void:
 func _shop() -> void:
 	LevelSelect.Coins = 10
 	get_tree().paused = false
-	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/shop.tscn")
+	get_tree().change_scene_to_packed(preshop)
+	#get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/shop.tscn")
 
 func _openOptions() -> void:
 	Pause_m.hide()
@@ -90,8 +93,9 @@ func _restart() -> void:
 	
 func _quit() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/UI/Level Select.tscn")
-	pass
+	get_tree().change_scene_to_packed(LevelSelect.lvl_sel)
+	print("yo")
+	#get_tree().change_scene_to_file("res://Scenes/UI/Level Select.tscn")
 	
 func _changeVol(num: float, track: int) -> void:
 	#1 for music slider, 0 for sfx

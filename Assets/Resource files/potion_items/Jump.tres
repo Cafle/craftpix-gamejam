@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource("1_0yk4e")
-id = 1
+id = 2
 name = "Rabbits Mead"
 taste = "testy"
-desc = "jump higher"
+desc = "Spring legs more or less is what I've heard"
 cost = 3
 potency = 1
 color = Color(0, 0.61666656, 1, 1)

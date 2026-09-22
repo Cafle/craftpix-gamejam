@@ -18,4 +18,4 @@ func _ready() -> void:
 		
 
 func _back() -> void:
-	get_tree().change_scene_to_file("res://Scenes/UI/Title.tscn")
+	get_tree().change_scene_to_packed(LevelSelect.title)

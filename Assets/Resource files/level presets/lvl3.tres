@@ -6,9 +6,8 @@
 [ext_resource type="Resource" uid="uid://67gmne1juveb" path="res://Assets/Resource files/potion_items/Speed.tres" id="3_jwtrn"]
 [ext_resource type="Resource" uid="uid://hoflv0niln75" path="res://Assets/Resource files/potion_items/Small.tres" id="5_2bnno"]
 [ext_resource type="Script" uid="uid://b1ae4tmrwodm2" path="res://Scripts/UI/levelPotions.gd" id="5_kveg2"]
-[ext_resource type="Resource" uid="uid://bdg5qkd7hlaah" path="res://Assets/Resource files/potion_items/Heaviness.tres" id="6_jwtrn"]
 
 [resource]
 script = ExtResource("5_kveg2")
-potions = Array[ExtResource("1_sbb8y")]([ExtResource("2_sbb8y"), ExtResource("2_2bnno"), ExtResource("3_jwtrn"), ExtResource("2_2bnno"), ExtResource("3_jwtrn"), ExtResource("5_2bnno"), ExtResource("6_jwtrn")])
+potions = Array[ExtResource("1_sbb8y")]([ExtResource("2_sbb8y"), ExtResource("2_2bnno"), ExtResource("3_jwtrn"), ExtResource("2_2bnno"), ExtResource("3_jwtrn"), ExtResource("5_2bnno")])
 metadata/_custom_type_script = "uid://b1ae4tmrwodm2"

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bsyy06njitgdf"]
 
-[ext_resource type="Script" uid="uid://cfxwq7mfwfp6l" path="res://Scenes/Level/foresight.gd" id="1_eu51x"]
+[ext_resource type="Script" uid="uid://cfxwq7mfwfp6l" path="res://Scripts/UI/foresight.gd" id="1_eu51x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qxnb"]
 

@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://bbxdi5kal1jjh"]
+
+[ext_resource type="Script" uid="uid://teldgk86xlic" path="res://Scripts/Sprites/NPcentity.gd" id="1_6m5aw"]
+[ext_resource type="Shader" uid="uid://g16ywxhl53ou" path="res://Assets/SFX/NPC_shader.gdshader" id="1_u1jv5"]
+[ext_resource type="Script" uid="uid://dx41g1fa5twq" path="res://Scripts/UI/NPC_Visual.gd" id="3_tciug"]
+[ext_resource type="Shader" uid="uid://c03ti4ruou32e" path="res://Assets/SFX/face_shader.gdshader" id="4_1478n"]
+[ext_resource type="Texture2D" uid="uid://dxyr3xbdfbcw6" path="res://Assets/Character/Hats.png" id="4_jc52h"]
+[ext_resource type="SpriteFrames" uid="uid://ct6p0r7icvbrp" path="res://niko/male_sprite_frames.tres" id="5_6m5aw"]
+[ext_resource type="Texture2D" uid="uid://b6paeos3iv1y2" path="res://Assets/Character/ManHair.png" id="5_6sao2"]
+[ext_resource type="SpriteFrames" uid="uid://c5d3ys53vhaw4" path="res://niko/female_sprite_frames.tres" id="6_i1hoc"]
+[ext_resource type="Texture2D" uid="uid://bmbtgba38doib" path="res://Assets/Character/manFaces.png" id="6_r5vbj"]
+[ext_resource type="Texture2D" uid="uid://hsu5je632hrl" path="res://Assets/Character/womanHair.png" id="10_i48ha"]
+[ext_resource type="Texture2D" uid="uid://cnlx6o22x2rnb" path="res://Assets/Character/WomanFaces.png" id="11_k8ame"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jnyrv"]
+shader = ExtResource("1_u1jv5")
+shader_parameter/skin = Color(0.9, 0.72, 0.56, 1)
+shader_parameter/dark_skin = Color(0.88, 0.7, 0.54, 1)
+shader_parameter/shirt = Color(0.2, 0.4, 0.7, 1)
+shader_parameter/shirt_light = Color(0.3, 0.55, 0.85, 1)
+shader_parameter/shirt_dark = Color(0.1, 0.25, 0.5, 1)
+shader_parameter/leg = Color(0.3, 0.3, 0.35, 1)
+shader_parameter/leg_dark = Color(0.18, 0.18, 0.22, 1)
+shader_parameter/ruffle1 = Color(0.8, 0.62, 0.46, 1)
+shader_parameter/ruffle2 = Color(0.8, 0.62, 0.46, 1)
+shader_parameter/ruffle_dark = Color(0.8, 0.62, 0.46, 1)
+shader_parameter/hair = Color(0.35, 0.18, 0.08, 1)
+shader_parameter/tolerance = 0.05
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2xau"]
+atlas = ExtResource("4_jc52h")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1478n"]
+size = Vector2(32, 73)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ld1re"]
+size = Vector2(32, 73)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1478n"]
+radius = 1766.8877
+
+[sub_resource type="Gradient" id="Gradient_ii4m5"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uiysp"]
+gradient = SubResource("Gradient_ii4m5")
+width = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ishvr"]
+particle_flag_disable_z = true
+velocity_pivot = Vector3(0, 1, 0)
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 142.84999
+gravity = Vector3(0, 98, 0)
+scale_max = 5.0
+scale_over_velocity_max = 424.71
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1165132786]
+collision_layer = 24
+collision_mask = 16
+script = ExtResource("1_6m5aw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=677070055]
+material = SubResource("ShaderMaterial_jnyrv")
+position = Vector2(-1, 0)
+sprite_frames = ExtResource("5_6m5aw")
+animation = &"death"
+autoplay = "idle"
+frame = 4
+script = ExtResource("3_tciug")
+SkinTone = Color(0.8980392, 0.72156864, 0.56078434, 1)
+ShirtTone = Color(0, 0.3764706, 0, 1)
+Ruffle1Tone = Color(0.7411765, 0, 0, 1)
+Ruffle2Tone = Color(0.5673677, 0.56736773, 0.56736773, 1)
+LegTone = Color(0.8980392, 0.72156864, 0.56078434, 1)
+face_shader = ExtResource("4_1478n")
+male_sprite_frames = ExtResource("5_6m5aw")
+female_sprite_frames = ExtResource("6_i1hoc")
+hat_sheet = ExtResource("4_jc52h")
+male_hair_sheet = ExtResource("5_6sao2")
+male_face_sheet = ExtResource("6_r5vbj")
+female_hair_sheet = ExtResource("10_i48ha")
+female_face_sheet = ExtResource("11_k8ame")
+
+[node name="HatAnchor" type="Marker2D" parent="AnimatedSprite2D" unique_id=675167064]
+position = Vector2(46, 62)
+
+[node name="HatSprite" type="Sprite2D" parent="AnimatedSprite2D/HatAnchor" unique_id=726346350]
+position = Vector2(0, 5)
+texture = SubResource("AtlasTexture_u2xau")
+
+[node name="HairSprite" type="Sprite2D" parent="AnimatedSprite2D/HatAnchor" unique_id=1892850041]
+position = Vector2(-46, -63)
+
+[node name="FaceSprite" type="Sprite2D" parent="AnimatedSprite2D/HatAnchor" unique_id=1459088361]
+position = Vector2(-46, -63)
+
+[node name="BodyShape" type="CollisionShape2D" parent="." unique_id=731182575]
+position = Vector2(-4, 27.5)
+shape = SubResource("RectangleShape2D_1478n")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=120911230]
+position = Vector2(300, 202)
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1302824825]
+visible = false
+position = Vector2(-304, -174.5)
+shape = SubResource("RectangleShape2D_ld1re")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=990654203]
+position = Vector2(-4, 28)
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=107687855]
+visible = false
+position = Vector2(12, 0)
+shape = SubResource("CircleShape2D_1478n")
+
+[node name="Blood" type="GPUParticles2D" parent="." unique_id=74413418]
+modulate = Color(0.58452755, 1.853034e-06, 3.85046e-07, 1)
+z_index = -2
+position = Vector2(-9, 36)
+emitting = false
+amount = 400
+texture = SubResource("GradientTexture1D_uiysp")
+lifetime = 4.0
+one_shot = true
+speed_scale = 4.9399999999999995
+explosiveness = 1.0
+randomness = 0.1
+trail_enabled = true
+trail_lifetime = 0.12
+process_material = SubResource("ParticleProcessMaterial_ishvr")

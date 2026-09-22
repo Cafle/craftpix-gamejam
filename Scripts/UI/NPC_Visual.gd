@@ -34,10 +34,8 @@ extends AnimatedSprite2D
 
 @onready var hat_anchor: Marker2D = $HatAnchor
 @onready var hat_sprite: Sprite2D = $HatAnchor/HatSprite
-@onready var hair_anchor: Marker2D = $HairAnchor
-@onready var hair_sprite: Sprite2D = $HairAnchor/HairSprite
-@onready var face_anchor: Marker2D = $FaceAnchor
-@onready var face_sprite: Sprite2D = $FaceAnchor/FaceSprite
+@onready var hair_sprite: Sprite2D = $HatAnchor/HairSprite
+@onready var face_sprite: Sprite2D = $HatAnchor/FaceSprite
 
 var is_female: bool = false
 var hair_sheet: Texture2D
@@ -49,12 +47,41 @@ var face_count: int
 # Any animation not listed falls back to "idle" frame 0.
 var head_anchor_offsets: Dictionary = {
 	"idle": [
-		Vector2(0, -1),  # frame 0
-		Vector2(0, -1),  # frame 1
-		Vector2(0, -2),  #frame 2
-		Vector2(0, -2), # frame 3
+		Vector2(0, -4),  # frame 0
+		Vector2(0, -4),  # frame 1
+		Vector2(0, -5),  #frame 2
+		Vector2(0, -5), # frame 3
+		Vector2(0, -5),  # frame 4
+		Vector2(0, -4),  # frame 5
+	],
+	"walk": [
+		Vector2(0, -4),  # frame 0
+		Vector2(0, -4),  # frame 1
+		Vector2(0, -4),  #frame 2
+		Vector2(0, -3), # frame 3
 		Vector2(0, -2),  # frame 4
-		Vector2(0, -1),  # frame 5
+		Vector2(0, -3),  # frame 5
+		Vector2(0, -4),  # frame 6
+		Vector2(0, -4),  # frame 7
+		Vector2(0, -4),  #frame 8
+		Vector2(0, -3),  # frame 9
+		Vector2(0, -3),  #frame 10
+	],
+	"death": [
+		Vector2(-7, -3),  # frame 0
+		Vector2(-2, 12),  # frame 1
+		Vector2(13, 13),  #frame 2
+		Vector2(38, 41), # frame 3
+		Vector2(46, 62),  # frame 4
+	],
+}
+var head_anchor_rot: Dictionary = {
+	"death": [
+		-12.7,
+		-12.7,
+		0.0,
+		68.9,
+		90.0,
 	],
 }
 
@@ -106,7 +133,7 @@ func apply_shader_colors() -> void:
 	face_material.set_shader_parameter("skin", SkinTone.darkened(0.15))
 	face_material.set_shader_parameter("tolerance", 0.08)  # back to default, precise key handles the nose now
 	face_sprite.material = face_material
-	print("face material assigned: ", face_sprite.material, " skin param: ", face_material.get_shader_parameter("skin"))
+	#print("face material assigned: ", face_sprite.material, " skin param: ", face_material.get_shader_parameter("skin"))
 
 func _setup_face_material() -> void:
 	var face_material := ShaderMaterial.new()
@@ -146,11 +173,14 @@ func _apply_random_slice(sprite: Sprite2D, sheet: Texture2D, count: int, chance:
 
 func _update_anchor() -> void:
 	var offsets: Array = head_anchor_offsets.get(animation, head_anchor_offsets["idle"])
+	
 	var idx: int = clampi(frame, 0, offsets.size() - 1)
 	var head_offset: Vector2 = offsets[idx]
 	hat_anchor.position = head_offset
-	hair_anchor.position = head_offset
-	face_anchor.position = head_offset
+	if head_anchor_rot.has(animation):
+		var rots: Array = head_anchor_rot.get(animation, head_anchor_rot["death"])
+		var head_rot: float = rots[idx]
+		hat_anchor.rotation_degrees = head_rot
 
 static func slice_horizontal_strip(texture: Texture2D, count: int) -> Array[Texture2D]:
 	var slices: Array[Texture2D] = []

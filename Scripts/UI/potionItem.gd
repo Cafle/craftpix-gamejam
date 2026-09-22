@@ -4,27 +4,34 @@ extends Control
 @export var data : potionData:
 	set(value):
 		data = value
-		_apply_data()
 @export var potion_card_scene: PackedScene
 @onready var area = $Potion/Area2D
 
 var bought = false
 
 func _ready() -> void:
+	$Potion.material = $Potion.material.duplicate()
 	area.mouse_entered.connect(_dispDesc)
 	area.mouse_exited.connect(_hideDesc)
-	_apply_data()
+	
+	
+func set_potion(pot: potionData) -> void:
+	if pot:
+		if $Potion.material is not  PlaceholderMaterial:
+			$Potion.material.set_shader_parameter("new_color1", pot.color)
+			$Potion.material.set_shader_parameter("new_color2", pot.color.darkened(-1))
+			show()
+	else:
+		hide()
 
-func _apply_data() -> void:
-	if data and is_node_ready():
-		$Potion.modulate = data.color
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !data:
-		hide()
-	else:
+	if data:
 		show()
-	pass
+		set_potion(data)
+	else:
+		hide()
+
 
 #when hovered
 func _dispDesc() -> void:
@@ -41,7 +48,10 @@ func _gui_input(event: InputEvent) -> void:
 		if event.pressed:
 			if data && !bought:
 				if data.cost > LevelSelect.Coins:
-					print("BOEKW")
+					var mat = $Potion.material.duplicate()
+					$Potion.material = $Potion/Area2D.material.create_placeholder()
+					await get_tree().create_timer(0.1).timeout
+					$Potion.material = mat
 				else:
 					Inventory._add(data)
 					get_tree().current_scene._buy(data.cost, get_index())

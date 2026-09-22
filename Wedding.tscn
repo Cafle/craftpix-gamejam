@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://rcrt0ffxsdbt"]
+
+[ext_resource type="Texture2D" uid="uid://d18bpuwl68xf5" path="res://Assets/Cutscenes/Cutscene_marry1.png" id="1_ntoxa"]
+[ext_resource type="Texture2D" uid="uid://dumphhe3dmss0" path="res://Assets/Cutscenes/Cutscene_marry2.png" id="2_aysmr"]
+[ext_resource type="AudioStream" uid="uid://cf26qnsanulvm" path="res://Assets/Music/Wedding (1).wav" id="3_3dw5g"]
+
+[sub_resource type="Animation" id="Animation_kdubu"]
+resource_name = "1"
+length = 44.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/CutsceneMarry1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.02),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/CutsceneMarry1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 41.133335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Wedding(1):playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/CutsceneMarry2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 44.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_d21ai"]
+resource_name = "2"
+length = 4.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/CutsceneMarry1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_rj586"]
+resource_name = "3"
+
+[sub_resource type="Animation" id="Animation_4d7sh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/CutsceneMarry1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/CutsceneMarry1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Wedding(1):playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/CutsceneMarry2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ir8iy"]
+_data = {
+&"1": SubResource("Animation_kdubu"),
+&"2": SubResource("Animation_d21ai"),
+&"3": SubResource("Animation_rj586"),
+&"RESET": SubResource("Animation_4d7sh")
+}
+
+[node name="Weeding_seen" type="Node2D" unique_id=358556042]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=741727614]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=288980476]
+libraries/ = SubResource("AnimationLibrary_ir8iy")
+autoplay = &"1"
+
+[node name="CutsceneMarry1" type="Sprite2D" parent="AnimationPlayer" unique_id=1598151630]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(576, 324)
+texture = ExtResource("1_ntoxa")
+
+[node name="CutsceneMarry2" type="Sprite2D" parent="AnimationPlayer" unique_id=784074545]
+position = Vector2(576, 324)
+texture = ExtResource("2_aysmr")
+
+[node name="Wedding(1)" type="AudioStreamPlayer2D" parent="AnimationPlayer" unique_id=696737033]
+position = Vector2(683, 286)
+stream = ExtResource("3_3dw5g")

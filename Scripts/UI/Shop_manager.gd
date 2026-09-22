@@ -15,9 +15,13 @@ extends Control
 @export_group("Level presets")
 @export var level_presets: Array[levelPotions]
 
+@onready var musci = load("res://Assets/Music/Tavern of Wonders.mp3")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Music.stream = musci
+	Music.play()
 	Inventory._reset()
 	LevelSelect.mode = "orb"
 	
@@ -67,10 +71,11 @@ func _play() -> void:
 	Inventory._reversePotions()
 	LevelSelect.mode = "game"
 	LevelSelect._playSong(LevelSelect.current_level)
-	get_tree().call_deferred("change_scene_to_file", LevelSelect.loadLevel(LevelSelect.current_level))
+	get_tree().change_scene_to_packed(LevelSelect.preLevel[LevelSelect.current_level])
+	#get_tree().call_deferred("change_scene_to_file", LevelSelect.loadLevel(LevelSelect.current_level))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 func _back() -> void:
-	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/Level Select.tscn")
+	get_tree().change_scene_to_packed(LevelSelect.lvl_sel)

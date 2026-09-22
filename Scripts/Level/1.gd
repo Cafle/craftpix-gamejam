@@ -2,8 +2,9 @@ extends Node2D
 class_name Level
 @export var potions : levelPotions
 @onready var donezo = false
-@onready var flood_trigger = $FloodTrigger
-@onready var flood_water = $FloodWater
+const shop = preload("res://Scenes/UI/Shop.tscn")
+#@onready var flood_trigger = $FloodTrigger
+#@onready var flood_water = $FloodWater
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -66,11 +67,11 @@ func _win() -> void:
 	# UNCHANGED in behavior, now just using the next_level variable.
 
 
-	get_tree().call_deferred("change_scene_to_file", LevelSelect.loadLevel(next_level))
+	get_tree().change_scene_to_packed(shop)
 	# UNCHANGED in behavior, now just using the next_level variable.
 
 func _lost(ani : int) -> void :
-	print(ani)
+	#print(ani)
 	get_tree().reload_current_scene()
 	
 	
@@ -97,6 +98,7 @@ func _replace_tiles(tileMap: TileMapLayer, source_id: int, replacementNode, coor
 		obj.position = tileMap.to_global(tileMap.map_to_local(i))
 		obj.show()
 
+	#print(replacementNode)
 	replacementNode.queue_free()
 	
 func _layer_tiles(tileMap: TileMapLayer, source_id: int, replacementNode, coords: Array) -> void:

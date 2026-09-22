@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://du48pdbubml76"]
+
+[ext_resource type="Script" uid="uid://dd3c8sthss71r" path="res://Scripts/Level/dart.gd" id="1_shjt5"]
+[ext_resource type="Texture2D" uid="uid://byqmadj646a4u" path="res://Assets/Level/TileMapVersion-1-0.png" id="2_shjt5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_shjt5"]
+radius = 19.0
+height = 48.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a320i"]
+atlas = ExtResource("2_shjt5")
+region = Rect2(384, 307, 16, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shjt5"]
+atlas = ExtResource("2_shjt5")
+region = Rect2(384, 294, 10, 9)
+
+[node name="Dart" type="Area2D" unique_id=636099894]
+z_index = -1
+script = ExtResource("1_shjt5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1241291708]
+shape = SubResource("CapsuleShape2D_shjt5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=429024478]
+position = Vector2(-16, 0)
+scale = Vector2(2, 2.04)
+texture = SubResource("AtlasTexture_a320i")
+flip_h = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=392608703]
+position = Vector2(16, 0)
+scale = Vector2(2, 2.04)
+texture = SubResource("AtlasTexture_a320i")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=391327171]
+position = Vector2(10, -19.82)
+scale = Vector2(2, 2.04)
+texture = SubResource("AtlasTexture_shjt5")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=2030333982]
+position = Vector2(-10, -19.82)
+scale = Vector2(2, 2.04)
+texture = SubResource("AtlasTexture_shjt5")
+flip_h = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=14265142]
+position = Vector2(10, 20.18)
+scale = Vector2(2, 2.04)
+texture = SubResource("AtlasTexture_shjt5")
+flip_v = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=1310500931]
+position = Vector2(-10, 20.18)
+scale = Vector2(2, 2.04)
+texture = SubResource("AtlasTexture_shjt5")
+flip_h = true
+flip_v = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

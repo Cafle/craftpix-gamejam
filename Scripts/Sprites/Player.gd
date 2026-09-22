@@ -16,6 +16,7 @@ class_name player
 @export var jump_buffer_timer: float = 100.0
 @export var CHONKYOG: float = 0.05
 @export var slide_cooldown: int = 70
+@export var Tilemap: TileMapLayer
 
 @export_group("Health")
 @export var max_health: int = 1
@@ -42,6 +43,7 @@ class_name player
 @onready var jump_force = 400
 @onready var jumping = false
 @onready var chonkiness = CHONKYOG
+@onready var last_splash_ms = 0
 #animating 
 
 @onready var animator = $AnimatedSprite2D
@@ -159,13 +161,13 @@ func _update_floor_tile_effects() -> void:
 			var tile_pos = tm.local_to_map(tm.to_local(pos))
 			var tile_data = tm.get_cell_tile_data(tile_pos)
 			if tile_data:
-				print(tile_data.get_custom_data("sludge"))
+				#print(tile_data.get_custom_data("sludge"))
 				if tile_data.get_custom_data("slime"):
 					is_on_slime = true
-					print("fuck slimes")
+					#print("fuck slimes")
 				if tile_data.get_custom_data("sludge"):
 					is_on_sludge = true
-					print("brug")
+					#print("brug")
 
 
 # NEW — while standing on a sludge tile, keeps Inventory.puking true (which
@@ -225,6 +227,7 @@ func _physics_process(delta):
 		velocity.y = 0
 		
 	elif (coyote >= coyoteFrames):
+		
 		if velocity.y < terminal_velocity and not (wall and direction and velocity.y>0):
 			velocity.y += gravity * (fall_multiplier if velocity.y > 0 else 1.0)
 			if velocity.y < 0:
@@ -247,7 +250,7 @@ func _physics_process(delta):
 	# when jump is pressed in the air
 	if Input.is_action_just_pressed("ui_up"):
 		jbuffer = jump_buffer_timer
-
+	_splash()
 	# count it down every frame
 	if jbuffer > 0:
 		jbuffer -= delta
@@ -401,11 +404,10 @@ func camera_shake(strength: float, duration: float = 0.3):
 			var offset = Vector2(0, strength if i % 2 == 0 else -strength)
 			tween.tween_property(camera, "position", original_pos + offset, duration / shakes)
 		tween.tween_property(camera, "position", original_pos, duration / shakes)
-	
 
 func is_slamming() -> bool:
-	print("y vel = ", last_fall_speed)
-	return last_fall_speed >= slam_velocity_threshold
+	return velocity.y >= slam_velocity_threshold
+	
 
 func take_damage(amount: int = 1) -> void:
 	if is_dead:
@@ -428,3 +430,23 @@ func _die() -> void:
 	died.emit()
 	if get_parent().has_method("_lost"):
 		get_parent()._lost(1)
+		
+
+func _splash() -> void:
+	if Time.get_ticks_msec() - last_splash_ms > 150:
+		var tm = Tilemap
+		if tm is TileMapLayer:
+			var pos = position + Vector2(0, 30)
+			var tile_pos = tm.local_to_map(tm.to_local(pos))
+			var tile_data = tm.get_cell_tile_data(tile_pos)
+			if tile_data:
+				if tile_data.get_custom_data("splash color"):
+					if velocity.y > 20:
+						var burst := $Splash.duplicate() as GPUParticles2D
+						burst.amount = 200 + int(velocity.y / 2)
+						burst.process_material.initial_velocity_max = velocity.y / 2
+						burst.modulate = tile_data.get_custom_data("splash color")
+						$Splash.add_sibling(burst)
+						burst.finished.connect(burst.queue_free)
+						burst.restart()
+						last_splash_ms = Time.get_ticks_msec()

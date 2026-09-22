@@ -3,29 +3,47 @@ extends Node
 @onready var mode = "orb"
 
 @onready var SONGS: Array[AudioStreamMP3] = [
-		preload("res://Assets/Music/Ale and Maidens.mp3"),
-		preload("res://Assets/Music/First Sip.mp3"),
-		preload("res://Assets/Music/Teseract of Infinite Knowlege.mp3")	
+		load("res://Assets/Music/Ale and Maidens.mp3"),
+		load("res://Assets/Music/First Sip.mp3"),
+		load("res://Assets/Music/Teseract of Infinite Knowlege.mp3")	
 	]
-	
+
+var  wedding = load("res://Scenes/cutscenes/Wedding.tscn")
+var intro = load("res://Scenes/cutscenes/cutscene_1.tscn")
+var title =  load("res://Scenes/UI/Title.tscn")
+var lvl_sel =  load("res://Scenes/UI/Level Select.tscn")
+var shop = load("res://Scenes/UI/Shop.tscn")
+
+@onready var preLevel:  = {
+		1: load("res://Scenes/Level/1.tscn"),
+		2: load("res://Scenes/Level/2.tscn"),
+		3: load("res://Scenes/Level/3.tscn"),
+		4: load("res://Scenes/Level/4.tscn"),
+		5: load("res://Scenes/Level/5.tscn"),
+		#6: load("res://Scenes/Level/6.tscn"),
+		7: load("res://Scenes/Level/7.tscn"),
+		#8: load("res://Scenes/Level/8.tscn"),
+		#9: load("res://Scenes/Level/9.tscn"),
+		#10: load("res://Scenes/Level/10.tscn"),
+		
+			
+	}
 	
 var current_level: int = 1
 var HUL: int = 1 #Highest Unlocked Level
-var Max_level: int = 10 #Current Max Level on Level Select Menu
+var Max_level: int = 1 #Current Max Level on Level Select Menu
 var Coins : int = 0
+var seenIntroCutscene: bool = false
+var seenWeddingCutscene: bool = false
 
 func _ready() -> void:
-	# NEW FUNCTION. Runs once when this autoload initializes at
-	# game start, before any level scene loads — the correct place
-	# to restore saved progress.
 	var data = SaveManager.load_data()
 	HUL = data.get("HUL", 1)
 	current_level = data.get("current_level", 1)
 	Coins = data.get("coin", 1)
-	# .get(key, default) falls back to 1 automatically if the key
-	# is missing, which happens naturally on a fresh/empty save
-	# (e.g. first launch, before anything has been saved yet).
-	print("LevelManager ready — loaded HUL: ", HUL, " current_level: ", current_level)
+	seenIntroCutscene = data.get("seenIntroCutscene", true) 
+	seenWeddingCutscene = data.get("seenWeddingCutscene", true) 
+	print("LevelManager ready — loaded HUL: ", HUL, " current_level: ", current_level, " seenIntroCutscene: ", seenIntroCutscene)
 	
 
 	
@@ -49,21 +67,30 @@ func unlockLevel(level: int) -> void:
 	else:
 		print("Level ", level, " did not exceed current HUL, not saving")
 
-func loadLevel(level: int) -> String:
-	# UNCHANGED.
+func loadLevel(level: int) -> PackedScene:
+	if get_tree().current_scene == shop:
+		return preLevel[level]
+	
 	if level > Max_level:
-		return "res://Scenes/UI/Title.tscn"
-	else:
-		return str("res://Scenes/Level/", level, ".tscn")
+		return title
+	if level == 1 and not seenIntroCutscene:
+		seenIntroCutscene = true
+		return intro
+	if level == 2 and not seenWeddingCutscene:
+		seenWeddingCutscene = true
+		return wedding
+	
+	return shop
 
 func _save() -> void:
-	# NEW FUNCTION. Bundles the values that need persisting into a
-	# Dictionary and hands it to SaveManager. This script doesn't
-	# know or care how the data gets written to disk — that
-	# separation is what lets SaveManager be reused for unrelated
-	# data (settings, unlocks, etc.) later without changes.
-	print("Saving data: HUL=", HUL, " current_level=", current_level)
-	SaveManager.save_data({"HUL": HUL, "current_level": current_level, "coin":Coins})
+	print("Saving data: HUL=", HUL, " current_level=", current_level, " seenIntroCutscene=", seenIntroCutscene, " seenWeddingCutscene=", seenWeddingCutscene)
+	SaveManager.save_data({
+		"HUL": HUL,
+		"current_level": current_level,
+		"coin": Coins,
+		"seenIntroCutscene": seenIntroCutscene,
+		"seenWeddingCutscene": seenWeddingCutscene
+	})
 	
 func resetProgress() -> void:
 	#NEW FUNCTION. Reset player progress
@@ -71,6 +98,9 @@ func resetProgress() -> void:
 	# on disk with those same default values.
 	HUL = 1
 	current_level = 1
+	seenIntroCutscene = false
+	seenWeddingCutscene = false
+	print("reset stuff")
 	_save()
 	# Reuses the existing _save() function — no need to write new
 	# file-handling code, since save_data() already overwrites

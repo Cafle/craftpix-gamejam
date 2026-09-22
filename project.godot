@@ -14,10 +14,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="craftpix gamejam"
+config/name="Alcaholicamist"
+config/description="The adventures of thomas foolery"
+config/version="yup"
 run/main_scene="uid://cut5a7ch532n3"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://fqy723g8w1ig"
 
 [audio]
 
@@ -33,8 +35,8 @@ Inventory="*uid://qh3pbasfw7d1"
 
 [display]
 
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [input]
 
@@ -128,4 +130,6 @@ right={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"
 textures/default_filters/use_nearest_mipmap_filter=true
+2d/stretch/scale_mode="fractional"

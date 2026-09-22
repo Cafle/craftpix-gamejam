@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://cfx1uvctms1cn" path="res://Assets/UI/MAIN_THEME.tres" id="1_47lp1"]
 [ext_resource type="PackedScene" uid="uid://c3s3lxtpfbht1" path="res://Scenes/UI/LSbutton.tscn" id="1_cgdd1"]
 [ext_resource type="Texture2D" uid="uid://bj2lcck2ujf86" path="res://Assets/UI/Buttons.png" id="4_wwjbk"]
+[ext_resource type="Texture2D" uid="uid://dmbwi31xt0kld" path="res://Assets/Level/blobSky.png" id="5_mk1if"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47lp1"]
 atlas = ExtResource("4_wwjbk")
@@ -12,6 +13,10 @@ region = Rect2(103, 149, 42, 15)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wwjbk"]
 atlas = ExtResource("4_wwjbk")
 region = Rect2(151, 150, 42, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk1if"]
+atlas = ExtResource("5_mk1if")
+region = Rect2(288, 0, 288, 162)
 
 [node name="LevelSelect" type="Control" unique_id=360652690]
 layout_mode = 3
@@ -30,6 +35,18 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 168.0
 theme = ExtResource("1_47lp1")
+theme_override_font_sizes/font_size = 60
+text = "Level Select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1237339593]
+z_index = -1
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 180.0
+theme = ExtResource("1_47lp1")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 60
 text = "Level Select"
 horizontal_alignment = 1
@@ -68,3 +85,11 @@ offset_top = -8.0
 offset_right = 88.0
 offset_bottom = 38.0
 text = "Back"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2040750907]
+z_index = -5
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_mk1if")
