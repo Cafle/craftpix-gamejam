@@ -88,11 +88,15 @@ spawn_me = ExtResource("17_8xaiv")
 time_between = 250
 max = 10
 
-[node name="Spawner4" parent="." unique_id=1834314162 node_paths=PackedStringArray("or_duplicate") instance=ExtResource("14_1kgr2")]
+[node name="Spawner4" parent="." unique_id=1834314162 node_paths=PackedStringArray("or_duplicate", "bind") instance=ExtResource("14_1kgr2")]
 position = Vector2(-1702, 538)
 or_duplicate = NodePath("../Enemy")
-time_between = 30
-max = 10
+time_between = 160
+max = 40
+screen_lock = true
+bind = NodePath("../Player")
+offset_x = -400.0
+offset_y = -100.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1005221697]
 layer = -5
