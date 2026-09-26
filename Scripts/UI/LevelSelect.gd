@@ -70,15 +70,16 @@ func unlockLevel(level: int) -> void:
 func loadLevel(level: int) -> PackedScene:
 	if get_tree().current_scene == shop:
 		return preLevel[level]
-	
 	if level > Max_level:
+		print(Max_level)
 		return title
 	if level == 1 and not seenIntroCutscene:
 		seenIntroCutscene = true
 		return intro
 	if level == 2 and not seenWeddingCutscene:
 		seenWeddingCutscene = true
-		return wedding
+		return shop
+		# !!! change this to shop later !!!
 	
 	return shop
 

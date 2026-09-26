@@ -810,6 +810,7 @@ trail_section_subdivisions = 2
 process_material = SubResource("ParticleProcessMaterial_w24ir")
 
 [node name="Flames" type="GPUParticles2D" parent="AnimatedSprite2D/scalets/mouth" unique_id=784172135]
+z_as_relative = false
 emitting = false
 amount = 300
 preprocess = 1.2

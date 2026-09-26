@@ -122,3 +122,8 @@ position = Vector2(-1680.0001, 544)
 StartDir = -1
 chasing = true
 PLAYER = NodePath("../Player")
+Run_speed = 390.0
+
+[node name="WinObject2" parent="." unique_id=1530734578 instance=ExtResource("3_jd5si")]
+position = Vector2(6014.0005, 1205)
+scale = Vector2(30, 1)
