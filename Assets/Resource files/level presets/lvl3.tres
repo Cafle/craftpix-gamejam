@@ -9,5 +9,5 @@
 
 [resource]
 script = ExtResource("5_kveg2")
-potions = Array[ExtResource("1_sbb8y")]([ExtResource("2_sbb8y"), ExtResource("2_2bnno"), ExtResource("3_jwtrn"), ExtResource("2_2bnno"), ExtResource("3_jwtrn"), ExtResource("5_2bnno")])
+potions = Array[ExtResource("1_sbb8y")]([ExtResource("2_sbb8y"), ExtResource("2_2bnno"), ExtResource("3_jwtrn"), ExtResource("2_2bnno"), ExtResource("3_jwtrn"), ExtResource("5_2bnno"), ExtResource("5_2bnno")])
 metadata/_custom_type_script = "uid://b1ae4tmrwodm2"

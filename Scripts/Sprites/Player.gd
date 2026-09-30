@@ -44,6 +44,7 @@ class_name player
 @onready var jumping = false
 @onready var chonkiness = CHONKYOG
 @onready var last_splash_ms = 0
+@onready var zoom = 1.7
 #animating 
 
 @onready var animator = $AnimatedSprite2D
@@ -55,6 +56,7 @@ class_name player
 @onready var coyote_buff = 0
 @onready var facingl = 1
 @onready var scale_change = 1
+@onready var zoom_mult = 1
 @onready var weight_buff = 0
 
 #terrain state (slime / sludge)
@@ -88,6 +90,9 @@ func _get_buffs() -> void:
 	jump_buff = 0
 	coyote_buff = 0
 	scale_change = 1
+	zoom_mult = 1
+	$Camera2D.zoom.x = zoom
+	$Camera2D.zoom.y = zoom
 	weight_buff = 0
 	
 	for i in 9:
@@ -103,7 +108,8 @@ func _get_buffs() -> void:
 					3:
 						coyote_buff = 13
 					4:
-						scale_change = 0.5
+						scale_change /= (amm+1)
+						zoom_mult += amm
 					5:
 						weight_buff = .1
 						
@@ -119,7 +125,7 @@ func _get_buffs() -> void:
 	jump_force += jump_buff
 	coyoteFrames += coyote_buff
 	chonkiness += weight_buff
-
+	$Camera2D.zoom *= zoom_mult
 	
 	scale.x = scale_change * facingl
 	rotation = 0

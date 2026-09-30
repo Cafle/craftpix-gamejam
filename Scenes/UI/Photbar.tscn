@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://be1q80li5psyl" path="res://Assets/Character/cheersBack.png" id="8_sdh80"]
 [ext_resource type="Shader" uid="uid://danusqa3ncata" path="res://Scripts/UI/PopUp.gdshader" id="9_rabrd"]
 [ext_resource type="AudioStream" uid="uid://t2t63u18wnpj" path="res://Assets/SFX/Cheers.mp3" id="12_rabrd"]
+[ext_resource type="Texture2D" uid="uid://pv723jikear6" path="res://Assets/UI/Rectangle.png" id="13_72cso"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aqpvw"]
 shader = ExtResource("2_aqpvw")
@@ -90,6 +91,45 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="Curve" id="Curve_4qyf3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6872037, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_byjxe"]
+curve = SubResource("Curve_4qyf3")
+
+[sub_resource type="Curve" id="Curve_72cso"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.5892858), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ola7a"]
+curve = SubResource("Curve_72cso")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cyex1"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(576, 1, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, -1, 0)
+spread = 12.101
+initial_velocity_min = 271.33
+initial_velocity_max = 566.18
+angular_velocity_min = -267.91
+angular_velocity_max = 276.74
+gravity = Vector3(0, 200, 0)
+scale_max = 3.0
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_byjxe")
+hue_variation_min = -1.0
+hue_variation_max = 0.99999994
+turbulence_enabled = true
+turbulence_noise_strength = 1.98
+turbulence_noise_scale = 9.107
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.44700003
+turbulence_influence_over_life = SubResource("CurveTexture_ola7a")
+
 [node name="Photbar" type="CanvasLayer" unique_id=2047316283]
 
 [node name="Belt" type="Sprite2D" parent="." unique_id=557171034]
@@ -135,3 +175,14 @@ frame_progress = 0.9096342
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Node" unique_id=1973414393]
 stream = ExtResource("12_rabrd")
 volume_db = 5.197
+
+[node name="YAY" type="GPUParticles2D" parent="." unique_id=1887127969]
+position = Vector2(576, 648)
+emitting = false
+amount = 400
+texture = ExtResource("13_72cso")
+lifetime = 6.67
+one_shot = true
+speed_scale = 3.99
+explosiveness = 0.82
+process_material = SubResource("ParticleProcessMaterial_cyex1")

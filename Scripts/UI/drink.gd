@@ -22,6 +22,7 @@ func _swig() -> void:
 	if Inventory.items[0] == self:
 		cork.hide()
 		juicing = true
+		$"../YAY".emitting = true
 			
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

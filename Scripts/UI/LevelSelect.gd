@@ -31,7 +31,7 @@ var shop = load("res://Scenes/UI/Shop.tscn")
 	
 var current_level: int = 1
 var HUL: int = 1 #Highest Unlocked Level
-var Max_level: int = 1 #Current Max Level on Level Select Menu
+var Max_level: int = 10 #Current Max Level on Level Select Menu
 var Coins : int = 0
 var seenIntroCutscene: bool = false
 var seenWeddingCutscene: bool = false

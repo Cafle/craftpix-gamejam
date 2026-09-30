@@ -847,6 +847,7 @@ shape = SubResource("RectangleShape2D_57q14")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1190891230]
 visible = false
 material = SubResource("ShaderMaterial_p63x1")
+skew = 0.62133723
 zoom = Vector2(1.7, 1.7)
 limit_enabled = false
 limit_left = -1900

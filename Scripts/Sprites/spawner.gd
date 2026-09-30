@@ -31,7 +31,6 @@ func _process(delta: float) -> void:
 			position.x += offset_x
 			position.y += offset_y
 	if or_duplicate:
-		print(or_duplicate)
 		if spawning and count <= 0 and scount <= max:
 			var clone = or_duplicate.duplicate()
 			clone.position = position
